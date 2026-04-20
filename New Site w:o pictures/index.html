@@ -19,20 +19,14 @@
 }
 
 *{box-sizing:border-box}
-
-body{
-margin:0;
-font-family:Inter;
-background:var(--bg);
-color:var(--text);
-}
+body{margin:0;font-family:Inter;background:var(--bg);color:var(--text)}
 
 .container{
 width:min(var(--max),100% - 32px);
 margin:auto;
 }
 
-img{max-width:100%;display:block}
+img{width:100%;display:block}
 
 /* HEADER */
 .header{
@@ -47,17 +41,23 @@ font-size:24px;
 font-weight:800;
 }
 
-.logo span{
-color:var(--primary);
-}
+.logo span{color:var(--primary)}
 
 .nav{
 display:flex;
 gap:24px;
+align-items:center;
+}
+
+.nav a{
+text-decoration:none;
+color:#374151;
+font-weight:600;
 }
 
 .phone{
 font-weight:700;
+color:#111;
 }
 
 .btn{
@@ -65,6 +65,8 @@ background:var(--primary);
 color:#fff;
 padding:10px 18px;
 border-radius:999px;
+text-decoration:none;
+font-weight:700;
 }
 
 /* HERO */
@@ -81,7 +83,7 @@ align-items:center;
 
 .hero h1{
 font-size:48px;
-margin:0 0 12px;
+margin-bottom:12px;
 }
 
 .hero p{
@@ -90,10 +92,8 @@ line-height:1.7;
 }
 
 .hero-img{
-border-radius:16px;
+border-radius:20px;
 overflow:hidden;
-aspect-ratio:16/10;
-background:#e5e7eb;
 }
 
 /* SECTION */
@@ -124,16 +124,30 @@ border-radius:16px;
 overflow:hidden;
 border:1px solid var(--line);
 box-shadow:var(--shadow);
-}
-
-.card img{
-width:100%;
-aspect-ratio:16/10;
-object-fit:cover;
+text-decoration:none;
+color:inherit;
 }
 
 .card-body{
 padding:16px;
+}
+
+/* SOLUTIONS */
+.solutions{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+margin-top:30px;
+}
+
+.solution{
+background:#fff;
+border-radius:16px;
+overflow:hidden;
+border:1px solid var(--line);
+box-shadow:var(--shadow);
+text-decoration:none;
+color:inherit;
 }
 
 /* REVIEWS */
@@ -153,17 +167,22 @@ box-shadow:var(--shadow);
 
 .stars{
 color:#fbbf24;
-font-size:18px;
-margin-bottom:8px;
+margin-bottom:6px;
 }
 
-.review p{
-color:var(--muted);
+/* CONTACT */
+.contact-box{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:20px;
 }
 
-.review strong{
-display:block;
-margin-top:10px;
+.box{
+background:#fff;
+padding:20px;
+border-radius:16px;
+border:1px solid var(--line);
 }
 
 /* FOOTER */
@@ -171,34 +190,35 @@ margin-top:10px;
 background:#111;
 color:#fff;
 padding:30px;
-text-align:center;
 margin-top:60px;
 }
 
 @media(max-width:900px){
 .hero-grid{grid-template-columns:1fr}
 .cards{grid-template-columns:1fr}
+.solutions{grid-template-columns:1fr}
 .reviews{grid-template-columns:1fr}
+.contact-box{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <div class="container header">
 <div class="logo">Aqua<span>Remedy</span></div>
 
 <div class="nav">
-<a>Home</a>
-<a>Solutions</a>
-<a>Problems</a>
-<a>Reviews</a>
-<a>Contact</a>
+<a href="#">Solutions</a>
+<a href="#">Reviews</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
 </div>
 
-<div style="display:flex;gap:12px;align-items:center;">
-<div class="phone">(818) 658-2558</div>
-<div class="btn">Book Now</div>
+<div style="display:flex;gap:14px;align-items:center;">
+<a href="tel:18186582558" class="phone">(818) 658-2558</a>
+<a class="btn">Book Now</a>
 </div>
 </div>
 
@@ -207,14 +227,14 @@ margin-top:60px;
 <div class="container hero-grid">
 
 <div>
-<h1>Solutions designed around your water.</h1>
+<h1>Better water for your home without pressure or guesswork</h1>
 
 <p>
-We help homeowners solve the water problems they actually live with every day — hard water scale, chlorine smell, bad taste, dry skin, rough hair.
+We test your water, identify the real problem, and recommend the right solution for your home and family.
 </p>
 
 <div style="margin-top:20px;">
-<span class="btn">Book Water Test</span>
+<a class="btn">Book Free Water Test</a>
 </div>
 </div>
 
@@ -229,37 +249,79 @@ We help homeowners solve the water problems they actually live with every day �
 <section class="section">
 <div class="container">
 
-<h2>The water problems people usually feel before they know the cause.</h2>
-
-<p>
-These are often the first signs that something in the water needs attention.
-</p>
+<h2>What homeowners notice first</h2>
+<p>These are the water problems most people notice before they know the cause.</p>
 
 <div class="cards">
 
-<div class="card">
+<a href="problems/hard-water.html" class="card">
 <img src="images/problem-hardwater.jpg">
 <div class="card-body">
 <h3>Hard Water & Scale</h3>
-<p>White spots, calcium buildup, cloudy glass.</p>
+<p>White buildup, mineral spots, appliance damage.</p>
 </div>
-</div>
+</a>
 
-<div class="card">
+<a href="problems/chlorine.html" class="card">
 <img src="images/problem-chlorine.jpg">
 <div class="card-body">
-<h3>Chlorine Smell</h3>
-<p>Strong chemical smell and bad taste.</p>
+<h3>Chlorine Smell & Bad Taste</h3>
+<p>Chemical smell and unpleasant taste.</p>
 </div>
-</div>
+</a>
 
-<div class="card">
+<a href="problems/skinhair.html" class="card">
 <img src="images/problem-skinhair.jpg">
 <div class="card-body">
 <h3>Skin & Hair Issues</h3>
-<p>Dry skin, rough hair, irritation.</p>
+<p>Dry skin, brittle hair, irritation.</p>
 </div>
+</a>
+
 </div>
+
+</div>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="section">
+<div class="container">
+
+<h2>Solutions Designed Around Your Water</h2>
+
+<div class="solutions">
+
+<a href="equipment/wholehouse.html" class="solution">
+<img src="images/solution-wholehouse.jpg">
+<div class="card-body">
+<h3>Whole House Filtration</h3>
+<p>Cleaner water throughout your home.</p>
+</div>
+</a>
+
+<a href="equipment/softener.html" class="solution">
+<img src="images/solution-softener.jpg">
+<div class="card-body">
+<h3>Water Softener</h3>
+<p>Remove hardness and protect your plumbing.</p>
+</div>
+</a>
+
+<a href="equipment/drinking.html" class="solution">
+<img src="images/solution-drinking.jpg">
+<div class="card-body">
+<h3>Drinking Water System</h3>
+<p>Clean water right at your sink.</p>
+</div>
+</a>
+
+<a href="equipment/smart.html" class="solution">
+<img src="images/solution-smart.jpg">
+<div class="card-body">
+<h3>Smart Leak Protection System</h3>
+<p>Protect your home with smart monitoring.</p>
+</div>
+</a>
 
 </div>
 
@@ -270,32 +332,32 @@ These are often the first signs that something in the water needs attention.
 <section class="section">
 <div class="container">
 
-<h2>Trusted by homeowners who wanted clear answers and working solutions.</h2>
+<h2>What clients say</h2>
 
 <div class="reviews">
 
 <div class="review">
-<div class="stars">★★★★★</div>
-<p>We had heavy white scale all over the shower glass and faucets. AquaRemedy explained everything clearly.</p>
-<strong>Homeowner • Los Angeles</strong>
+<div class="stars">★★★★★ Yelp</div>
+<p>Very professional from beginning to end...</p>
+<strong>Julie M.</strong>
 </div>
 
 <div class="review">
-<div class="stars">★★★★★</div>
-<p>Our tap water had a strong chlorine smell. They fixed it completely.</p>
-<strong>Homeowner • Burbank</strong>
+<div class="stars">★★★★★ Thumbtack</div>
+<p>Showed up on time, tested the water...</p>
+<strong>Brandon L.</strong>
 </div>
 
 <div class="review">
-<div class="stars">★★★★★</div>
-<p>Very professional and no pressure. The system works отлично.</p>
-<strong>Homeowner • Glendale</strong>
+<div class="stars">★★★★★ Yelp</div>
+<p>We had scale, dry skin, bad tasting water...</p>
+<strong>Suzanne M.</strong>
 </div>
 
 <div class="review">
-<div class="stars">★★★★★</div>
-<p>Water tastes better and skin feels better.</p>
-<strong>Homeowner • Pasadena</strong>
+<div class="stars">★★★★★ Thumbtack</div>
+<p>The process felt honest and straightforward...</p>
+<strong>Ariel T.</strong>
 </div>
 
 </div>
@@ -303,8 +365,36 @@ These are often the first signs that something in the water needs attention.
 </div>
 </section>
 
+<!-- CONTACT -->
+<section class="section">
+<div class="container">
+
+<h2>Contact</h2>
+
+<div class="contact-box">
+
+<div class="box">
+<p><strong>Phone:</strong> (818) 658-2558</p>
+<p>Online booking available</p>
+<p>Serving residential & commercial</p>
+</div>
+
+<div class="box">
+<p>Start with a water test or consultation</p>
+<a class="btn">Book Now</a>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
 <div class="footer">
-AquaRemedy ©
+<div class="container">
+AquaRemedy — Water treatment solutions<br>
+(818) 658-2558
+</div>
 </div>
 
 </body>
