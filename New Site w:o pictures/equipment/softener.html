@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +22,7 @@
     }
 
     *{box-sizing:border-box}
+
     body{
       margin:0;
       font-family:Inter,sans-serif;
@@ -36,7 +38,6 @@
       margin:0 auto;
     }
 
-    /* HEADER */
     .site-header{
       background:#fff;
       border-bottom:1px solid var(--line);
@@ -49,16 +50,15 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      min-height:72px;
+      height:70px;
       gap:16px;
     }
 
     .logo{
       font-size:24px;
       font-weight:800;
-      color:#111;
       text-decoration:none;
-      letter-spacing:-0.03em;
+      color:#111;
     }
 
     .logo span{color:var(--primary)}
@@ -73,10 +73,7 @@
       text-decoration:none;
       color:#374151;
       font-weight:600;
-      font-size:15px;
     }
-
-    .nav a:hover{color:var(--primary)}
 
     .dropdown{position:relative}
 
@@ -89,8 +86,8 @@
       border:1px solid var(--line);
       border-radius:12px;
       min-width:240px;
-      padding:8px 0;
       box-shadow:var(--shadow);
+      padding:8px 0;
     }
 
     .dropdown-menu a{
@@ -105,16 +102,17 @@
     .btn{
       background:var(--primary);
       color:#fff;
-      padding:11px 18px;
+      padding:10px 18px;
       border-radius:999px;
       text-decoration:none;
       font-weight:700;
       white-space:nowrap;
     }
 
-    .btn:hover{background:var(--primary-dark)}
+    .btn:hover{
+      background:var(--primary-dark);
+    }
 
-    /* HERO SPLIT */
     .hero{
       padding:56px 0 28px;
     }
@@ -149,7 +147,6 @@
 
     .hero-copy li{margin-bottom:6px}
 
-    /* SLIDER */
     .slider-wrap{
       background:#fff;
       border:1px solid var(--line);
@@ -173,6 +170,7 @@
       display:none;
       width:100%;
       aspect-ratio:16/10;
+      cursor:zoom-in;
     }
 
     .slide.active{
@@ -257,7 +255,6 @@
       object-fit:cover;
     }
 
-    /* CONTENT */
     .content{
       padding:10px 0 0;
     }
@@ -305,7 +302,7 @@
     }
 
     .cta{
-      background:linear-gradient(135deg, #2563eb, #1d4ed8);
+      background:linear-gradient(135deg,#2563eb,#1d4ed8);
       color:#fff;
       padding:40px;
       border-radius:18px;
@@ -338,11 +335,18 @@
       background:#f8fafc;
     }
 
-    /* FOOTER */
     .site-footer{
       background:#111827;
       color:#fff;
       margin-top:60px;
+    }
+
+    .site-footer .logo{
+      color:#fff;
+    }
+
+    .site-footer .logo span{
+      color:#fff;
     }
 
     .footer-inner{
@@ -366,6 +370,49 @@
       border-top:1px solid #374151;
       color:#9ca3af;
       font-size:14px;
+    }
+
+    .lightbox{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.9);
+      z-index:9999;
+      align-items:center;
+      justify-content:center;
+      padding:30px;
+    }
+
+    .lightbox.open{
+      display:flex;
+    }
+
+    .lightbox img{
+      max-width:95vw;
+      max-height:85vh;
+      border-radius:12px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.45);
+    }
+
+    .lightbox-close{
+      position:absolute;
+      top:18px;
+      right:22px;
+      width:44px;
+      height:44px;
+      border:none;
+      border-radius:999px;
+      background:rgba(255,255,255,0.15);
+      color:#fff;
+      font-size:28px;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .lightbox-close:hover{
+      background:rgba(255,255,255,0.28);
     }
 
     @media(max-width:900px){
@@ -396,7 +443,7 @@
             <a href="/equipment/whole-house.html">Whole House Filtration</a>
             <a href="/equipment/softener.html">Water Softener</a>
             <a href="/equipment/ro.html">Drinking Water System</a>
-            <a href="/equipment/smart.html">Smart Water System</a>
+            <a href="/equipment/smart.html">Smart Leak Protection System</a>
           </div>
         </div>
 
@@ -415,7 +462,7 @@
           <h1>Water Softener</h1>
 
           <p>
-            Hard water is one of the most common problems in Southern California, and one of the most noticeable inside the home.
+            Hard water is one of the most common water problems in Southern California, and one of the most noticeable inside the home.
           </p>
 
           <p>
@@ -423,17 +470,18 @@
           </p>
 
           <p>
-            In the Los Angeles area, water hardness can vary a lot depending on location:
+            Homeowners usually start looking at a water softener when they notice:
           </p>
 
           <ul>
-            <li>Burbank: around 15–17 GPG</li>
-            <li>Los Angeles: often around 10–18 GPG</li>
-            <li>Ventura County: up to 80 GPG</li>
+            <li>white calcium spots on faucets and shower glass</li>
+            <li>scale buildup around fixtures and appliances</li>
+            <li>dry skin and rough hair after showering</li>
+            <li>soap that does not lather well</li>
           </ul>
 
           <p>
-            That is why some homes see light spotting, while others get heavy white calcium buildup very quickly.
+            In many parts of the Los Angeles area, hard water is a daily reality. Depending on the city and water source, hardness can vary from moderate to very high.
           </p>
         </div>
 
@@ -474,85 +522,89 @@
         <h2>What is hard water?</h2>
 
         <p>
-          Hard water contains high levels of dissolved calcium and magnesium. When water dries, those minerals stay behind. That is why homeowners see white spots on faucets, scale on shower glass, and buildup around fixtures.
+          Hard water contains elevated levels of calcium and magnesium. When water dries, those minerals stay behind. That is why homeowners see white spots on fixtures, scale on shower doors, and crusty buildup around faucets.
         </p>
 
         <p>
-          Over time, hard water does not just affect what you see. It also builds up inside pipes, water heaters, tankless heaters, valves, and appliances.
+          Over time, hard water does not just affect what you can see. It also builds up inside plumbing, water heaters, tankless heaters, valves, dishwashers, and other appliances.
         </p>
 
-        <h2>What problems does it cause?</h2>
+        <h2>Why do homeowners install a water softener?</h2>
 
         <div class="grid">
           <div class="card">
-            <strong>White spots and calcium buildup</strong>
-            <p>Hard water leaves scale on faucets, glass, tile, and fixtures.</p>
+            <strong>White spots and scale</strong>
+            <p>Hard water leaves visible calcium deposits on faucets, tile, sinks, and glass surfaces.</p>
           </div>
 
           <div class="card">
             <strong>Dry skin and rough hair</strong>
-            <p>Mineral-heavy water can make showering feel harsher and leave residue on the body.</p>
+            <p>Mineral-heavy water can leave residue behind and make everyday showering feel harsher.</p>
           </div>
 
           <div class="card">
-            <strong>Soap and detergent work worse</strong>
-            <p>Hard water reduces lather and makes soaps less effective.</p>
+            <strong>Soap works worse</strong>
+            <p>Hard water reduces lather and makes soaps, shampoos, and detergents less effective.</p>
           </div>
 
           <div class="card">
-            <strong>Damage inside plumbing and appliances</strong>
-            <p>Mineral scale slowly builds inside pipes, heaters, dishwashers, and other water-using equipment.</p>
+            <strong>Appliance and plumbing wear</strong>
+            <p>Scale can slowly build inside pipes and equipment, reducing efficiency and shortening lifespan.</p>
           </div>
         </div>
 
-        <h2>What does a water softener do?</h2>
+        <h2>How hard is water in Southern California?</h2>
 
         <p>
-          A water softener removes calcium and magnesium through an ion exchange process. Inside the system, the hardness minerals are exchanged for sodium, which prevents scale from forming the same way.
+          Water hardness varies across the region, but many homes in and around Los Angeles deal with moderate to high hardness. In some areas, homeowners may see levels around 10 to 18 grains per gallon, while other areas can be much higher.
         </p>
 
         <p>
-          In simple terms, the system changes the water so it no longer behaves like hard water. That means less buildup, better soap performance, and a noticeably better day-to-day water experience.
+          That is why one home may have light spotting, while another may experience heavy scale buildup very quickly.
         </p>
 
-        <h2>How does it work?</h2>
+        <h2>How does a water softener work?</h2>
 
         <p>
-          Water enters the softener and passes through resin media. The resin captures hardness minerals and releases sodium instead. Over time, the resin needs to recharge, so the system automatically regenerates using salt and sends the discharge to a drain.
+          A water softener removes calcium and magnesium through an ion exchange process. Inside the tank, special resin media captures the hardness minerals and replaces them with sodium.
         </p>
 
         <p>
-          That is why a water softener usually needs:
+          In simple terms, the system changes the water so it no longer behaves like hard water. That means less scale, better soap performance, and a noticeably better day-to-day water experience.
+        </p>
+
+        <h2>What does the system need for installation?</h2>
+
+        <p>
+          A whole-house water softener is usually installed on the main water line so it can treat the water before it reaches the rest of the home.
+        </p>
+
+        <p>
+          Most installations require:
         </p>
 
         <ul>
-          <li>installation on the main water line</li>
-          <li>a nearby drain connection for regeneration</li>
+          <li>connection to the main water line</li>
+          <li>a drain line for regeneration</li>
           <li>an electrical outlet</li>
-          <li>enough space for the system and brine tank</li>
+          <li>enough space for the softener tank and brine tank</li>
         </ul>
-
-        <h2>Where is it installed?</h2>
-
-        <p>
-          A whole-house softener is usually installed near the main water entry to the home. That way, the home receives softened water before it branches off to bathrooms, kitchen, laundry, and water heater.
-        </p>
 
         <h2>Every home is different</h2>
 
         <p>
-          There is no one-size-fits-all softener. The right system depends on:
+          There is no one-size-fits-all softener. The right setup depends on:
         </p>
 
         <ul>
-          <li>your actual hardness level</li>
+          <li>the actual hardness level</li>
           <li>how many people live in the home</li>
           <li>how much water the home uses</li>
           <li>pipe size and installation layout</li>
         </ul>
 
         <p>
-          Some homes need a smaller standard residential setup. Other homes need larger capacity systems, bigger pipe sizing, or a different layout altogether.
+          Some homes need a smaller standard residential system. Others need larger capacity equipment or a different layout altogether.
         </p>
 
         <p>
@@ -562,7 +614,7 @@
         <div class="cta">
           <h2>Not sure if you need a water softener?</h2>
           <p>
-            Book a water test and we’ll explain exactly what’s happening in your water and what system makes sense for your home.
+            Book a water test and we’ll explain exactly what is happening in your water and what system makes sense for your home.
           </p>
           <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee">
             Book Water Test
@@ -588,7 +640,7 @@
       <div class="footer-col">
         <a href="/equipment/whole-house.html">Whole House</a><br>
         <a href="/equipment/ro.html">RO</a><br>
-        <a href="/equipment/smart.html">Smart System</a>
+        <a href="/equipment/smart.html">Smart Leak Protection</a>
       </div>
     </div>
 
@@ -597,6 +649,11 @@
     </div>
   </footer>
 
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
+    <img id="lightboxImage" src="" alt="Enlarged water softener image">
+  </div>
+
   <script>
     (function () {
       const slides = document.querySelectorAll('.slide');
@@ -604,6 +661,9 @@
       const thumbs = document.querySelectorAll('.thumb');
       const prev = document.querySelector('.prev');
       const next = document.querySelector('.next');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      const lightboxClose = document.getElementById('lightboxClose');
       let current = 0;
 
       function showSlide(index) {
@@ -624,6 +684,16 @@
         });
       }
 
+      function openLightbox(src, alt) {
+        lightboxImage.src = src;
+        lightboxImage.alt = alt || 'Enlarged image';
+        lightbox.classList.add('open');
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+      }
+
       prev.addEventListener('click', () => showSlide(current - 1));
       next.addEventListener('click', () => showSlide(current + 1));
 
@@ -633,6 +703,23 @@
 
       thumbs.forEach((thumb, i) => {
         thumb.addEventListener('click', () => showSlide(i));
+      });
+
+      slides.forEach((slide) => {
+        slide.addEventListener('click', () => {
+          const img = slide.querySelector('img');
+          openLightbox(img.src, img.alt);
+        });
+      });
+
+      lightboxClose.addEventListener('click', closeLightbox);
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
       });
     })();
   </script>
