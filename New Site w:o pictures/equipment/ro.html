@@ -16,6 +16,7 @@
       --primary:#2563eb;
       --primary-dark:#1d4ed8;
       --shadow:0 10px 30px rgba(0,0,0,0.08);
+      --radius:18px;
       --max:1100px;
     }
 
@@ -48,7 +49,7 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      height:72px;
+      height:70px;
       gap:16px;
     }
 
@@ -57,12 +58,9 @@
       font-weight:800;
       text-decoration:none;
       color:#111;
-      letter-spacing:-0.03em;
     }
 
-    .logo span{
-      color:var(--primary);
-    }
+    .logo span{color:var(--primary)}
 
     .nav{
       display:flex;
@@ -71,18 +69,12 @@
     }
 
     .nav a{
+      text-decoration:none;
       color:#374151;
       font-weight:600;
-      font-size:15px;
     }
 
-    .nav a:hover{
-      color:var(--primary);
-    }
-
-    .dropdown{
-      position:relative;
-    }
+    .dropdown{position:relative}
 
     .dropdown-menu{
       display:none;
@@ -111,6 +103,7 @@
       color:#fff;
       padding:10px 18px;
       border-radius:999px;
+      text-decoration:none;
       font-weight:700;
       white-space:nowrap;
     }
@@ -151,9 +144,7 @@
       padding:0;
     }
 
-    .hero-copy li{
-      margin-bottom:6px;
-    }
+    .hero-copy li{margin-bottom:6px}
 
     .slider-wrap{
       background:#fff;
@@ -221,7 +212,6 @@
       justify-content:center;
       gap:8px;
       margin-top:14px;
-      flex-wrap:wrap;
     }
 
     .dot{
@@ -239,22 +229,21 @@
     }
 
     .thumbs{
-      display:flex;
+      display:grid;
+      grid-template-columns:repeat(10,1fr);
       gap:10px;
       margin-top:14px;
       overflow-x:auto;
-      padding-bottom:4px;
-      scroll-behavior:smooth;
     }
 
     .thumb{
-      flex:0 0 110px;
       border:2px solid transparent;
       border-radius:10px;
       overflow:hidden;
       cursor:pointer;
       background:#eef2f7;
       padding:0;
+      min-width:90px;
     }
 
     .thumb.active{
@@ -338,6 +327,7 @@
       color:var(--primary);
       padding:12px 20px;
       border-radius:999px;
+      text-decoration:none;
       font-weight:700;
       display:inline-block;
     }
@@ -370,6 +360,7 @@
     .footer-col p,
     .footer-col a{
       color:#d1d5db;
+      text-decoration:none;
       line-height:1.7;
       font-size:14px;
     }
@@ -426,26 +417,20 @@
     }
 
     @media(max-width:900px){
-      .hero-split,
-      .grid,
-      .footer-inner{
-        grid-template-columns:1fr;
-      }
+      .hero-split{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .footer-inner{grid-template-columns:1fr}
     }
 
     @media(max-width:780px){
-      .nav{
-        display:none;
-      }
-
-      .hero-copy h1{
-        font-size:34px;
-      }
+      .nav{display:none}
+      .hero-copy h1{font-size:34px}
     }
   </style>
 </head>
 
 <body>
+
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="logo">Aqua<span>Remedy</span></a>
@@ -473,6 +458,7 @@
   <main>
     <section class="hero">
       <div class="container hero-split">
+
         <div class="hero-copy">
           <h1>Drinking Water System</h1>
 
@@ -512,9 +498,24 @@
               <div class="slide"><img src="../images/ro4.jpg" alt="Drinking water system installation 4"></div>
               <div class="slide"><img src="../images/ro5.jpg" alt="Drinking water system installation 5"></div>
               <div class="slide"><img src="../images/ro6.jpg" alt="Drinking water system installation 6"></div>
+              <div class="slide"><img src="../images/ro7.jpg" alt="Drinking water system installation 7"></div>
+              <div class="slide"><img src="../images/ro8.jpg" alt="Drinking water system installation 8"></div>
+              <div class="slide"><img src="../images/ro9.jpg" alt="Drinking water system installation 9"></div>
+              <div class="slide"><img src="../images/ro10.jpg" alt="Drinking water system installation 10"></div>
             </div>
 
-            <div class="dots"></div>
+            <div class="dots">
+              <button class="dot active" aria-label="Go to image 1"></button>
+              <button class="dot" aria-label="Go to image 2"></button>
+              <button class="dot" aria-label="Go to image 3"></button>
+              <button class="dot" aria-label="Go to image 4"></button>
+              <button class="dot" aria-label="Go to image 5"></button>
+              <button class="dot" aria-label="Go to image 6"></button>
+              <button class="dot" aria-label="Go to image 7"></button>
+              <button class="dot" aria-label="Go to image 8"></button>
+              <button class="dot" aria-label="Go to image 9"></button>
+              <button class="dot" aria-label="Go to image 10"></button>
+            </div>
 
             <div class="thumbs">
               <button class="thumb active"><img src="../images/ro1.jpg" alt="Thumbnail 1"></button>
@@ -523,14 +524,20 @@
               <button class="thumb"><img src="../images/ro4.jpg" alt="Thumbnail 4"></button>
               <button class="thumb"><img src="../images/ro5.jpg" alt="Thumbnail 5"></button>
               <button class="thumb"><img src="../images/ro6.jpg" alt="Thumbnail 6"></button>
+              <button class="thumb"><img src="../images/ro7.jpg" alt="Thumbnail 7"></button>
+              <button class="thumb"><img src="../images/ro8.jpg" alt="Thumbnail 8"></button>
+              <button class="thumb"><img src="../images/ro9.jpg" alt="Thumbnail 9"></button>
+              <button class="thumb"><img src="../images/ro10.jpg" alt="Thumbnail 10"></button>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
     <section class="content">
       <div class="container">
+
         <h2>What is a drinking water system?</h2>
 
         <p>
@@ -666,11 +673,11 @@
           <p>
             Book a water test and we’ll help you choose the right drinking water system for your home, your water quality, and your kitchen setup.
           </p>
-
           <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee">
             Book Water Test
           </a>
         </div>
+
       </div>
     </section>
   </main>
@@ -701,33 +708,20 @@
 
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
-    <img id="lightboxImage" src="" alt="Enlarged image">
+    <img id="lightboxImage" src="" alt="Enlarged drinking water system image">
   </div>
 
   <script>
     (function () {
       const slides = document.querySelectorAll('.slide');
+      const dots = document.querySelectorAll('.dot');
       const thumbs = document.querySelectorAll('.thumb');
       const prev = document.querySelector('.prev');
       const next = document.querySelector('.next');
-      const dotsWrap = document.querySelector('.dots');
       const lightbox = document.getElementById('lightbox');
       const lightboxImage = document.getElementById('lightboxImage');
       const lightboxClose = document.getElementById('lightboxClose');
       let current = 0;
-      let dots = [];
-
-      function buildDots() {
-        dotsWrap.innerHTML = '';
-        slides.forEach((_, i) => {
-          const dot = document.createElement('button');
-          dot.className = 'dot';
-          dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
-          dot.addEventListener('click', () => showSlide(i));
-          dotsWrap.appendChild(dot);
-        });
-        dots = Array.from(document.querySelectorAll('.dot'));
-      }
 
       function showSlide(index) {
         if (index < 0) index = slides.length - 1;
@@ -745,14 +739,6 @@
         thumbs.forEach((thumb, i) => {
           thumb.classList.toggle('active', i === current);
         });
-
-        if (thumbs[current]) {
-          thumbs[current].scrollIntoView({
-            behavior: 'smooth',
-            inline: 'center',
-            block: 'nearest'
-          });
-        }
       }
 
       function openLightbox(src, alt) {
@@ -765,11 +751,12 @@
         lightbox.classList.remove('open');
       }
 
-      buildDots();
-      showSlide(0);
-
       prev.addEventListener('click', () => showSlide(current - 1));
       next.addEventListener('click', () => showSlide(current + 1));
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => showSlide(i));
+      });
 
       thumbs.forEach((thumb, i) => {
         thumb.addEventListener('click', () => showSlide(i));
@@ -793,5 +780,6 @@
       });
     })();
   </script>
+
 </body>
 </html>
