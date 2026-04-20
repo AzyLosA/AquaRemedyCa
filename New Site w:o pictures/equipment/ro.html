@@ -1,273 +1,678 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Drinking Water System | AquaRemedy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drinking Water System | AquaRemedy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f9fc;
+      --surface:#ffffff;
+      --text:#111827;
+      --muted:#4b5563;
+      --line:#e5e7eb;
+      --primary:#2563eb;
+      --primary-dark:#1d4ed8;
+      --shadow:0 10px 30px rgba(0,0,0,0.08);
+      --radius:18px;
+      --max:1100px;
+    }
 
-<style>
-body{margin:0;font-family:Inter;background:#f7f9fc;color:#111}
-.container{width:min(1100px,calc(100% - 32px));margin:0 auto}
+    *{box-sizing:border-box}
 
-/* HEADER */
-.site-header{background:#fff;border-bottom:1px solid #e5e7eb;position:sticky;top:0}
-.header-inner{display:flex;justify-content:space-between;align-items:center;height:70px}
-.logo{font-size:24px;font-weight:800;color:#111;text-decoration:none}
-.logo span{color:#2563eb}
-.nav{display:flex;gap:24px}
-.nav a{text-decoration:none;color:#374151;font-weight:600}
-.dropdown{position:relative}
-.dropdown-menu{
-display:none;
-position:absolute;
-top:100%;
-left:0;
-background:#fff;
-border:1px solid #e5e7eb;
-border-radius:12px;
-min-width:220px;
-}
-.dropdown-menu a{display:block;padding:10px 16px}
-.dropdown:hover .dropdown-menu{display:block}
-.btn{background:#2563eb;color:#fff;padding:10px 16px;border-radius:999px;text-decoration:none;font-weight:700}
+    body{
+      margin:0;
+      font-family:Inter,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
 
-/* HERO */
-.hero{padding:60px 0}
-.hero img{
-width:100%;
-border-radius:18px;
-margin-top:20px;
-aspect-ratio:8/5;
-object-fit:cover;
-}
-h1{font-size:42px;margin-bottom:10px}
-h2{margin-top:40px}
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
 
-/* CONTENT */
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.card{
-background:#fff;
-padding:20px;
-border-radius:14px;
-border:1px solid #e5e7eb;
-}
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
 
-/* CTA */
-.cta{
-background:#2563eb;
-color:#fff;
-padding:40px;
-border-radius:18px;
-margin-top:50px;
-text-align:center;
-}
-.cta p{color:#eaf1ff}
-.cta a{
-background:#fff;
-color:#2563eb;
-padding:12px 20px;
-border-radius:999px;
-text-decoration:none;
-font-weight:700;
-}
+    .site-header{
+      background:#fff;
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
 
-/* FOOTER */
-.site-footer{background:#111827;color:#fff;margin-top:60px}
-.footer-inner{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-padding:40px 0;
-}
-.footer-col p,
-.footer-col a{color:#d1d5db;text-decoration:none}
-.footer-bottom{
-text-align:center;
-padding:16px;
-border-top:1px solid #374151;
-color:#9ca3af;
-}
+    .header-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      height:70px;
+      gap:16px;
+    }
 
-@media(max-width:800px){
-.grid{grid-template-columns:1fr}
-.footer-inner{grid-template-columns:1fr}
-h1{font-size:32px}
-}
-</style>
+    .logo{
+      font-size:24px;
+      font-weight:800;
+      text-decoration:none;
+      color:#111;
+    }
+
+    .logo span{color:var(--primary)}
+
+    .nav{
+      display:flex;
+      gap:24px;
+      align-items:center;
+    }
+
+    .nav a{
+      text-decoration:none;
+      color:#374151;
+      font-weight:600;
+    }
+
+    .dropdown{position:relative}
+
+    .dropdown-menu{
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      min-width:220px;
+      box-shadow:var(--shadow);
+      padding:8px 0;
+    }
+
+    .dropdown-menu a{
+      display:block;
+      padding:10px 16px;
+    }
+
+    .dropdown:hover .dropdown-menu{
+      display:block;
+    }
+
+    .btn{
+      background:var(--primary);
+      color:#fff;
+      padding:10px 18px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      white-space:nowrap;
+    }
+
+    .btn:hover{
+      background:var(--primary-dark);
+    }
+
+    .hero{
+      padding:56px 0 28px;
+    }
+
+    .hero-split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:32px;
+      align-items:start;
+    }
+
+    .hero-copy h1{
+      font-size:42px;
+      margin:0 0 10px;
+      line-height:1;
+      letter-spacing:-0.04em;
+    }
+
+    .hero-copy p{
+      color:var(--muted);
+      line-height:1.7;
+      margin:0 0 16px;
+      font-size:16px;
+    }
+
+    .hero-copy ul{
+      margin:0 0 18px 18px;
+      color:var(--muted);
+      line-height:1.7;
+      padding:0;
+    }
+
+    .hero-copy li{margin-bottom:6px}
+
+    .slider-wrap{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      box-shadow:var(--shadow);
+    }
+
+    .slider{
+      position:relative;
+    }
+
+    .slides{
+      position:relative;
+      overflow:hidden;
+      border-radius:14px;
+      background:#eef2f7;
+    }
+
+    .slide{
+      display:none;
+      width:100%;
+      aspect-ratio:16/10;
+    }
+
+    .slide.active{
+      display:block;
+    }
+
+    .slide img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:999px;
+      background:rgba(17,24,39,0.72);
+      color:#fff;
+      font-size:24px;
+      cursor:pointer;
+      z-index:2;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .arrow:hover{
+      background:rgba(17,24,39,0.9);
+    }
+
+    .arrow.prev{left:12px}
+    .arrow.next{right:12px}
+
+    .dots{
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      margin-top:14px;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      border:none;
+      background:#cbd5e1;
+      cursor:pointer;
+      padding:0;
+    }
+
+    .dot.active{
+      background:var(--primary);
+    }
+
+    .thumbs{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .thumb{
+      border:2px solid transparent;
+      border-radius:10px;
+      overflow:hidden;
+      cursor:pointer;
+      background:#eef2f7;
+      padding:0;
+    }
+
+    .thumb.active{
+      border-color:var(--primary);
+    }
+
+    .thumb img{
+      width:100%;
+      aspect-ratio:16/10;
+      object-fit:cover;
+    }
+
+    .content{
+      padding:10px 0 0;
+    }
+
+    h2{
+      margin:48px 0 12px;
+      font-size:30px;
+      line-height:1.1;
+      letter-spacing:-0.03em;
+    }
+
+    p{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:16px;
+      margin:0 0 16px;
+    }
+
+    ul{
+      color:var(--muted);
+      line-height:1.7;
+      margin:0 0 16px 18px;
+      padding:0;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+      margin-top:20px;
+    }
+
+    .card{
+      background:#fff;
+      padding:20px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      box-shadow:0 4px 18px rgba(0,0,0,0.04);
+    }
+
+    .card strong{
+      display:block;
+      margin-bottom:8px;
+      color:#111827;
+    }
+
+    .cta{
+      background:linear-gradient(135deg, #2563eb, #1d4ed8);
+      color:#fff;
+      padding:40px;
+      border-radius:18px;
+      margin-top:60px;
+      text-align:center;
+      box-shadow:var(--shadow);
+    }
+
+    .cta h2{
+      margin:0 0 10px;
+      color:#fff;
+    }
+
+    .cta p{
+      color:#eaf1ff;
+      margin:0 0 18px;
+    }
+
+    .cta a{
+      background:#fff;
+      color:var(--primary);
+      padding:12px 20px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      display:inline-block;
+    }
+
+    .cta a:hover{
+      background:#f8fafc;
+    }
+
+    .site-footer{
+      background:#111827;
+      color:#fff;
+      margin-top:60px;
+    }
+
+    .footer-inner{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      padding:40px 0;
+    }
+
+    .footer-col p,
+    .footer-col a{
+      color:#d1d5db;
+      text-decoration:none;
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    .footer-bottom{
+      text-align:center;
+      padding:16px;
+      border-top:1px solid #374151;
+      color:#9ca3af;
+      font-size:14px;
+    }
+
+    @media(max-width:900px){
+      .hero-split{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .footer-inner{grid-template-columns:1fr}
+    }
+
+    @media(max-width:780px){
+      .nav{display:none}
+      .hero-copy h1{font-size:34px}
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="site-header">
-<div class="container header-inner">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">Aqua<span>Remedy</span></a>
 
-<a href="/" class="logo">Aqua<span>Remedy</span></a>
+      <nav class="nav">
+        <a href="/">Home</a>
 
-<nav class="nav">
-<a href="/">Home</a>
+        <div class="dropdown">
+          <a href="#">Solutions ▾</a>
+          <div class="dropdown-menu">
+            <a href="/equipment/whole-house.html">Whole House Filtration</a>
+            <a href="/equipment/softener.html">Water Softener</a>
+            <a href="/equipment/ro.html">Drinking Water System</a>
+            <a href="/equipment/smart.html">Smart Water System</a>
+          </div>
+        </div>
 
-<div class="dropdown">
-<a href="#">Solutions ▾</a>
-<div class="dropdown-menu">
-<a href="/equipment/whole-house.html">Whole House Filtration</a>
-<a href="/equipment/softener.html">Water Softener</a>
-<a href="/equipment/ro.html">Drinking Water System</a>
-<a href="/equipment/smart.html">Smart Water System</a>
-</div>
-</div>
+        <a href="/#contact">Contact</a>
+      </nav>
 
-<a href="/#contact">Contact</a>
-</nav>
+      <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee" class="btn">Book Now</a>
+    </div>
+  </header>
 
-<a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee" class="btn">
-Book Now
-</a>
+  <main>
+    <section class="hero">
+      <div class="container hero-split">
 
-</div>
-</header>
+        <div class="hero-copy">
+          <h1>Drinking Water System</h1>
 
-<!-- HERO -->
-<div class="hero">
-<div class="container">
+          <p>
+            A drinking water system is designed to give you cleaner, safer, and better-tasting water right at the sink.
+          </p>
 
-<h1>Drinking Water System</h1>
+          <p>
+            Unlike whole house systems, this type of filtration is focused on the water you actually drink and cook with every day.
+          </p>
 
-<p>
-Tankless reverse osmosis systems provide clean, safe, and great-tasting water directly at your sink without bulky storage tanks.
-</p>
+          <p>
+            Homeowners usually start looking at this kind of system when they notice:
+          </p>
 
-<img src="../images/solution-drinking.jpg" alt="Tankless RO system">
+          <ul>
+            <li>bad taste or smell in tap water</li>
+            <li>concerns about TDS or dissolved contaminants</li>
+            <li>buying too much bottled water</li>
+            <li>wanting cleaner water for drinking, coffee, tea, and cooking</li>
+          </ul>
 
-</div>
-</div>
+          <p>
+            A tankless reverse osmosis system is one of the most popular solutions because it gives high-quality water without taking up as much under-sink space as older tank-style systems.
+          </p>
+        </div>
 
-<!-- CONTENT -->
-<div class="container">
+        <div class="slider-wrap">
+          <div class="slider">
+            <button class="arrow prev" aria-label="Previous image">‹</button>
+            <button class="arrow next" aria-label="Next image">›</button>
 
-<h2>What problem does it solve?</h2>
+            <div class="slides">
+              <div class="slide active"><img src="../images/ro1.jpg" alt="Drinking water system installation 1"></div>
+              <div class="slide"><img src="../images/ro2.jpg" alt="Drinking water system installation 2"></div>
+              <div class="slide"><img src="../images/ro3.jpg" alt="Drinking water system installation 3"></div>
+              <div class="slide"><img src="../images/ro4.jpg" alt="Drinking water system installation 4"></div>
+            </div>
 
-<div class="grid">
+            <div class="dots">
+              <button class="dot active" aria-label="Go to image 1"></button>
+              <button class="dot" aria-label="Go to image 2"></button>
+              <button class="dot" aria-label="Go to image 3"></button>
+              <button class="dot" aria-label="Go to image 4"></button>
+            </div>
 
-<div class="card">
-<strong>Bad taste & odor</strong>
-<p>Removes chlorine taste and improves water quality.</p>
-</div>
+            <div class="thumbs">
+              <button class="thumb active"><img src="../images/ro1.jpg" alt="Thumbnail 1"></button>
+              <button class="thumb"><img src="../images/ro2.jpg" alt="Thumbnail 2"></button>
+              <button class="thumb"><img src="../images/ro3.jpg" alt="Thumbnail 3"></button>
+              <button class="thumb"><img src="../images/ro4.jpg" alt="Thumbnail 4"></button>
+            </div>
+          </div>
+        </div>
 
-<div class="card">
-<strong>Unknown contaminants</strong>
-<p>Reduces substances you cannot see or smell.</p>
-</div>
+      </div>
+    </section>
 
-<div class="card">
-<strong>Health concerns</strong>
-<p>Helps reduce heavy metals and dissolved impurities.</p>
-</div>
+    <section class="content">
+      <div class="container">
 
-<div class="card">
-<strong>Bottled water</strong>
-<p>Provides clean water directly at home.</p>
-</div>
+        <h2>What is a drinking water system?</h2>
 
-</div>
+        <p>
+          A drinking water system is usually installed under the kitchen sink and connected to a dedicated faucet. Its job is to improve the water you use for drinking and food preparation.
+        </p>
 
-<h2>What does it remove?</h2>
+        <p>
+          In many homes, this means using reverse osmosis filtration to reduce dissolved contaminants that a basic carbon filter may not remove as effectively.
+        </p>
 
-<div class="grid">
+        <h2>Why do homeowners install it?</h2>
 
-<div class="card">
-<p>• TDS (total dissolved solids)</p>
-<p>• Lead</p>
-<p>• Arsenic</p>
-<p>• Heavy metals</p>
-</div>
+        <div class="grid">
+          <div class="card">
+            <strong>Bad taste and odor</strong>
+            <p>One of the biggest reasons is simply that tap water does not taste or smell clean enough.</p>
+          </div>
 
-<div class="card">
-<p>• Chlorine</p>
-<p>• Fluoride</p>
-<p>• VOCs</p>
-<p>• Other dissolved contaminants</p>
-</div>
+          <div class="card">
+            <strong>Cleaner water for drinking</strong>
+            <p>Many people want better water quality for daily drinking, cooking, tea, and coffee.</p>
+          </div>
 
-</div>
+          <div class="card">
+            <strong>Less bottled water</strong>
+            <p>A good under-sink system can reduce the need to keep buying bottled water.</p>
+          </div>
 
-<h2>How does it work?</h2>
+          <div class="card">
+            <strong>Peace of mind</strong>
+            <p>Some homeowners want a stronger level of filtration for the water they consume directly.</p>
+          </div>
+        </div>
 
-<p>
-Water passes through multiple filtration stages including sediment filters, carbon filters, and a reverse osmosis membrane that removes contaminants at a microscopic level.
-</p>
+        <h2>What does reverse osmosis help reduce?</h2>
 
-<h2>Why tankless?</h2>
+        <p>
+          Reverse osmosis is one of the most effective point-of-use water treatment methods for reducing a wide range of dissolved contaminants.
+        </p>
 
-<div class="grid">
+        <div class="grid">
+          <div class="card">
+            <strong>Common reductions</strong>
+            <p>• TDS (total dissolved solids)</p>
+            <p>• Lead</p>
+            <p>• Arsenic</p>
+            <p>• Heavy metals</p>
+          </div>
 
-<div class="card">
-<strong>No storage tank</strong>
-<p>Water is filtered instantly.</p>
-</div>
+          <div class="card">
+            <strong>Additional concerns</strong>
+            <p>• Chlorine</p>
+            <p>• Fluoride</p>
+            <p>• VOCs</p>
+            <p>• Other dissolved contaminants</p>
+          </div>
+        </div>
 
-<div class="card">
-<strong>Compact design</strong>
-<p>Fits easily under most sinks.</p>
-</div>
+        <h2>How does it work?</h2>
 
-<div class="card">
-<strong>Fresh water</strong>
-<p>No standing water inside tank.</p>
-</div>
+        <p>
+          Water passes through several stages of filtration. First, pre-filters help reduce sediment and chlorine. Then the RO membrane does the main purification work by separating many dissolved contaminants from the water.
+        </p>
 
-<div class="card">
-<strong>Fast flow</strong>
-<p>Modern systems deliver water instantly.</p>
-</div>
+        <p>
+          In modern tankless systems, the water is filtered on demand instead of being stored in a large tank under the sink.
+        </p>
 
-</div>
+        <h2>Why tankless?</h2>
 
-<h2>Where is it installed?</h2>
+        <div class="grid">
+          <div class="card">
+            <strong>More compact under the sink</strong>
+            <p>Tankless systems usually take up less space than older storage-tank designs.</p>
+          </div>
 
-<p>
-Installed under the kitchen sink with a dedicated faucet for drinking water.
-</p>
+          <div class="card">
+            <strong>Cleaner and simpler layout</strong>
+            <p>The setup looks more modern and often makes maintenance easier.</p>
+          </div>
 
-<!-- CTA -->
-<div class="cta">
-<h2>Want better drinking water?</h2>
-<p>We’ll test your water and recommend the right system.</p>
+          <div class="card">
+            <strong>Fresh water on demand</strong>
+            <p>The system makes filtered water as you use it instead of relying on a larger reserve tank.</p>
+          </div>
 
-<a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee">
-Book Now
-</a>
-</div>
+          <div class="card">
+            <strong>Good fit for modern kitchens</strong>
+            <p>Many homeowners like the cleaner under-sink layout and the convenience of a dedicated faucet.</p>
+          </div>
+        </div>
 
-</div>
+        <h2>Where is it installed?</h2>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-<div class="container footer-inner">
+        <p>
+          A drinking water system is usually installed under the kitchen sink with its own faucet. In some cases, it can also feed a refrigerator line depending on the setup.
+        </p>
 
-<div class="footer-col">
-<div class="logo">Aqua<span>Remedy</span></div>
-<p>Water treatment solutions for homes and businesses.</p>
-</div>
+        <p>
+          Installation typically depends on:
+        </p>
 
-<div class="footer-col">
-<p>(818) 658-2558</p>
-<p>Los Angeles, CA</p>
-</div>
+        <ul>
+          <li>available under-sink space</li>
+          <li>drain connection</li>
+          <li>water line access</li>
+          <li>electrical outlet, if required by the model</li>
+        </ul>
 
-<div class="footer-col">
-<a href="/equipment/whole-house.html">Whole House</a><br>
-<a href="/equipment/softener.html">Softener</a><br>
-<a href="/equipment/smart.html">Smart System</a>
-</div>
+        <h2>Every home is different</h2>
 
-</div>
+        <p>
+          Drinking water systems come in different sizes, flow rates, and filtration layouts. Some are simple carbon + RO systems, while others use higher output tankless designs.
+        </p>
 
-<div class="footer-bottom">
-© AquaRemedy. All rights reserved.
-</div>
-</footer>
+        <p>
+          The right setup depends on:
+        </p>
+
+        <ul>
+          <li>what is actually in the water</li>
+          <li>how much purified water the home uses</li>
+          <li>available space under the sink</li>
+          <li>whether the homeowner wants tankless or traditional style</li>
+        </ul>
+
+        <p>
+          That is why it helps to test the water and confirm the installation setup before choosing the exact system.
+        </p>
+
+        <div class="cta">
+          <h2>Want better drinking water at home?</h2>
+          <p>
+            Book a water test and we’ll help you choose the right drinking water system for your home, your water quality, and your kitchen setup.
+          </p>
+          <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee">
+            Book Water Test
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <div class="logo">Aqua<span>Remedy</span></div>
+        <p>Water treatment solutions</p>
+      </div>
+
+      <div class="footer-col">
+        <p>(818) 658-2558</p>
+        <p>Los Angeles, CA</p>
+      </div>
+
+      <div class="footer-col">
+        <a href="/equipment/whole-house.html">Whole House</a><br>
+        <a href="/equipment/softener.html">Softener</a><br>
+        <a href="/equipment/smart.html">Smart System</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © AquaRemedy
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const slides = document.querySelectorAll('.slide');
+      const dots = document.querySelectorAll('.dot');
+      const thumbs = document.querySelectorAll('.thumb');
+      const prev = document.querySelector('.prev');
+      const next = document.querySelector('.next');
+      let current = 0;
+
+      function showSlide(index) {
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        current = index;
+
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === current);
+        });
+
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === current);
+        });
+
+        thumbs.forEach((thumb, i) => {
+          thumb.classList.toggle('active', i === current);
+        });
+      }
+
+      prev.addEventListener('click', () => showSlide(current - 1));
+      next.addEventListener('click', () => showSlide(current + 1));
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => showSlide(i));
+      });
+
+      thumbs.forEach((thumb, i) => {
+        thumb.addEventListener('click', () => showSlide(i));
+      });
+    })();
+  </script>
 
 </body>
 </html>
