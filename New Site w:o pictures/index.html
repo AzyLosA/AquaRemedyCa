@@ -3,281 +3,261 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AquaRemedy</title>
+<title>AquaRemedy | Better Water</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-:root{
---bg:#f7f9fc;
---text:#111827;
---muted:#4b5563;
---line:#e5e7eb;
---primary:#2563eb;
---max:1100px;
+body {
+  margin:0;
+  font-family:Inter, sans-serif;
+  background:#f7f9fc;
+  color:#111;
 }
 
-*{box-sizing:border-box}
-body{margin:0;font-family:Inter;background:var(--bg);color:var(--text)}
-.container{width:min(var(--max),100% - 32px);margin:auto}
-
-/* HEADER */
-.header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 0;
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+  background:white;
 }
 
-.logo{font-weight:800;font-size:22px}
-.logo span{color:var(--primary)}
-
-.nav{display:flex;gap:20px}
-.phone{font-weight:700}
-.btn{background:var(--primary);color:#fff;padding:10px 16px;border-radius:999px}
-
-/* HERO */
-.hero{
-padding:60px 0;
+.logo {
+  font-size:22px;
+  font-weight:800;
 }
 
-.hero-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-align-items:center; /* FIX */
+.logo span {
+  color:#2563eb;
 }
 
-.hero h1{
-font-size:48px;
-margin:0 0 10px;
+nav a {
+  margin:0 15px;
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
 }
 
-.hero p{
-color:var(--muted);
-line-height:1.6;
+.btn {
+  background:#2563eb;
+  color:white;
+  padding:10px 18px;
+  border-radius:8px;
+  text-decoration:none;
 }
 
-.hero-img{
-background:#e5e7eb;
-border-radius:16px;
-aspect-ratio:16/10;
-overflow:hidden;
+.hero {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  padding:60px 40px;
 }
 
-/* SECTION */
-.section{
-padding:60px 0;
+.hero img {
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  border-radius:20px;
 }
 
-.section h2{
-font-size:36px;
-margin-bottom:10px;
+.section {
+  padding:60px 40px;
 }
 
-.section p{
-color:var(--muted);
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
 }
 
-/* CARDS */
-.cards{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-margin-top:30px;
+.card {
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
-.card{
-background:#fff;
-border-radius:16px;
-border:1px solid var(--line);
-overflow:hidden;
+.card img {
+  width:100%;
+  height:230px;
+  object-fit:cover;
 }
 
-.card img{
-width:100%;
-aspect-ratio:16/10;
-object-fit:cover;
+.card-content {
+  padding:15px;
 }
 
-.card-body{
-padding:16px;
+.equipment-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:30px;
 }
 
-/* REVIEWS */
-.reviews{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:20px;
+.equipment-card {
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+  text-decoration:none;
+  color:black;
+  transition:0.2s;
 }
 
-.review{
-background:#fff;
-padding:20px;
-border-radius:16px;
-border:1px solid var(--line);
+.equipment-card:hover {
+  transform:translateY(-5px);
 }
 
-.stars{
-color:#fbbf24;
-font-size:18px;
-margin-bottom:6px;
-}
-
-.rating{
-font-weight:700;
-margin-bottom:6px;
-}
-
-.source{
-font-size:14px;
-color:gray;
-margin-top:8px;
-}
-
-/* FOOTER */
-.footer{
-background:#111;
-color:#fff;
-padding:30px;
-margin-top:60px;
-text-align:center;
+footer {
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:40px;
 }
 
 @media(max-width:900px){
-.hero-grid{grid-template-columns:1fr}
-.cards{grid-template-columns:1fr}
-.reviews{grid-template-columns:1fr}
+  .hero {grid-template-columns:1fr;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container header">
-<div class="logo">Aqua<span>Remedy</span></div>
+<header>
+  <div class="logo">Aqua<span>Remedy</span></div>
 
-<div class="nav">
-<a>Home</a>
-<a>Solutions</a>
-<a>Problems</a>
-<a>Reviews</a>
-</div>
+  <nav>
+    <a href="#solutions">Solutions</a>
+    <a href="#equipment">Equipment</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-<div style="display:flex;gap:10px;align-items:center;">
-<div class="phone">(818) 658-2558</div>
-<div class="btn">Book Now</div>
-</div>
-</div>
+  <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee" class="btn">
+    Book Now
+  </a>
+</header>
 
 <!-- HERO -->
 <section class="hero">
-<div class="container hero-grid">
+  <div>
+    <h1>Better water for your home without pressure or guesswork</h1>
+    <p>We test your water and install the right system for your home.</p>
+  </div>
 
-<div>
-<h1>Solutions designed around your water.</h1>
-
-<p>
-We help homeowners solve real water problems — hard water, chlorine smell,
-bad taste, dry skin, and more.
-</p>
-
-<div style="margin-top:20px;">
-<span class="btn">Book Water Test</span>
-</div>
-</div>
-
-<div class="hero-img">
-<img src="images/hero-main.jpg">
-</div>
-
-</div>
+  <img src="images/hero-family.jpg" alt="">
 </section>
 
 <!-- PROBLEMS -->
 <section class="section">
-<div class="container">
+  <h2>What homeowners notice first</h2>
 
-<h2>The water problems people usually feel before they know the cause.</h2>
-<p>
-These are often the first signs that something in the water needs attention.
-</p>
+  <div class="grid">
 
-<div class="cards">
+    <div class="card">
+      <img src="images/problem-hard-water.jpg">
+      <div class="card-content">
+        <h3>Hard Water & Scale</h3>
+      </div>
+    </div>
 
-<div class="card">
-<img src="images/problem-hardwater.jpg">
-<div class="card-body">
-<h3>Hard Water & Scale</h3>
-<p>White spots, buildup, and soap not working properly.</p>
-</div>
-</div>
+    <div class="card">
+      <img src="images/problem-chlorine.jpg">
+      <div class="card-content">
+        <h3>Chlorine Smell & Bad Taste</h3>
+      </div>
+    </div>
 
-<div class="card">
-<img src="images/problem-chlorine.jpg">
-<div class="card-body">
-<h3>Chlorine Smell</h3>
-<p>Strong chemical smell and bad taste.</p>
-</div>
-</div>
+    <div class="card">
+      <img src="images/problem-hair.jpg">
+      <div class="card-content">
+        <h3>Skin & Hair Issues</h3>
+      </div>
+    </div>
 
-<div class="card">
-<img src="images/problem-skinhair.jpg">
-<div class="card-body">
-<h3>Skin & Hair Issues</h3>
-<p>Dry skin, rough hair, irritation.</p>
-</div>
-</div>
-
-</div>
-
-</div>
+  </div>
 </section>
 
-<!-- REVIEWS -->
-<section class="section">
-<div class="container">
+<!-- SOLUTIONS -->
+<section class="section" id="solutions">
+  <h2>Solutions Designed Around Your Water</h2>
 
-<h2>Trusted by homeowners</h2>
+  <div class="grid">
 
-<div class="reviews">
+    <div class="card">
+      <img src="images/whole-house.jpg">
+      <div class="card-content">
+        <h3>Whole House Filtration</h3>
+        <p>Clean water throughout your entire home.</p>
+      </div>
+    </div>
 
-<div class="review">
-<div class="stars">★★★★★</div>
-<div class="rating">5.0 • Google Review</div>
-<p>They explained everything clearly and fixed our water issues fast.</p>
-<div class="source">Homeowner • Los Angeles</div>
-</div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=1200&q=80">
+      <div class="card-content">
+        <h3>Water Softener</h3>
+        <p>Eliminate hard water and protect your plumbing.</p>
+      </div>
+    </div>
 
-<div class="review">
-<div class="stars">★★★★★</div>
-<div class="rating">5.0 • Yelp</div>
-<p>Huge difference after installation. Highly recommend.</p>
-<div class="source">Homeowner • Burbank</div>
-</div>
+    <div class="card">
+      <img src="images/brio-ro.jpg">
+      <div class="card-content">
+        <h3>Drinking Water System</h3>
+        <p>Clean, great tasting drinking water.</p>
+      </div>
+    </div>
 
-<div class="review">
-<div class="stars">★★★★★</div>
-<div class="rating">5.0 • Thumbtack</div>
-<p>Professional and honest. No pressure.</p>
-<div class="source">Homeowner • Glendale</div>
-</div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581092918484-8313b7c6b61f?auto=format&fit=crop&w=1200&q=80">
+      <div class="card-content">
+        <h3>Smart Water System</h3>
+        <p>Monitor and protect your home.</p>
+      </div>
+    </div>
 
-<div class="review">
-<div class="stars">★★★★★</div>
-<div class="rating">5.0 • Google</div>
-<p>Water tastes better and skin feels better.</p>
-<div class="source">Homeowner • Pasadena</div>
-</div>
-
-</div>
-
-</div>
+  </div>
 </section>
 
-<div class="footer">
-AquaRemedy ©
-</div>
+<!-- EQUIPMENT -->
+<section class="section" id="equipment">
+  <h2>Equipment Options</h2>
+  <p>I want to see the types of systems you install</p>
+
+  <div class="equipment-grid">
+
+    <a href="/equipment/whole-house.html" class="equipment-card">
+      <h3>Whole House Filtration System</h3>
+      <p>Removes chlorine and improves water quality.</p>
+    </a>
+
+    <a href="/equipment/softener.html" class="equipment-card">
+      <h3>Water Softener</h3>
+      <p>Protects plumbing and eliminates hard water.</p>
+    </a>
+
+    <a href="/equipment/ro.html" class="equipment-card">
+      <h3>Reverse Osmosis Drinking System</h3>
+      <p>Safe, clean drinking water.</p>
+    </a>
+
+    <a href="/equipment/smart.html" class="equipment-card">
+      <h3>Smart Leak Protection</h3>
+      <p>Real-time monitoring and protection.</p>
+    </a>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <p>(818) 658-2558</p>
+</section>
+
+<footer>
+  AquaRemedy © 2026
+</footer>
 
 </body>
 </html>
