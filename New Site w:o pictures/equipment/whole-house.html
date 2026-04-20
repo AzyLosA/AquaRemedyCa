@@ -144,9 +144,7 @@
       padding:0;
     }
 
-    .hero-copy li{
-      margin-bottom:6px;
-    }
+    .hero-copy li{margin-bottom:6px}
 
     .slider-wrap{
       background:#fff;
@@ -161,18 +159,18 @@
     }
 
     .slides{
-  position:relative;
-  overflow:hidden;
-  border-radius:14px;
-  background:#eef2f7;
-}
+      position:relative;
+      overflow:hidden;
+      border-radius:14px;
+      background:#eef2f7;
+    }
 
     .slide{
-  display:none;
-  width:100%;
-  aspect-ratio:16/10;
-  cursor:zoom-in;
-}
+      display:none;
+      width:100%;
+      aspect-ratio:16/10;
+      cursor:zoom-in;
+    }
 
     .slide.active{
       display:block;
@@ -214,7 +212,6 @@
       justify-content:center;
       gap:8px;
       margin-top:14px;
-      flex-wrap:wrap;
     }
 
     .dot{
@@ -232,16 +229,13 @@
     }
 
     .thumbs{
-      display:flex;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
       gap:10px;
       margin-top:14px;
-      overflow-x:auto;
-      padding-bottom:4px;
-      scroll-behavior:smooth;
     }
 
     .thumb{
-      flex:0 0 110px;
       border:2px solid transparent;
       border-radius:10px;
       overflow:hidden;
@@ -421,11 +415,9 @@
     }
 
     @media(max-width:900px){
-      .hero-split,
-      .grid,
-      .footer-inner{
-        grid-template-columns:1fr;
-      }
+      .hero-split{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .footer-inner{grid-template-columns:1fr}
     }
 
     @media(max-width:780px){
@@ -436,6 +428,7 @@
 </head>
 
 <body>
+
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="logo">Aqua<span>Remedy</span></a>
@@ -463,6 +456,7 @@
   <main>
     <section class="hero">
       <div class="container hero-split">
+
         <div class="hero-copy">
           <h1>Whole House Filtration</h1>
 
@@ -495,16 +489,35 @@
             <button class="arrow prev" aria-label="Previous image">‹</button>
             <button class="arrow next" aria-label="Next image">›</button>
 
-            <div class="slides" id="slides"></div>
-            <div class="dots" id="dots"></div>
-            <div class="thumbs" id="thumbs"></div>
+            <div class="slides">
+              <div class="slide active"><img src="../images/wholehouse1.jpg" alt="Whole house filtration installation 1"></div>
+              <div class="slide"><img src="../images/wholehouse2.jpg" alt="Whole house filtration installation 2"></div>
+              <div class="slide"><img src="../images/wholehouse3.jpg" alt="Whole house filtration installation 3"></div>
+              <div class="slide"><img src="../images/wholehouse4.jpg" alt="Whole house filtration installation 4"></div>
+            </div>
+
+            <div class="dots">
+              <button class="dot active" aria-label="Go to image 1"></button>
+              <button class="dot" aria-label="Go to image 2"></button>
+              <button class="dot" aria-label="Go to image 3"></button>
+              <button class="dot" aria-label="Go to image 4"></button>
+            </div>
+
+            <div class="thumbs">
+              <button class="thumb active"><img src="../images/wholehouse1.jpg" alt="Thumbnail 1"></button>
+              <button class="thumb"><img src="../images/wholehouse2.jpg" alt="Thumbnail 2"></button>
+              <button class="thumb"><img src="../images/wholehouse3.jpg" alt="Thumbnail 3"></button>
+              <button class="thumb"><img src="../images/wholehouse4.jpg" alt="Thumbnail 4"></button>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
 
     <section class="content">
       <div class="container">
+
         <h2>What is whole house filtration?</h2>
 
         <p>
@@ -616,11 +629,11 @@
           <p>
             Book a water test and we’ll explain what is in your water, what this system helps with, and what size setup makes sense for your home.
           </p>
-
           <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee">
             Book Water Test
           </a>
         </div>
+
       </div>
     </section>
   </main>
@@ -651,69 +664,20 @@
 
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
-    <img id="lightboxImage" src="" alt="Enlarged image">
+    <img id="lightboxImage" src="" alt="Enlarged whole house filtration image">
   </div>
 
   <script>
-    const galleryImages = [
-      "../images/wholehouse1.jpg",
-      "../images/wholehouse2.jpg",
-      "../images/wholehouse3.jpg",
-      "../images/wholehouse4.jpg",
-      "../images/wholehouse5.jpg",
-      "../images/wholehouse6.jpg"
-    ];
-
     (function () {
-      const slidesWrap = document.getElementById('slides');
-      const dotsWrap = document.getElementById('dots');
-      const thumbsWrap = document.getElementById('thumbs');
+      const slides = document.querySelectorAll('.slide');
+      const dots = document.querySelectorAll('.dot');
+      const thumbs = document.querySelectorAll('.thumb');
       const prev = document.querySelector('.prev');
       const next = document.querySelector('.next');
       const lightbox = document.getElementById('lightbox');
       const lightboxImage = document.getElementById('lightboxImage');
       const lightboxClose = document.getElementById('lightboxClose');
-
       let current = 0;
-      let slides = [];
-      let thumbs = [];
-      let dots = [];
-
-      function buildGallery() {
-        slidesWrap.innerHTML = '';
-        dotsWrap.innerHTML = '';
-        thumbsWrap.innerHTML = '';
-
-        galleryImages.forEach((src, index) => {
-          const slide = document.createElement('div');
-          slide.className = 'slide' + (index === 0 ? ' active' : '');
-          slide.innerHTML = '<img src="' + src + '" alt="Whole house filtration installation ' + (index + 1) + '">';
-          slidesWrap.appendChild(slide);
-
-          const dot = document.createElement('button');
-          dot.className = 'dot' + (index === 0 ? ' active' : '');
-          dot.setAttribute('aria-label', 'Go to image ' + (index + 1));
-          dot.addEventListener('click', () => showSlide(index));
-          dotsWrap.appendChild(dot);
-
-          const thumb = document.createElement('button');
-          thumb.className = 'thumb' + (index === 0 ? ' active' : '');
-          thumb.innerHTML = '<img src="' + src + '" alt="Thumbnail ' + (index + 1) + '">';
-          thumb.addEventListener('click', () => showSlide(index));
-          thumbsWrap.appendChild(thumb);
-        });
-
-        slides = Array.from(document.querySelectorAll('.slide'));
-        thumbs = Array.from(document.querySelectorAll('.thumb'));
-        dots = Array.from(document.querySelectorAll('.dot'));
-
-        slides.forEach((slide, index) => {
-          slide.addEventListener('click', () => {
-            const img = slide.querySelector('img');
-            openLightbox(img.src, img.alt);
-          });
-        });
-      }
 
       function showSlide(index) {
         if (index < 0) index = slides.length - 1;
@@ -731,14 +695,6 @@
         thumbs.forEach((thumb, i) => {
           thumb.classList.toggle('active', i === current);
         });
-
-        if (thumbs[current]) {
-          thumbs[current].scrollIntoView({
-            behavior: 'smooth',
-            inline: 'center',
-            block: 'nearest'
-          });
-        }
       }
 
       function openLightbox(src, alt) {
@@ -751,11 +707,23 @@
         lightbox.classList.remove('open');
       }
 
-      buildGallery();
-      showSlide(0);
-
       prev.addEventListener('click', () => showSlide(current - 1));
       next.addEventListener('click', () => showSlide(current + 1));
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => showSlide(i));
+      });
+
+      thumbs.forEach((thumb, i) => {
+        thumb.addEventListener('click', () => showSlide(i));
+      });
+
+      slides.forEach((slide) => {
+        slide.addEventListener('click', () => {
+          const img = slide.querySelector('img');
+          openLightbox(img.src, img.alt);
+        });
+      });
 
       lightboxClose.addEventListener('click', closeLightbox);
 
@@ -768,5 +736,6 @@
       });
     })();
   </script>
+
 </body>
 </html>
