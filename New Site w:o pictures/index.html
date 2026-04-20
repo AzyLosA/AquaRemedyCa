@@ -3,752 +3,908 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AquaRemedy | Better Water for Your Home</title>
-  <meta
-    name="description"
-    content="AquaRemedy provides water treatment solutions for homes and businesses, including whole house filtration, water softeners, reverse osmosis drinking systems, leak protection, service, repair, and system upgrades."
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>AquaRemedy | Water Treatment Solutions</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #f7f9fc;
-      --surface: #ffffff;
-      --text: #111827;
-      --muted: #6b7280;
-      --line: #e5e7eb;
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-      --radius: 18px;
-      --max: 1200px;
-      --yelp: #d32323;
-      --thumbtack: #009fd9;
-      --stars: #f59e0b;
+    :root{
+      --bg:#f7f9fc;
+      --surface:#ffffff;
+      --text:#111827;
+      --muted:#4b5563;
+      --line:#e5e7eb;
+      --primary:#2563eb;
+      --primary-dark:#1d4ed8;
+      --shadow:0 10px 30px rgba(0,0,0,0.08);
+      --radius:18px;
+      --max:1120px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
 
-    body {
-      margin: 0;
-      font-family: Inter, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+    body{
+      margin:0;
+      font-family:Inter,sans-serif;
+      background:var(--bg);
+      color:var(--text);
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    img{
+      display:block;
+      max-width:100%;
     }
 
-    img {
-      display: block;
-      max-width: 100%;
+    a{
+      text-decoration:none;
+      color:inherit;
     }
 
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
     }
 
-    .site-header {
-      background: #fff;
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 20;
+    .site-header{
+      background:#fff;
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:100;
     }
 
-    .header-inner {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+    .header-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      min-height:72px;
+      padding:10px 0;
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
+    .logo{
+      font-size:24px;
+      font-weight:800;
+      color:#111;
+      letter-spacing:-0.03em;
+      white-space:nowrap;
     }
 
-    .logo span {
-      color: var(--primary);
+    .logo span{
+      color:var(--primary);
     }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 22px;
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:24px;
     }
 
-    .nav a {
-      font-weight: 600;
-      color: #374151;
-      font-size: 15px;
+    .nav a{
+      color:#374151;
+      font-weight:600;
+      font-size:15px;
     }
 
-    .nav a:hover {
-      color: var(--primary);
+    .nav a:hover{
+      color:var(--primary);
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: 0.2s ease;
-      white-space: nowrap;
+    .dropdown{
+      position:relative;
     }
 
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
+    .dropdown-menu{
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      min-width:250px;
+      box-shadow:var(--shadow);
+      padding:8px 0;
     }
 
-    .btn-primary:hover {
-      background: var(--primary-dark);
+    .dropdown-menu a{
+      display:block;
+      padding:10px 16px;
     }
 
-    .hero {
-      padding: 56px 0 72px;
+    .dropdown:hover .dropdown-menu{
+      display:block;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 36px;
-      align-items: center;
+    .header-right{
+      display:flex;
+      align-items:center;
+      gap:14px;
     }
 
-    .hero-copy h1 {
-      margin: 0 0 16px;
-      font-size: clamp(38px, 5vw, 64px);
-      line-height: 0.98;
-      letter-spacing: -0.04em;
+    .phone-link{
+      font-weight:800;
+      color:#111827;
+      white-space:nowrap;
     }
 
-    .hero-copy p {
-      margin: 0 0 24px;
-      font-size: 18px;
-      color: var(--muted);
-      max-width: 620px;
+    .btn{
+      display:inline-block;
+      background:var(--primary);
+      color:#fff;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:700;
+      white-space:nowrap;
     }
 
-    .hero-image {
-      border-radius: 24px;
-      overflow: hidden;
-      background: #ddd;
-      box-shadow: var(--shadow);
-      aspect-ratio: 16 / 11;
+    .btn:hover{
+      background:var(--primary-dark);
     }
 
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+    .btn.secondary{
+      background:#fff;
+      color:var(--primary);
+      border:1px solid #dbe7ff;
     }
 
-    .section {
-      padding: 72px 0;
+    .hero{
+      padding:72px 0 48px;
     }
 
-    .section h2 {
-      margin: 0 0 10px;
-      font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:32px;
+      align-items:center;
     }
 
-    .section-lead {
-      margin: 0 0 28px;
-      color: var(--muted);
-      font-size: 17px;
-      max-width: 760px;
+    .hero-copy h1{
+      margin:0 0 14px;
+      font-size:52px;
+      line-height:1;
+      letter-spacing:-0.05em;
     }
 
-    .grid {
-      display: grid;
-      gap: 22px;
+    .hero-copy p{
+      margin:0 0 16px;
+      font-size:17px;
+      line-height:1.75;
+      color:var(--muted);
+      max-width:680px;
     }
 
-    .grid-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:20px;
     }
 
-    .grid-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .hero-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      padding:22px;
     }
 
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
+    .hero-image{
+      width:100%;
+      aspect-ratio:16/11;
+      border-radius:16px;
+      overflow:hidden;
+      background:#e5edf9;
     }
 
-    .card-media {
-      width: 100%;
-      aspect-ratio: 8 / 5;
-      overflow: hidden;
-      background: #eef2f7;
-      flex-shrink: 0;
+    .hero-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
     }
 
-    .card-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+    .mini-points{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:16px;
     }
 
-    .card-body {
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      flex: 1;
+    .mini-point{
+      background:#f8fbff;
+      border:1px solid #e2e8f0;
+      border-radius:14px;
+      padding:14px;
     }
 
-    .card h3 {
-      margin: 0;
-      font-size: 22px;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+    .mini-point strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:15px;
     }
 
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
+    .mini-point span{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
     }
 
-    .solution-link {
-      transition: transform 0.18s ease;
-      border-radius: var(--radius);
+    .trust-strip{
+      padding:10px 0 8px;
     }
 
-    .solution-link:hover {
-      transform: translateY(-4px);
+    .trust-box{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:0 4px 18px rgba(0,0,0,0.04);
+      padding:18px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
     }
 
-    .about-box,
-    .contact-box {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: var(--shadow);
+    .trust-left strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:16px;
     }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 24px;
+    .trust-left span{
+      color:var(--muted);
+      font-size:14px;
     }
 
-    .about-mini {
-      background: #f8fafc;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 16px;
+    .trust-badges{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
     }
 
-    .about-mini h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
+    .badge{
+      background:#f8fafc;
+      border:1px solid var(--line);
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:14px;
+      color:#374151;
     }
 
-    .about-mini p {
-      margin: 0;
-      font-size: 14px;
-      color: var(--muted);
+    section.block{
+      padding:62px 0 10px;
     }
 
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-      margin-top: 28px;
+    .section-head{
+      max-width:760px;
+      margin-bottom:24px;
     }
 
-    .review-card {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: var(--shadow);
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:10px;
+      color:var(--primary);
+      font-weight:800;
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
     }
 
-    .review-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
+    .section-head h2{
+      margin:0 0 10px;
+      font-size:36px;
+      line-height:1.08;
+      letter-spacing:-0.04em;
     }
 
-    .review-source {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 800;
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:16px;
     }
 
-    .source-yelp {
-      color: var(--yelp);
+    .cards-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
     }
 
-    .source-thumbtack {
-      color: var(--thumbtack);
+    .cards-4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
     }
 
-    .stars {
-      color: var(--stars);
-      font-weight: 800;
-      font-size: 14px;
+    .card-link,
+    .info-card{
+      display:block;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 4px 18px rgba(0,0,0,0.04);
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
 
-    .review-card p {
-      margin: 0 0 12px;
-      color: #374151;
-      font-size: 15px;
-      line-height: 1.65;
+    .card-link:hover,
+    .info-card:hover{
+      transform:translateY(-3px);
+      box-shadow:var(--shadow);
+      border-color:#d8e3f6;
     }
 
-    .review-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: #111827;
+    .card-media{
+      width:100%;
+      aspect-ratio:16/10;
+      background:#eaf0f7;
+      overflow:hidden;
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 22px;
-      margin-top: 28px;
+    .card-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
     }
 
-    .contact-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 8px;
+    .card-body{
+      padding:18px;
     }
 
-    .contact-item {
-      padding: 14px 16px;
-      background: #f8fafc;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      font-size: 15px;
-      color: #374151;
-      font-weight: 600;
+    .card-body h3{
+      margin:0 0 8px;
+      font-size:20px;
+      line-height:1.15;
+      letter-spacing:-0.02em;
     }
 
-    .site-footer {
-      background: #111827;
-      color: #fff;
-      padding: 36px 16px;
-      margin-top: 24px;
+    .card-body p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:15px;
     }
 
-    .footer-inner {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
+    .about-wrap{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:26px;
+      align-items:start;
     }
 
-    .footer-left strong {
-      display: block;
-      font-size: 18px;
-      margin-bottom: 4px;
+    .about-panel,
+    .about-side{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      box-shadow:0 4px 18px rgba(0,0,0,0.04);
+      padding:24px;
     }
 
-    .footer-left span {
-      color: #d1d5db;
-      font-size: 14px;
+    .about-panel p,
+    .about-side p{
+      color:var(--muted);
+      line-height:1.75;
+      margin:0 0 14px;
+      font-size:16px;
     }
 
-    .footer-right {
-      color: #d1d5db;
-      font-size: 14px;
-      text-align: right;
+    .about-list{
+      margin:12px 0 0 18px;
+      color:var(--muted);
+      line-height:1.75;
+      padding:0;
     }
 
-    @media (max-width: 1100px) {
+    .about-list li{
+      margin-bottom:6px;
+    }
+
+    .reviews-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
+    .review{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:0 4px 18px rgba(0,0,0,0.04);
+      padding:22px;
+    }
+
+    .stars{
+      font-size:18px;
+      letter-spacing:2px;
+      margin-bottom:10px;
+    }
+
+    .review p{
+      margin:0 0 12px;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:15px;
+    }
+
+    .review strong{
+      font-size:14px;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .contact-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:22px;
+      box-shadow:0 4px 18px rgba(0,0,0,0.04);
+    }
+
+    .contact-card h3{
+      margin:0 0 8px;
+      font-size:18px;
+    }
+
+    .contact-card p,
+    .contact-card a{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:15px;
+    }
+
+    .contact-cta{
+      margin-top:22px;
+      background:linear-gradient(135deg,#2563eb,#1d4ed8);
+      color:#fff;
+      border-radius:20px;
+      padding:32px;
+      text-align:center;
+      box-shadow:var(--shadow);
+    }
+
+    .contact-cta h2{
+      margin:0 0 10px;
+      font-size:30px;
+      line-height:1.1;
+      letter-spacing:-0.03em;
+    }
+
+    .contact-cta p{
+      margin:0 0 16px;
+      color:#eaf1ff;
+      line-height:1.75;
+    }
+
+    .site-footer{
+      background:#111827;
+      color:#fff;
+      margin-top:70px;
+    }
+
+    .site-footer .logo{
+      color:#fff;
+    }
+
+    .site-footer .logo span{
+      color:#fff;
+    }
+
+    .footer-inner{
+      display:grid;
+      grid-template-columns:1.2fr .9fr .9fr;
+      gap:20px;
+      padding:40px 0;
+    }
+
+    .footer-col p,
+    .footer-col a{
+      color:#d1d5db;
+      line-height:1.8;
+      font-size:14px;
+    }
+
+    .footer-bottom{
+      text-align:center;
+      padding:16px;
+      border-top:1px solid #374151;
+      color:#9ca3af;
+      font-size:14px;
+    }
+
+    @media(max-width:1000px){
+      .cards-4{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .about-wrap,
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:860px){
+      .cards-3,
+      .reviews-grid,
       .contact-grid,
-      .about-grid,
-      .reviews-grid {
-        grid-template-columns: 1fr;
+      .footer-inner{
+        grid-template-columns:1fr;
+      }
+
+      .header-inner{
+        flex-wrap:wrap;
+        height:auto;
+        padding:12px 0;
+      }
+
+      .nav{
+        display:none;
       }
     }
 
-    @media (max-width: 900px) {
-      .hero-grid,
-      .grid-3,
-      .grid-2 {
-        grid-template-columns: 1fr;
+    @media(max-width:640px){
+      .hero-copy h1{
+        font-size:40px;
       }
 
-      .nav {
-        display: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .container {
-        width: min(var(--max), calc(100% - 20px));
+      .section-head h2{
+        font-size:30px;
       }
 
-      .hero {
-        padding: 32px 0 48px;
+      .header-right{
+        width:100%;
+        justify-content:space-between;
       }
 
-      .section {
-        padding: 52px 0;
-      }
-
-      .hero-copy h1 {
-        font-size: 36px;
-      }
-
-      .card h3 {
-        font-size: 20px;
-      }
-
-      .footer-right {
-        text-align: left;
+      .phone-link{
+        font-size:14px;
       }
     }
   </style>
 </head>
+
 <body>
 
   <header class="site-header">
     <div class="container header-inner">
-      <div class="logo">Aqua<span>Remedy</span></div>
+      <a href="/" class="logo">Aqua<span>Remedy</span></a>
 
       <nav class="nav">
-        <a href="#solutions">Solutions</a>
-        <a href="#reviews">Reviews</a>
+        <a href="#home">Home</a>
+
+        <div class="dropdown">
+          <a href="#solutions">Solutions ▾</a>
+          <div class="dropdown-menu">
+            <a href="/equipment/whole-house.html">Whole House Filtration</a>
+            <a href="/equipment/softener.html">Water Softener</a>
+            <a href="/equipment/ro.html">Drinking Water System</a>
+            <a href="/equipment/smart.html">Smart Leak Protection System</a>
+          </div>
+        </div>
+
+        <a href="#problems">Problems</a>
         <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
         <a href="#contact">Contact</a>
       </nav>
 
-      <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee" class="btn btn-primary">Book Now</a>
+      <div class="header-right">
+        <a href="tel:+18186582558" class="phone-link">(818) 658-2558</a>
+        <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee" class="btn">Book Now</a>
+      </div>
     </div>
   </header>
 
-  <main>
+  <main id="home">
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <h1>Better water for your home without pressure or guesswork</h1>
+          <div class="eyebrow">Water treatment solutions</div>
+          <h1>Solutions designed around your water.</h1>
           <p>
-            We test your water, identify the real problem, and recommend the right solution for your home, your family, and the way you actually use water every day.
+            We help homeowners solve the water problems they actually live with every day — hard water scale, chlorine smell, bad taste, dry skin, rough hair, and leak-related risk.
           </p>
-          <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee" class="btn btn-primary">Book Free Water Test</a>
+          <p>
+            AquaRemedy installs and services whole house filtration, water softeners, drinking water systems, smart leak protection, and custom water treatment setups based on the real conditions in your home.
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee" class="btn">Book Water Test</a>
+            <a href="#solutions" class="btn secondary">Explore Solutions</a>
+          </div>
         </div>
 
-        <div class="hero-image">
-          <img src="images/hero-family.jpg" alt="Family drinking water" />
-        </div>
-      </div>
-    </section>
+        <div class="hero-card">
+          <div class="hero-image">
+            <img src="images/hero-main.jpg" alt="AquaRemedy water treatment service">
+          </div>
 
-    <section class="section">
-      <div class="container">
-        <h2>What homeowners notice first</h2>
-        <p class="section-lead">
-          These are the water problems most people notice in daily life before they know what system they actually need.
-        </p>
-
-        <div class="grid grid-3">
-          <article class="card">
-            <div class="card-media">
-              <img src="images/problem-hard-water.jpg" alt="Hard water and scale" />
+          <div class="mini-points">
+            <div class="mini-point">
+              <strong>Whole-home solutions</strong>
+              <span>Filtration, softening, leak protection, and drinking water systems.</span>
             </div>
-            <div class="card-body">
-              <h3>Hard Water &amp; Scale</h3>
-              <p>White buildup, mineral spots, and damage to fixtures and appliances.</p>
+            <div class="mini-point">
+              <strong>Real water testing</strong>
+              <span>We recommend systems based on actual water conditions, not guesswork.</span>
             </div>
-          </article>
-
-          <article class="card">
-            <div class="card-media">
-              <img src="images/problem-chlorine.jpg" alt="Chlorine smell and bad taste" />
+            <div class="mini-point">
+              <strong>Residential & beyond</strong>
+              <span>Homes, laundry, office spaces, coffee shops, and light commercial setups.</span>
             </div>
-            <div class="card-body">
-              <h3>Chlorine Smell &amp; Bad Taste</h3>
-              <p>Water that smells chemical and tastes unpleasant.</p>
+            <div class="mini-point">
+              <strong>Service & repair</strong>
+              <span>We install, diagnose, maintain, and repair water treatment equipment.</span>
             </div>
-          </article>
-
-          <article class="card">
-            <div class="card-media">
-              <img src="images/problem-hair.jpg" alt="Skin and hair issues" />
-            </div>
-            <div class="card-body">
-              <h3>Skin &amp; Hair Issues</h3>
-              <p>Dry skin, brittle hair, and a shower experience that feels harsh.</p>
-            </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="solutions">
+    <section class="trust-strip">
       <div class="container">
-        <h2>Solutions Designed Around Your Water</h2>
-        <p class="section-lead">
-          We recommend systems based on the actual water problem in your home — not a one-size-fits-all sales script.
-        </p>
+        <div class="trust-box">
+          <div class="trust-left">
+            <strong>Top-rated across major platforms</strong>
+            <span>We’re active on Google, Yelp, and Thumbtack — shown here for trust, while keeping visitors focused on this site first.</span>
+          </div>
 
-        <div class="grid grid-2">
-          <a href="/equipment/whole-house.html" class="solution-link">
-            <article class="card">
-              <div class="card-media">
-                <img src="images/solution-whole-house.jpg" alt="Whole house filtration system" />
-              </div>
-              <div class="card-body">
-                <h3>Whole House Filtration</h3>
-                <p>Cleaner water throughout the home, with solutions designed around chlorine, sediment, odor, and overall water quality.</p>
-              </div>
-            </article>
+          <div class="trust-badges">
+            <div class="badge">Google Reviews</div>
+            <div class="badge">Yelp</div>
+            <div class="badge">Thumbtack</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="problems">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Homeowners notice first</div>
+          <h2>The water problems people usually feel before they know the cause.</h2>
+          <p>
+            These are often the first signs that something in the water needs attention. Each one can point to a different type of issue — and a different type of solution.
+          </p>
+        </div>
+
+        <div class="cards-3">
+          <a class="card-link" href="/equipment/hard-water-scale.html">
+            <div class="card-media">
+              <img src="images/problem-hardwater.jpg" alt="Hard water and scale">
+            </div>
+            <div class="card-body">
+              <h3>Hard Water & Scale</h3>
+              <p>White spots, calcium buildup, cloudy shower glass, soap that does not work well, and long-term wear on plumbing and appliances.</p>
+            </div>
           </a>
 
-          <a href="/equipment/softener.html" class="solution-link">
-            <article class="card">
-              <div class="card-media">
-                <img src="images/solution-softener.jpg" alt="Water softener system" />
-              </div>
-              <div class="card-body">
-                <h3>Water Softener</h3>
-                <p>Reduce hard water problems, protect plumbing, and improve daily comfort for skin, hair, fixtures, and appliances.</p>
-              </div>
-            </article>
+          <a class="card-link" href="/equipment/chlorine-smell-bad-taste.html">
+            <div class="card-media">
+              <img src="images/problem-chlorine.jpg" alt="Chlorine smell and bad taste">
+            </div>
+            <div class="card-body">
+              <h3>Chlorine Smell & Bad Taste</h3>
+              <p>Chemical smell at the tap, pool-like shower odor, unpleasant drinking water, and loss of confidence in what comes out of the faucet.</p>
+            </div>
           </a>
 
-          <a href="/equipment/ro.html" class="solution-link">
-            <article class="card">
-              <div class="card-media">
-                <img src="images/solution-drinking.jpg" alt="Reverse osmosis drinking water system" />
-              </div>
-              <div class="card-body">
-                <h3>Drinking Water System</h3>
-                <p>Cleaner, safer, better-tasting water right at the sink, with reverse osmosis and under-sink drinking water solutions.</p>
-              </div>
-            </article>
-          </a>
-
-          <a href="/equipment/smart.html" class="solution-link">
-            <article class="card">
-              <div class="card-media">
-                <img src="images/solution-smart.jpg" alt="Smart leak protection and monitoring system" />
-              </div>
-              <div class="card-body">
-                <h3>Smart Water System</h3>
-                <p>Smart leak protection, monitoring, alerts, and connected control to help protect the home and keep water systems working together.</p>
-              </div>
-            </article>
+          <a class="card-link" href="/equipment/skin-hair-issues.html">
+            <div class="card-media">
+              <img src="images/problem-skinhair.jpg" alt="Skin and hair issues">
+            </div>
+            <div class="card-body">
+              <h3>Skin & Hair Issues</h3>
+              <p>Dry skin, rough hair, irritation, poor soap rinse, and everyday comfort problems that often trace back to water quality.</p>
+            </div>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="reviews">
+    <section class="block" id="solutions">
       <div class="container">
-        <h2>What clients say</h2>
-        <p class="section-lead">
-          Real customer feedback matters. Here are examples of the kind of experience homeowners appreciate most: clear communication, honest recommendations, clean installs, and reliable follow-up.
-        </p>
+        <div class="section-head">
+          <div class="eyebrow">Solutions designed around your water</div>
+          <h2>Explore the systems we install to solve different water problems in the home.</h2>
+          <p>
+            Each solution is designed for a specific type of water problem. Some homes need one system. Others need a combination, depending on the water source, plumbing layout, and what the homeowner wants to improve.
+          </p>
+        </div>
+
+        <div class="cards-4">
+          <a class="card-link" href="/equipment/whole-house.html">
+            <div class="card-media">
+              <img src="images/solution-wholehouse.jpg" alt="Whole house filtration">
+            </div>
+            <div class="card-body">
+              <h3>Whole House Filtration</h3>
+              <p>Designed to improve water quality throughout the home by reducing chlorine, odor, and other unwanted contaminants before the water reaches showers, sinks, and appliances.</p>
+            </div>
+          </a>
+
+          <a class="card-link" href="/equipment/softener.html">
+            <div class="card-media">
+              <img src="images/solution-softener.jpg" alt="Water softener">
+            </div>
+            <div class="card-body">
+              <h3>Water Softener</h3>
+              <p>Designed to reduce hardness minerals that cause scale buildup, white spots, dry skin, rough hair, and reduced efficiency in plumbing and appliances.</p>
+            </div>
+          </a>
+
+          <a class="card-link" href="/equipment/ro.html">
+            <div class="card-media">
+              <img src="images/solution-drinking.jpg" alt="Drinking water system">
+            </div>
+            <div class="card-body">
+              <h3>Drinking Water System</h3>
+              <p>Focused on the water you drink and cook with every day, using advanced filtration to improve taste and reduce dissolved contaminants.</p>
+            </div>
+          </a>
+
+          <a class="card-link" href="/equipment/smart.html">
+            <div class="card-media">
+              <img src="images/solution-smart.jpg" alt="Smart leak protection system">
+            </div>
+            <div class="card-body">
+              <h3>Smart Leak Protection System</h3>
+              <p>Helps homeowners detect water issues earlier, monitor system activity, and reduce risk from preventable leak-related damage.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">About AquaRemedy</div>
+          <h2>Water treatment built around real homes, real systems, and real service.</h2>
+        </div>
+
+        <div class="about-wrap">
+          <div class="about-panel">
+            <p>
+              AquaRemedy is a water treatment company focused on solving real water problems with the right combination of testing, system design, installation, service, and repair.
+            </p>
+            <p>
+              We work with homeowners who are dealing with hard water, chlorine smell, bad taste, scale buildup, dry skin, rough hair, underperforming systems, or water equipment that needs professional attention.
+            </p>
+            <p>
+              We install and service a wide range of water treatment systems — including water softeners, backwashing filtration, drinking water systems, leak protection, and custom setups designed around the property.
+            </p>
+            <p>
+              We are familiar with equipment from brands such as US Water Systems, Chandler Systems, and other major water treatment manufacturers, but our approach is not tied to one brand only. We work on many types of systems and can help homeowners understand what actually fits their house and water conditions.
+            </p>
+          </div>
+
+          <div class="about-side">
+            <p><strong>What we do:</strong></p>
+            <ul class="about-list">
+              <li>whole house water treatment design and installation</li>
+              <li>water softener installation, service, and troubleshooting</li>
+              <li>drinking water and reverse osmosis systems</li>
+              <li>smart leak protection and monitoring</li>
+              <li>repair and maintenance of existing equipment</li>
+              <li>solutions for homes, laundry, offices, coffee shops, and light commercial use</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">What clients say</div>
+          <h2>Trusted by homeowners who wanted clear answers and working solutions.</h2>
+        </div>
 
         <div class="reviews-grid">
-          <div class="review-card">
-            <div class="review-top">
-              <div class="review-source source-yelp">Yelp</div>
-              <div class="stars">★★★★★</div>
-            </div>
-            <p>Very professional from beginning to end. They explained what was actually happening with our water instead of trying to sell the most expensive system right away. The installation was clean, the communication was great, and everything was done exactly when they said it would be.</p>
-            <div class="review-name">Julie M.</div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>We had heavy white scale all over the shower glass and faucets. AquaRemedy explained the problem clearly, tested the water, and recommended the right setup for our home. The difference after installation was obvious almost immediately.</p>
+            <strong>Homeowner • Los Angeles</strong>
           </div>
 
-          <div class="review-card">
-            <div class="review-top">
-              <div class="review-source source-thumbtack">Thumbtack</div>
-              <div class="stars">★★★★★</div>
-            </div>
-            <p>Showed up on time, tested the water, explained each option clearly, and helped us choose the right setup for the house. I appreciated that they focused on what we needed instead of pushing unnecessary upgrades.</p>
-            <div class="review-name">Brandon L.</div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>Our tap water had a strong chlorine smell and we had stopped drinking it completely. They helped us understand what was happening and installed a system that made the water much better for both the whole house and the kitchen sink.</p>
+            <strong>Homeowner • Burbank</strong>
           </div>
 
-          <div class="review-card">
-            <div class="review-top">
-              <div class="review-source source-yelp">Yelp</div>
-              <div class="stars">★★★★★</div>
-            </div>
-            <p>We had scale, dry skin, and bad tasting water for a long time. AquaRemedy gave us a real explanation, installed the system cleanly, and followed up afterward to make sure everything was working correctly. That level of service is hard to find.</p>
-            <div class="review-name">Suzanne M.</div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>Very professional, very straightforward, and no pressure. They explained the difference between filtration and softening in a way that finally made sense. The work was clean and the system looked great after installation.</p>
+            <strong>Homeowner • Glendale</strong>
           </div>
 
-          <div class="review-card">
-            <div class="review-top">
-              <div class="review-source source-thumbtack">Thumbtack</div>
-              <div class="stars">★★★★★</div>
-            </div>
-            <p>The entire process felt honest and straightforward. They were patient with questions, transparent about what each system does, and very careful with the actual installation. The water feels noticeably better now.</p>
-            <div class="review-name">Ariel T.</div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>We originally only wanted better drinking water, but after the consultation we realized our whole house water had issues too. Their recommendation was practical and matched what we were actually experiencing in the house.</p>
+            <strong>Homeowner • Pasadena</strong>
           </div>
 
-          <div class="review-card">
-            <div class="review-top">
-              <div class="review-source source-yelp">Yelp</div>
-              <div class="stars">★★★★★</div>
-            </div>
-            <p>I liked that they didn’t come in with a canned sales pitch. They looked at our plumbing layout, talked through the problems we were actually having, and made recommendations that made sense for our house and our budget.</p>
-            <div class="review-name">Don R.</div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>My skin felt dry after every shower and the shower door was impossible to keep clean. AquaRemedy identified the hard water issue right away and gave us a real solution instead of a generic sales pitch.</p>
+            <strong>Homeowner • North Hollywood</strong>
           </div>
 
-          <div class="review-card">
-            <div class="review-top">
-              <div class="review-source source-thumbtack">Thumbtack</div>
-              <div class="stars">★★★★★</div>
-            </div>
-            <p>The install looked professional and organized, not rushed. They explained maintenance, answered follow-up questions, and made sure we understood how the system works before they left. That gave us a lot of confidence.</p>
-            <div class="review-name">Chris P.</div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-top">
-              <div class="review-source source-yelp">Yelp</div>
-              <div class="stars">★★★★★</div>
-            </div>
-            <p>We were comparing multiple companies, and AquaRemedy stood out because they actually listened. The work was neat, the communication was professional, and the results were immediate. The difference in water quality was obvious.</p>
-            <div class="review-name">Gaurav S.</div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-top">
-              <div class="review-source source-thumbtack">Thumbtack</div>
-              <div class="stars">★★★★★</div>
-            </div>
-            <p>I appreciated how clearly they explained the purpose of each part of the system. Instead of confusing us with jargon, they made everything simple and practical. The install was efficient and the final result feels premium.</p>
-            <div class="review-name">Megan C.</div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-top">
-              <div class="review-source source-yelp">Yelp</div>
-              <div class="stars">★★★★★</div>
-            </div>
-            <p>Very responsive and easy to work with. They helped diagnose the issue correctly, proposed a solution that fit our situation, and did exactly what they promised. It felt like working with people who actually care about doing the job right.</p>
-            <div class="review-name">David H.</div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-top">
-              <div class="review-source source-thumbtack">Thumbtack</div>
-              <div class="stars">★★★★★</div>
-            </div>
-            <p>Excellent experience overall. They were professional, respectful of the house, and very detail-oriented. The system works great, the water tastes better, and even the shower feels different now. I would absolutely recommend them.</p>
-            <div class="review-name">Laura K.</div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>Excellent service. They answered questions, showed up on time, and explained what each part of the system does. The water tastes better, the house water feels better, and everything was handled professionally.</p>
+            <strong>Homeowner • Studio City</strong>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="about">
+    <section class="block" id="contact">
       <div class="container">
-        <div class="about-box">
-          <h2>About AquaRemedy</h2>
-          <p class="section-lead">
-            AquaRemedy is a water treatment company focused on real solutions for real water problems. We install, service, repair, and upgrade water treatment equipment for homes and businesses, and we do not limit ourselves to one single brand or one standard setup.
-          </p>
-
-          <div class="about-grid">
-            <div class="about-mini">
-              <h3>Residential Solutions</h3>
-              <p>Whole house filtration, water softeners, reverse osmosis drinking systems, leak protection, troubleshooting, and system upgrades for homeowners.</p>
-            </div>
-
-            <div class="about-mini">
-              <h3>Commercial & Specialty</h3>
-              <p>Water treatment support for laundry applications, commercial spaces, coffee shops, and other businesses that depend on consistent water quality.</p>
-            </div>
-
-            <div class="about-mini">
-              <h3>Service & Repair</h3>
-              <p>We work not only on new installations, but also on repairs, diagnostics, maintenance, and improving systems that are already in place.</p>
-            </div>
-
-            <div class="about-mini">
-              <h3>Brand Flexibility</h3>
-              <p>We work with trusted partners and manufacturers, including brands such as US Water Systems and Chandler Systems, while staying focused on the solution that actually fits the job.</p>
-            </div>
-          </div>
+        <div class="section-head">
+          <div class="eyebrow">Contact</div>
+          <h2>Book a water test or talk through the problem you’re seeing at home.</h2>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container">
-        <h2>Contact</h2>
-        <p class="section-lead">
-          Reach out to AquaRemedy for service, installation, repair, upgrades, or a water test consultation.
-        </p>
 
         <div class="contact-grid">
-          <div class="contact-box">
-            <h3 style="margin-top:0;">Office Information</h3>
-            <div class="contact-list">
-              <div class="contact-item">Phone: (818) 658-2558</div>
-              <div class="contact-item">Online booking available</div>
-              <div class="contact-item">Serving residential and commercial water treatment needs</div>
-              <div class="contact-item">Service, repair, installation, upgrades, and diagnostics</div>
-            </div>
+          <div class="contact-card">
+            <h3>Phone</h3>
+            <p><a href="tel:+18186582558">(818) 658-2558</a></p>
           </div>
 
-          <div class="contact-box">
-            <h3 style="margin-top:0;">Book a Consultation</h3>
-            <p style="color:var(--muted);margin-top:0;">
-              Start with a water test or consultation and we’ll help you determine what system actually makes sense for your situation.
-            </p>
-            <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee" class="btn btn-primary">Book Now</a>
+          <div class="contact-card">
+            <h3>Service Area</h3>
+            <p>Los Angeles, CA and surrounding areas</p>
           </div>
+
+          <div class="contact-card">
+            <h3>Scheduling</h3>
+            <p>Water testing, consultations, installations, service, and repair</p>
+          </div>
+        </div>
+
+        <div class="contact-cta">
+          <h2>Ready to solve the water problem, not just guess at it?</h2>
+          <p>
+            Book a visit and we’ll help identify what is going on in your water, what system fits your home, and what the next step should be.
+          </p>
+          <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee" class="btn secondary">Book Now</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-left">
-        <strong>AquaRemedy</strong>
-        <span>Water treatment solutions for homes and businesses.</span>
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <div class="logo">Aqua<span>Remedy</span></div>
+        <p>Water treatment solutions for real water problems.</p>
       </div>
 
-      <div class="footer-right">
-        (818) 658-2558<br>
-        All rights reserved.
+      <div class="footer-col">
+        <p>(818) 658-2558</p>
+        <p>Los Angeles, CA</p>
       </div>
+
+      <div class="footer-col">
+        <a href="/equipment/whole-house.html">Whole House Filtration</a><br>
+        <a href="/equipment/softener.html">Water Softener</a><br>
+        <a href="/equipment/ro.html">Drinking Water System</a><br>
+        <a href="/equipment/smart.html">Smart Leak Protection</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © AquaRemedy
     </div>
   </footer>
 
