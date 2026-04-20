@@ -152,6 +152,9 @@
       border-radius:16px;
       padding:14px;
       box-shadow:var(--shadow);
+      max-width:520px;
+      width:100%;
+      justify-self:end;
     }
 
     .slider{
@@ -212,6 +215,7 @@
       justify-content:center;
       gap:8px;
       margin-top:14px;
+      flex-wrap:wrap;
     }
 
     .dot{
@@ -301,7 +305,7 @@
     }
 
     .cta{
-      background:linear-gradient(135deg, #2563eb, #1d4ed8);
+      background:linear-gradient(135deg,#2563eb,#1d4ed8);
       color:#fff;
       padding:40px;
       border-radius:18px;
@@ -338,6 +342,14 @@
       background:#111827;
       color:#fff;
       margin-top:60px;
+    }
+
+    .site-footer .logo{
+      color:#fff;
+    }
+
+    .site-footer .logo span{
+      color:#fff;
     }
 
     .footer-inner{
@@ -407,14 +419,26 @@
     }
 
     @media(max-width:900px){
-      .hero-split{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      .footer-inner{grid-template-columns:1fr}
+      .hero-split,
+      .grid,
+      .footer-inner{
+        grid-template-columns:1fr;
+      }
+
+      .slider-wrap{
+        max-width:none;
+        justify-self:stretch;
+      }
     }
 
     @media(max-width:780px){
-      .nav{display:none}
-      .hero-copy h1{font-size:34px}
+      .nav{
+        display:none;
+      }
+
+      .hero-copy h1{
+        font-size:34px;
+      }
     }
   </style>
 </head>
@@ -517,7 +541,7 @@
         </p>
 
         <p>
-          Instead of finding out about a leak after the floor is wet or the bill is unusually high, the system is designed to help you notice problems much earlier.
+          Instead of finding out about a leak after the floor is wet or the water bill is unexpectedly high, the system is designed to help you notice problems much earlier.
         </p>
 
         <h2>What problems does it help solve?</h2>
@@ -535,7 +559,7 @@
 
           <div class="card">
             <strong>Unknown water usage</strong>
-            <p>Homeowners can see unusual water activity instead of guessing why usage is high.</p>
+            <p>Homeowners can see unusual water activity instead of guessing why water usage is high.</p>
           </div>
 
           <div class="card">
@@ -549,7 +573,7 @@
         <div class="grid">
           <div class="card">
             <strong>Leak detection</strong>
-            <p>Helps detect water where it should not be.</p>
+            <p>Helps detect water where it should not be and alerts you before the issue gets worse.</p>
           </div>
 
           <div class="card">
@@ -559,12 +583,12 @@
 
           <div class="card">
             <strong>Monitoring and alerts</strong>
-            <p>Helps notify the homeowner about unusual water behavior and system conditions.</p>
+            <p>Helps notify the homeowner about unusual water behavior and system conditions in real time.</p>
           </div>
 
           <div class="card">
             <strong>System awareness</strong>
-            <p>Gives you a better understanding of what is happening with your home’s water system in real time.</p>
+            <p>Gives you a better understanding of what is happening with your home’s water system day to day.</p>
           </div>
         </div>
 
@@ -708,7 +732,7 @@
 
       function openLightbox(src, alt) {
         lightboxImage.src = src;
-        lightboxImage.alt = alt || 'Enlarged smart leak protection image';
+        lightboxImage.alt = alt || 'Enlarged image';
         lightbox.classList.add('open');
       }
 
