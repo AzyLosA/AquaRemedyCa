@@ -1,1 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whole House Filtration | AquaRemedy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
+  <style>
+    :root{
+      --bg:#f7f9fc;
+      --surface:#ffffff;
+      --text:#111827;
+      --muted:#4b5563;
+      --line:#e5e7eb;
+      --primary:#2563eb;
+      --primary-dark:#1d4ed8;
+      --shadow:0 10px 30px rgba(0,0,0,0.08);
+      --radius:18px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:Inter,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .site-header{
+      background:#fff;
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+
+    .header-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      height:70px;
+      gap:16px;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:800;
+      text-decoration:none;
+      color:#111;
+    }
+
+    .logo span{color:var(--primary)}
+
+    .nav{
+      display:flex;
+      gap:24px;
+      align-items:center;
+    }
+
+    .nav a{
+      text-decoration:none;
+      color:#374151;
+      font-weight:600;
+    }
+
+    .dropdown{position:relative}
+
+    .dropdown-menu{
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      min-width:220px;
+      box-shadow:var(--shadow);
+      padding:8px 0;
+    }
+
+    .dropdown-menu a{
+      display:block;
+      padding:10px 16px;
+    }
+
+    .dropdown:hover .dropdown-menu{
+      display:block;
+    }
+
+    .btn{
+      background:var(--primary);
+      color:#fff;
+      padding:10px 18px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      white-space:nowrap;
+    }
+
+    .btn:hover{
+      background:var(--primary-dark);
+    }
+
+    .hero{
+      padding:56px 0 28px;
+    }
+
+    .hero-split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:32px;
+      align-items:start;
+    }
+
+    .hero-copy h1{
+      font-size:42px;
+      margin:0 0 10px;
+      line-height:1;
+      letter-spacing:-0.04em;
+    }
+
+    .hero-copy p{
+      color:var(--muted);
+      line-height:1.7;
+      margin:0 0 16px;
+      font-size:16px;
+    }
+
+    .hero-copy ul{
+      margin:0 0 18px 18px;
+      color:var(--muted);
+      line-height:1.7;
+      padding:0;
+    }
+
+    .hero-copy li{margin-bottom:6px}
+
+    .slider-wrap{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      box-shadow:var(--shadow);
+    }
+
+    .slider{
+      position:relative;
+    }
+
+    .slides{
+      position:relative;
+      overflow:hidden;
+      border-radius:14px;
+      background:#eef2f7;
+    }
+
+    .slide{
+      display:none;
+      width:100%;
+      aspect-ratio:16/10;
+    }
+
+    .slide.active{
+      display:block;
+    }
+
+    .slide img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:999px;
+      background:rgba(17,24,39,0.72);
+      color:#fff;
+      font-size:24px;
+      cursor:pointer;
+      z-index:2;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .arrow:hover{
+      background:rgba(17,24,39,0.9);
+    }
+
+    .arrow.prev{left:12px}
+    .arrow.next{right:12px}
+
+    .dots{
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      margin-top:14px;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      border:none;
+      background:#cbd5e1;
+      cursor:pointer;
+      padding:0;
+    }
+
+    .dot.active{
+      background:var(--primary);
+    }
+
+    .thumbs{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .thumb{
+      border:2px solid transparent;
+      border-radius:10px;
+      overflow:hidden;
+      cursor:pointer;
+      background:#eef2f7;
+      padding:0;
+    }
+
+    .thumb.active{
+      border-color:var(--primary);
+    }
+
+    .thumb img{
+      width:100%;
+      aspect-ratio:16/10;
+      object-fit:cover;
+    }
+
+    .content{
+      padding:10px 0 0;
+    }
+
+    h2{
+      margin:48px 0 12px;
+      font-size:30px;
+      line-height:1.1;
+      letter-spacing:-0.03em;
+    }
+
+    p{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:16px;
+      margin:0 0 16px;
+    }
+
+    ul{
+      color:var(--muted);
+      line-height:1.7;
+      margin:0 0 16px 18px;
+      padding:0;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+      margin-top:20px;
+    }
+
+    .card{
+      background:#fff;
+      padding:20px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      box-shadow:0 4px 18px rgba(0,0,0,0.04);
+    }
+
+    .card strong{
+      display:block;
+      margin-bottom:8px;
+      color:#111827;
+    }
+
+    .cta{
+      background:linear-gradient(135deg, #2563eb, #1d4ed8);
+      color:#fff;
+      padding:40px;
+      border-radius:18px;
+      margin-top:60px;
+      text-align:center;
+      box-shadow:var(--shadow);
+    }
+
+    .cta h2{
+      margin:0 0 10px;
+      color:#fff;
+    }
+
+    .cta p{
+      color:#eaf1ff;
+      margin:0 0 18px;
+    }
+
+    .cta a{
+      background:#fff;
+      color:var(--primary);
+      padding:12px 20px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      display:inline-block;
+    }
+
+    .cta a:hover{
+      background:#f8fafc;
+    }
+
+    .site-footer{
+      background:#111827;
+      color:#fff;
+      margin-top:60px;
+    }
+
+    .footer-inner{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      padding:40px 0;
+    }
+
+    .footer-col p,
+    .footer-col a{
+      color:#d1d5db;
+      text-decoration:none;
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    .footer-bottom{
+      text-align:center;
+      padding:16px;
+      border-top:1px solid #374151;
+      color:#9ca3af;
+      font-size:14px;
+    }
+
+    @media(max-width:900px){
+      .hero-split{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .footer-inner{grid-template-columns:1fr}
+    }
+
+    @media(max-width:780px){
+      .nav{display:none}
+      .hero-copy h1{font-size:34px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">Aqua<span>Remedy</span></a>
+
+      <nav class="nav">
+        <a href="/">Home</a>
+
+        <div class="dropdown">
+          <a href="#">Solutions ▾</a>
+          <div class="dropdown-menu">
+            <a href="/equipment/whole-house.html">Whole House Filtration</a>
+            <a href="/equipment/softener.html">Water Softener</a>
+            <a href="/equipment/ro.html">Drinking Water System</a>
+            <a href="/equipment/smart.html">Smart Water System</a>
+          </div>
+        </div>
+
+        <a href="/#contact">Contact</a>
+      </nav>
+
+      <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee" class="btn">Book Now</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-split">
+
+        <div class="hero-copy">
+          <h1>Whole House Filtration</h1>
+
+          <p>
+            Whole house filtration is designed to treat the water entering your home before it reaches your showers, faucets, laundry, kitchen, and appliances.
+          </p>
+
+          <p>
+            Instead of improving water at only one sink, this type of system improves water quality throughout the entire house.
+          </p>
+
+          <p>
+            Homeowners usually start looking at whole house filtration when they notice:
+          </p>
+
+          <ul>
+            <li>strong chlorine smell in showers or sinks</li>
+            <li>bad taste or odor in tap water</li>
+            <li>skin and hair irritation after showering</li>
+            <li>concerns about chemical exposure in daily water use</li>
+          </ul>
+
+          <p>
+            In many city water areas, disinfectants like chlorine or chloramine are added to the water supply. A whole house filtration system is one of the main ways homeowners reduce those unwanted effects.
+          </p>
+        </div>
+
+        <div class="slider-wrap">
+          <div class="slider">
+            <button class="arrow prev" aria-label="Previous image">‹</button>
+            <button class="arrow next" aria-label="Next image">›</button>
+
+            <div class="slides">
+              <div class="slide active"><img src="../images/wholehouse1.jpg" alt="Whole house filtration installation 1"></div>
+              <div class="slide"><img src="../images/wholehouse2.jpg" alt="Whole house filtration installation 2"></div>
+              <div class="slide"><img src="../images/wholehouse3.jpg" alt="Whole house filtration installation 3"></div>
+              <div class="slide"><img src="../images/wholehouse4.jpg" alt="Whole house filtration installation 4"></div>
+            </div>
+
+            <div class="dots">
+              <button class="dot active" aria-label="Go to image 1"></button>
+              <button class="dot" aria-label="Go to image 2"></button>
+              <button class="dot" aria-label="Go to image 3"></button>
+              <button class="dot" aria-label="Go to image 4"></button>
+            </div>
+
+            <div class="thumbs">
+              <button class="thumb active"><img src="../images/wholehouse1.jpg" alt="Thumbnail 1"></button>
+              <button class="thumb"><img src="../images/wholehouse2.jpg" alt="Thumbnail 2"></button>
+              <button class="thumb"><img src="../images/wholehouse3.jpg" alt="Thumbnail 3"></button>
+              <button class="thumb"><img src="../images/wholehouse4.jpg" alt="Thumbnail 4"></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+
+        <h2>What is whole house filtration?</h2>
+
+        <p>
+          A whole house filtration system is installed on the main incoming water line. That means the water is treated before it spreads through the rest of the home.
+        </p>
+
+        <p>
+          So if someone in the home takes a shower, washes hands, does laundry, or uses kitchen water, they are using filtered water instead of untreated water directly from the city supply.
+        </p>
+
+        <h2>Why do homeowners install it?</h2>
+
+        <div class="grid">
+          <div class="card">
+            <strong>Chlorine smell in the shower</strong>
+            <p>One of the most common complaints is that shower water smells like pool water or chemicals.</p>
+          </div>
+
+          <div class="card">
+            <strong>Skin and hair irritation</strong>
+            <p>Many homeowners feel that filtered water is more comfortable for everyday bathing.</p>
+          </div>
+
+          <div class="card">
+            <strong>Bad taste and odor</strong>
+            <p>Whole house filtration can improve the smell and taste of the water used around the home.</p>
+          </div>
+
+          <div class="card">
+            <strong>General concern about contaminants</strong>
+            <p>Some homeowners simply want cleaner water throughout the house, not just at one faucet.</p>
+          </div>
+        </div>
+
+        <h2>What does catalytic carbon help reduce?</h2>
+
+        <p>
+          Catalytic carbon is a high-performance media commonly used in whole house filtration systems. It is especially useful when homeowners want to reduce chlorine, chloramine, and chemical odors.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <strong>Common reductions</strong>
+            <p>• Chlorine</p>
+            <p>• Chloramine</p>
+            <p>• Chemical taste and odor</p>
+            <p>• VOCs</p>
+          </div>
+
+          <div class="card">
+            <strong>Additional concerns</strong>
+            <p>• Disinfection byproducts</p>
+            <p>• Organic contaminants</p>
+            <p>• Some pesticides and herbicides in trace conditions</p>
+            <p>• General whole-home water quality concerns</p>
+          </div>
+        </div>
+
+        <h2>How does it work?</h2>
+
+        <p>
+          Water enters the filtration tank and passes through the media inside the system. As the water flows through, the media helps reduce unwanted contaminants before the water reaches the rest of the house.
+        </p>
+
+        <p>
+          In backwashing systems, the unit periodically cleans itself by flushing out trapped material. This helps maintain system performance over time.
+        </p>
+
+        <h2>Where is it installed?</h2>
+
+        <p>
+          A whole house filtration system is normally installed near the main water entry point into the home. The goal is to treat the water before it goes to the rest of the plumbing system.
+        </p>
+
+        <p>
+          Depending on the setup, installation may involve:
+        </p>
+
+        <ul>
+          <li>main line plumbing connection</li>
+          <li>appropriate pipe size matching the home</li>
+          <li>drain access for backwashing systems</li>
+          <li>enough space for the tank and service access</li>
+        </ul>
+
+        <h2>Every home is different</h2>
+
+        <p>
+          Whole house filtration systems come in different sizes and configurations depending on the needs of the property.
+        </p>
+
+        <p>
+          The right setup depends on:
+        </p>
+
+        <ul>
+          <li>the contaminants in the water</li>
+          <li>how much water the home uses</li>
+          <li>the size of the house</li>
+          <li>pipe diameter and plumbing layout</li>
+        </ul>
+
+        <p>
+          That is why a water test and on-site evaluation are important before pricing the system. It helps determine the correct equipment size, installation approach, and final estimate.
+        </p>
+
+        <div class="cta">
+          <h2>Want to know if you need whole house filtration?</h2>
+          <p>
+            Book a water test and we’ll explain what is in your water, what this system helps with, and what size setup makes sense for your home.
+          </p>
+          <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee">
+            Book Water Test
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <div class="logo">Aqua<span>Remedy</span></div>
+        <p>Water treatment solutions</p>
+      </div>
+
+      <div class="footer-col">
+        <p>(818) 658-2558</p>
+        <p>Los Angeles, CA</p>
+      </div>
+
+      <div class="footer-col">
+        <a href="/equipment/softener.html">Softener</a><br>
+        <a href="/equipment/ro.html">RO</a><br>
+        <a href="/equipment/smart.html">Smart System</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © AquaRemedy
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const slides = document.querySelectorAll('.slide');
+      const dots = document.querySelectorAll('.dot');
+      const thumbs = document.querySelectorAll('.thumb');
+      const prev = document.querySelector('.prev');
+      const next = document.querySelector('.next');
+      let current = 0;
+
+      function showSlide(index) {
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        current = index;
+
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === current);
+        });
+
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === current);
+        });
+
+        thumbs.forEach((thumb, i) => {
+          thumb.classList.toggle('active', i === current);
+        });
+      }
+
+      prev.addEventListener('click', () => showSlide(current - 1));
+      next.addEventListener('click', () => showSlide(current + 1));
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => showSlide(i));
+      });
+
+      thumbs.forEach((thumb, i) => {
+        thumb.addEventListener('click', () => showSlide(i));
+      });
+    })();
+  </script>
+
+</body>
+</html>
