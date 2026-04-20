@@ -16,7 +16,6 @@
       --primary:#2563eb;
       --primary-dark:#1d4ed8;
       --shadow:0 10px 30px rgba(0,0,0,0.08);
-      --radius:18px;
       --max:1100px;
     }
 
@@ -49,7 +48,7 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      height:70px;
+      height:72px;
       gap:16px;
     }
 
@@ -58,9 +57,12 @@
       font-weight:800;
       text-decoration:none;
       color:#111;
+      letter-spacing:-0.03em;
     }
 
-    .logo span{color:var(--primary)}
+    .logo span{
+      color:var(--primary);
+    }
 
     .nav{
       display:flex;
@@ -69,12 +71,18 @@
     }
 
     .nav a{
-      text-decoration:none;
       color:#374151;
       font-weight:600;
+      font-size:15px;
     }
 
-    .dropdown{position:relative}
+    .nav a:hover{
+      color:var(--primary);
+    }
+
+    .dropdown{
+      position:relative;
+    }
 
     .dropdown-menu{
       display:none;
@@ -84,7 +92,7 @@
       background:#fff;
       border:1px solid var(--line);
       border-radius:12px;
-      min-width:220px;
+      min-width:240px;
       box-shadow:var(--shadow);
       padding:8px 0;
     }
@@ -103,7 +111,6 @@
       color:#fff;
       padding:10px 18px;
       border-radius:999px;
-      text-decoration:none;
       font-weight:700;
       white-space:nowrap;
     }
@@ -144,7 +151,9 @@
       padding:0;
     }
 
-    .hero-copy li{margin-bottom:6px}
+    .hero-copy li{
+      margin-bottom:6px;
+    }
 
     .slider-wrap{
       background:#fff;
@@ -169,6 +178,7 @@
       display:none;
       width:100%;
       aspect-ratio:16/10;
+      cursor:zoom-in;
     }
 
     .slide.active{
@@ -211,6 +221,7 @@
       justify-content:center;
       gap:8px;
       margin-top:14px;
+      flex-wrap:wrap;
     }
 
     .dot{
@@ -228,13 +239,16 @@
     }
 
     .thumbs{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
+      display:flex;
       gap:10px;
       margin-top:14px;
+      overflow-x:auto;
+      padding-bottom:4px;
+      scroll-behavior:smooth;
     }
 
     .thumb{
+      flex:0 0 110px;
       border:2px solid transparent;
       border-radius:10px;
       overflow:hidden;
@@ -300,7 +314,7 @@
     }
 
     .cta{
-      background:linear-gradient(135deg, #2563eb, #1d4ed8);
+      background:linear-gradient(135deg,#2563eb,#1d4ed8);
       color:#fff;
       padding:40px;
       border-radius:18px;
@@ -324,7 +338,6 @@
       color:var(--primary);
       padding:12px 20px;
       border-radius:999px;
-      text-decoration:none;
       font-weight:700;
       display:inline-block;
     }
@@ -339,6 +352,14 @@
       margin-top:60px;
     }
 
+    .site-footer .logo{
+      color:#fff;
+    }
+
+    .site-footer .logo span{
+      color:#fff;
+    }
+
     .footer-inner{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -349,7 +370,6 @@
     .footer-col p,
     .footer-col a{
       color:#d1d5db;
-      text-decoration:none;
       line-height:1.7;
       font-size:14px;
     }
@@ -362,21 +382,70 @@
       font-size:14px;
     }
 
+    .lightbox{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.9);
+      z-index:9999;
+      align-items:center;
+      justify-content:center;
+      padding:30px;
+    }
+
+    .lightbox.open{
+      display:flex;
+    }
+
+    .lightbox img{
+      max-width:95vw;
+      max-height:85vh;
+      border-radius:12px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.45);
+    }
+
+    .lightbox-close{
+      position:absolute;
+      top:18px;
+      right:22px;
+      width:44px;
+      height:44px;
+      border:none;
+      border-radius:999px;
+      background:rgba(255,255,255,0.15);
+      color:#fff;
+      font-size:28px;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .lightbox-close:hover{
+      background:rgba(255,255,255,0.28);
+    }
+
     @media(max-width:900px){
-      .hero-split{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      .footer-inner{grid-template-columns:1fr}
+      .hero-split,
+      .grid,
+      .footer-inner{
+        grid-template-columns:1fr;
+      }
     }
 
     @media(max-width:780px){
-      .nav{display:none}
-      .hero-copy h1{font-size:34px}
+      .nav{
+        display:none;
+      }
+
+      .hero-copy h1{
+        font-size:34px;
+      }
     }
   </style>
 </head>
 
 <body>
-
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="logo">Aqua<span>Remedy</span></a>
@@ -390,7 +459,7 @@
             <a href="/equipment/whole-house.html">Whole House Filtration</a>
             <a href="/equipment/softener.html">Water Softener</a>
             <a href="/equipment/ro.html">Drinking Water System</a>
-            <a href="/equipment/smart.html">Smart Water System</a>
+            <a href="/equipment/smart.html">Smart Leak Protection System</a>
           </div>
         </div>
 
@@ -404,31 +473,30 @@
   <main>
     <section class="hero">
       <div class="container hero-split">
-
         <div class="hero-copy">
           <h1>Drinking Water System</h1>
 
           <p>
-            A drinking water system is designed to give you cleaner, safer, and better-tasting water right at the sink.
+            A drinking water system is designed to give you clean, better-tasting water directly at the sink for drinking, cooking, coffee, tea, and everyday use.
           </p>
 
           <p>
-            Unlike whole house systems, this type of filtration is focused on the water you actually drink and cook with every day.
+            Unlike whole house filtration, which treats water for showers and general household use, this system focuses specifically on the water you consume.
           </p>
 
           <p>
-            Homeowners usually start looking at this kind of system when they notice:
+            Homeowners usually start looking at a drinking water system when they notice:
           </p>
 
           <ul>
             <li>bad taste or smell in tap water</li>
-            <li>concerns about TDS or dissolved contaminants</li>
+            <li>high TDS or concern about dissolved contaminants</li>
             <li>buying too much bottled water</li>
-            <li>wanting cleaner water for drinking, coffee, tea, and cooking</li>
+            <li>wanting cleaner water for drinking and cooking</li>
           </ul>
 
           <p>
-            A tankless reverse osmosis system is one of the most popular solutions because it gives high-quality water without taking up as much under-sink space as older tank-style systems.
+            A tankless reverse osmosis system is one of the most popular options because it provides high-quality purified water in a compact and modern under-sink setup.
           </p>
         </div>
 
@@ -442,38 +510,35 @@
               <div class="slide"><img src="../images/ro2.jpg" alt="Drinking water system installation 2"></div>
               <div class="slide"><img src="../images/ro3.jpg" alt="Drinking water system installation 3"></div>
               <div class="slide"><img src="../images/ro4.jpg" alt="Drinking water system installation 4"></div>
+              <div class="slide"><img src="../images/ro5.jpg" alt="Drinking water system installation 5"></div>
+              <div class="slide"><img src="../images/ro6.jpg" alt="Drinking water system installation 6"></div>
             </div>
 
-            <div class="dots">
-              <button class="dot active" aria-label="Go to image 1"></button>
-              <button class="dot" aria-label="Go to image 2"></button>
-              <button class="dot" aria-label="Go to image 3"></button>
-              <button class="dot" aria-label="Go to image 4"></button>
-            </div>
+            <div class="dots"></div>
 
             <div class="thumbs">
               <button class="thumb active"><img src="../images/ro1.jpg" alt="Thumbnail 1"></button>
               <button class="thumb"><img src="../images/ro2.jpg" alt="Thumbnail 2"></button>
               <button class="thumb"><img src="../images/ro3.jpg" alt="Thumbnail 3"></button>
               <button class="thumb"><img src="../images/ro4.jpg" alt="Thumbnail 4"></button>
+              <button class="thumb"><img src="../images/ro5.jpg" alt="Thumbnail 5"></button>
+              <button class="thumb"><img src="../images/ro6.jpg" alt="Thumbnail 6"></button>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
     <section class="content">
       <div class="container">
-
         <h2>What is a drinking water system?</h2>
 
         <p>
-          A drinking water system is usually installed under the kitchen sink and connected to a dedicated faucet. Its job is to improve the water you use for drinking and food preparation.
+          A drinking water system is usually installed under the kitchen sink and connected to a dedicated faucet. Its purpose is to improve the water you use for drinking and food preparation.
         </p>
 
         <p>
-          In many homes, this means using reverse osmosis filtration to reduce dissolved contaminants that a basic carbon filter may not remove as effectively.
+          In many homes, this means using reverse osmosis filtration to reduce dissolved contaminants that basic carbon filtration may not remove as effectively.
         </p>
 
         <h2>Why do homeowners install it?</h2>
@@ -481,22 +546,22 @@
         <div class="grid">
           <div class="card">
             <strong>Bad taste and odor</strong>
-            <p>One of the biggest reasons is simply that tap water does not taste or smell clean enough.</p>
+            <p>One of the most common reasons is simply that tap water does not taste or smell clean enough.</p>
           </div>
 
           <div class="card">
             <strong>Cleaner water for drinking</strong>
-            <p>Many people want better water quality for daily drinking, cooking, tea, and coffee.</p>
+            <p>Many homeowners want better water quality for daily drinking, cooking, tea, and coffee.</p>
           </div>
 
           <div class="card">
             <strong>Less bottled water</strong>
-            <p>A good under-sink system can reduce the need to keep buying bottled water.</p>
+            <p>A good under-sink drinking water system can reduce the need to keep buying bottled water.</p>
           </div>
 
           <div class="card">
             <strong>Peace of mind</strong>
-            <p>Some homeowners want a stronger level of filtration for the water they consume directly.</p>
+            <p>Some homeowners want a stronger level of filtration for the water they consume directly every day.</p>
           </div>
         </div>
 
@@ -578,7 +643,7 @@
         <h2>Every home is different</h2>
 
         <p>
-          Drinking water systems come in different sizes, flow rates, and filtration layouts. Some are simple carbon + RO systems, while others use higher output tankless designs.
+          Drinking water systems come in different sizes, flow rates, and filtration layouts. Some are simple carbon plus reverse osmosis systems, while others use higher output tankless designs.
         </p>
 
         <p>
@@ -601,11 +666,11 @@
           <p>
             Book a water test and we’ll help you choose the right drinking water system for your home, your water quality, and your kitchen setup.
           </p>
+
           <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee">
             Book Water Test
           </a>
         </div>
-
       </div>
     </section>
   </main>
@@ -625,7 +690,7 @@
       <div class="footer-col">
         <a href="/equipment/whole-house.html">Whole House</a><br>
         <a href="/equipment/softener.html">Softener</a><br>
-        <a href="/equipment/smart.html">Smart System</a>
+        <a href="/equipment/smart.html">Smart Leak Protection</a>
       </div>
     </div>
 
@@ -634,14 +699,35 @@
     </div>
   </footer>
 
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
+    <img id="lightboxImage" src="" alt="Enlarged image">
+  </div>
+
   <script>
     (function () {
       const slides = document.querySelectorAll('.slide');
-      const dots = document.querySelectorAll('.dot');
       const thumbs = document.querySelectorAll('.thumb');
       const prev = document.querySelector('.prev');
       const next = document.querySelector('.next');
+      const dotsWrap = document.querySelector('.dots');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      const lightboxClose = document.getElementById('lightboxClose');
       let current = 0;
+      let dots = [];
+
+      function buildDots() {
+        dotsWrap.innerHTML = '';
+        slides.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.className = 'dot';
+          dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
+          dot.addEventListener('click', () => showSlide(i));
+          dotsWrap.appendChild(dot);
+        });
+        dots = Array.from(document.querySelectorAll('.dot'));
+      }
 
       function showSlide(index) {
         if (index < 0) index = slides.length - 1;
@@ -659,20 +745,53 @@
         thumbs.forEach((thumb, i) => {
           thumb.classList.toggle('active', i === current);
         });
+
+        if (thumbs[current]) {
+          thumbs[current].scrollIntoView({
+            behavior: 'smooth',
+            inline: 'center',
+            block: 'nearest'
+          });
+        }
       }
+
+      function openLightbox(src, alt) {
+        lightboxImage.src = src;
+        lightboxImage.alt = alt || 'Enlarged image';
+        lightbox.classList.add('open');
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+      }
+
+      buildDots();
+      showSlide(0);
 
       prev.addEventListener('click', () => showSlide(current - 1));
       next.addEventListener('click', () => showSlide(current + 1));
 
-      dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => showSlide(i));
-      });
-
       thumbs.forEach((thumb, i) => {
         thumb.addEventListener('click', () => showSlide(i));
       });
+
+      slides.forEach((slide) => {
+        slide.addEventListener('click', () => {
+          const img = slide.querySelector('img');
+          openLightbox(img.src, img.alt);
+        });
+      });
+
+      lightboxClose.addEventListener('click', closeLightbox);
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+      });
     })();
   </script>
-
 </body>
 </html>
