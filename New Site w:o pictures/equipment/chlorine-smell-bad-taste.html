@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chlorine Smell & Bad Taste | AquaRemedy</title>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -41,8 +42,6 @@
       margin:0 auto;
     }
 
-    /* HEADER */
-
     .site-header{
       background:#fff;
       border-bottom:1px solid var(--line);
@@ -61,9 +60,14 @@
     .logo{
       font-size:24px;
       font-weight:800;
+      letter-spacing:-0.03em;
+      color:#111827;
+      white-space:nowrap;
     }
 
-    .logo span{color:var(--primary)}
+    .logo span{
+      color:var(--primary);
+    }
 
     .header-actions{
       display:flex;
@@ -73,17 +77,33 @@
 
     .phone{
       font-weight:700;
+      white-space:nowrap;
+    }
+
+    .phone:hover{
+      color:var(--primary);
     }
 
     .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       background:var(--primary);
       color:#fff;
       padding:10px 18px;
       border-radius:999px;
       font-weight:700;
+      transition:0.2s ease;
+      white-space:nowrap;
     }
 
-    /* HERO */
+    .btn:hover{
+      background:var(--primary-dark);
+    }
+
+    .section{
+      padding:40px 0;
+    }
 
     .hero{
       padding:60px 0 20px;
@@ -91,13 +111,9 @@
 
     .hero h1{
       font-size:44px;
-      margin-bottom:10px;
-    }
-
-    /* BOXES */
-
-    .section{
-      padding:0 0 60px;
+      line-height:1;
+      margin:0 0 10px;
+      letter-spacing:-0.04em;
     }
 
     .box{
@@ -111,21 +127,36 @@
 
     h2{
       margin:0 0 10px;
+      font-size:28px;
+      line-height:1.15;
+      letter-spacing:-0.02em;
     }
 
     p{
       color:var(--muted);
       line-height:1.7;
-      margin-bottom:14px;
+      margin:0 0 14px;
+      font-size:16px;
+    }
+
+    p:last-child{
+      margin-bottom:0;
     }
 
     ul{
-      margin-left:20px;
+      margin:0 0 14px 20px;
       color:var(--muted);
       line-height:1.7;
+      font-size:16px;
     }
 
-    /* CTA */
+    li{
+      margin-bottom:6px;
+    }
+
+    strong{
+      color:var(--text);
+    }
 
     .cta{
       margin-top:40px;
@@ -135,18 +166,25 @@
       padding:30px;
     }
 
+    .cta h2{
+      color:#fff;
+      margin-bottom:10px;
+    }
+
     .cta p{
       color:#e5ecff;
+      margin-bottom:18px;
     }
 
     .cta .btn{
       background:#fff;
       color:#2563eb;
-      margin-top:10px;
-      display:inline-block;
+      display:inline-flex;
     }
 
-    /* FOOTER */
+    .cta .btn:hover{
+      background:#f8fafc;
+    }
 
     .site-footer{
       background:#111827;
@@ -156,180 +194,264 @@
     }
 
     .footer-inner{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
       display:flex;
       justify-content:space-between;
       flex-wrap:wrap;
       gap:20px;
+      align-items:flex-start;
+    }
+
+    .footer-left strong{
+      display:block;
+      font-size:18px;
+      margin-bottom:4px;
     }
 
     .footer-left span{
       color:#d1d5db;
+      font-size:14px;
+    }
+
+    .footer-left p{
+      margin-top:10px;
+      color:#d1d5db;
+      font-size:14px;
+      max-width:320px;
     }
 
     .footer-right{
       color:#9ca3af;
+      font-size:14px;
     }
 
+    .footer-phone-link:hover{
+      color:#fff;
+    }
+
+    @media (max-width: 640px){
+      .container{
+        width:min(var(--max), calc(100% - 20px));
+      }
+
+      .hero{
+        padding:32px 0 16px;
+      }
+
+      .hero h1{
+        font-size:36px;
+      }
+
+      .section{
+        padding:24px 0 44px;
+      }
+
+      .header-actions{
+        gap:10px;
+      }
+
+      .phone{
+        font-size:14px;
+      }
+    }
   </style>
 </head>
-
 <body>
 
-<header class="site-header">
-  <div class="container header-inner">
+  <header class="site-header">
+    <div class="container header-inner">
 
-    <div class="logo">Aqua<span>Remedy</span></div>
+      <a href="/" class="logo">Aqua<span>Remedy</span></a>
 
-    <div class="header-actions">
-      <a href="tel:+18186582558" class="phone">(818) 658-2558</a>
-      <a href="https://online-booking.workiz.com/" class="btn">Book Now</a>
+      <div class="header-actions">
+        <a href="tel:+18186582558" class="phone">(818) 658-2558</a>
+        <a href="https://online-booking.workiz.com/" class="btn">Book Now</a>
+      </div>
+
     </div>
+  </header>
 
-  </div>
-</header>
+  <main>
 
-<main>
+    <section class="hero">
+      <div class="container">
+        <h1>Chlorine Smell &amp; Bad Taste</h1>
+      </div>
+    </section>
 
-<section class="hero">
-  <div class="container">
-    <h1>Chlorine Smell & Bad Taste</h1>
-  </div>
-</section>
+    <section class="section">
+      <div class="container">
 
-<section class="section">
-  <div class="container">
+        <div class="box">
+          <p>
+            If your water smells like bleach or has a chemical taste, you are most likely noticing chlorine or chloramine — disinfectants that are intentionally added to city water systems.
+          </p>
 
-    <div class="box">
-      <p>
-        If your water smells like bleach or has a chemical taste, you are noticing chlorine or chloramine — disinfectants that are intentionally added to city water systems.
-      </p>
+          <p>
+            These chemicals are used to kill bacteria and make water safe while it travels through miles of pipes before it reaches your home.
+          </p>
 
-      <p>
-        These chemicals are used to kill bacteria and make water safe to travel through miles of pipes before it reaches your home.
-      </p>
+          <p>
+            But the same reason they work is also why people notice them — chlorine is designed to kill living organisms, and that affects how water smells, tastes, and feels in daily use.
+          </p>
+        </div>
 
-      <p>
-        But the same reason they work is also why people notice them — chlorine is designed to kill living organisms, and that affects how water smells, tastes, and feels in everyday use.
-      </p>
+        <div class="box">
+          <h2>What is in Los Angeles water?</h2>
+
+          <p>
+            The Los Angeles Department of Water and Power (LADWP) uses <strong>chloramine</strong>, which is a combination of chlorine and ammonia.
+          </p>
+
+          <p>
+            Chloramine stays active longer than chlorine and helps protect the water as it moves through the distribution system.
+          </p>
+
+          <p>
+            In simple terms, the city adds it because it helps prevent bacteria growth inside the public water supply.
+          </p>
+
+          <p>
+            Source: LADWP Water Quality Reports
+          </p>
+        </div>
+
+        <div class="box">
+          <h2>How much chlorine is allowed?</h2>
+
+          <p>
+            According to U.S. EPA drinking water standards:
+          </p>
+
+          <ul>
+            <li><strong>4.0 mg/L</strong> is the maximum allowed level</li>
+            <li><strong>4.0 ppm</strong> is the same measurement expressed as parts per million</li>
+          </ul>
+
+          <p>
+            So when you see <strong>mg/L</strong> and <strong>ppm</strong> in this context, they mean the same thing.
+          </p>
+
+          <p>
+            These levels are considered legally safe for municipal drinking water, but many people can still smell or taste chlorine at levels far below that maximum.
+          </p>
+        </div>
+
+        <div class="box">
+          <h2>Why do you notice it more at home?</h2>
+
+          <ul>
+            <li>Hot water usually makes chlorine smell stronger</li>
+            <li>Water sitting overnight can taste or smell more noticeable</li>
+            <li>Older plumbing can change how the water tastes</li>
+            <li>Some people are simply more sensitive to chlorine than others</li>
+          </ul>
+
+          <p>
+            That is why one person may say the water seems fine while another immediately notices the smell.
+          </p>
+        </div>
+
+        <div class="box">
+          <h2>Why is chlorine added if people do not want it?</h2>
+
+          <p>
+            Chlorine is added for one main reason: public safety.
+          </p>
+
+          <p>
+            It helps stop bacteria and other microorganisms from growing in the water while it moves through the city system. Without disinfectants, municipal water would be much harder to keep safe.
+          </p>
+
+          <p>
+            But once the water reaches your home, that job is already done. At that point, many homeowners feel there is no benefit in continuing to drink it, cook with it, or shower in it if they can remove it.
+          </p>
+        </div>
+
+        <div class="box">
+          <h2>Is chlorine good or bad?</h2>
+
+          <p>
+            Chlorine is useful as a disinfectant, but it is not something your body needs. It is there to control bacteria in the municipal system.
+          </p>
+
+          <p>
+            So the answer is:
+          </p>
+
+          <ul>
+            <li>it is useful for the city water supply</li>
+            <li>it is not there because it is healthy or beneficial to drink</li>
+            <li>many people choose to remove it at home for comfort and quality</li>
+          </ul>
+
+          <p>
+            In other words, it is part of water treatment — not part of better-tasting or more enjoyable water inside the home.
+          </p>
+        </div>
+
+        <div class="box">
+          <h2>How can you test your water?</h2>
+
+          <ul>
+            <li>Home chlorine test strips</li>
+            <li>City water quality reports</li>
+            <li>Professional in-home water testing</li>
+          </ul>
+
+          <p>
+            A simple home test can often confirm whether chlorine or chloramine is present at a noticeable level.
+          </p>
+        </div>
+
+        <div class="box">
+          <h2>What usually helps reduce chlorine smell and taste?</h2>
+
+          <ul>
+            <li>Carbon filtration</li>
+            <li>Whole house filtration systems</li>
+            <li>Reverse osmosis drinking water systems</li>
+          </ul>
+
+          <p>
+            The right solution depends on whether the problem is only in your drinking water or whether you also want better water for showering and the rest of the house.
+          </p>
+        </div>
+
+        <div class="cta">
+          <h2>Want to know what is actually in your water?</h2>
+          <p>
+            We can test your water and explain exactly what you are dealing with — and what kind of filtration actually makes sense for your home.
+          </p>
+
+          <a href="https://online-booking.workiz.com/" class="btn">Book Water Test</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-left">
+        <strong>AquaRemedy</strong>
+        <span>Water treatment solutions for homes and businesses.</span>
+
+        <p>
+          Real solutions for real water problems.
+        </p>
+      </div>
+
+      <div class="footer-right">
+        <a href="tel:+18186582558" class="footer-phone-link">(818) 658-2558</a><br>
+        © AquaRemedy
+      </div>
+
     </div>
-
-    <div class="box">
-      <h2>What is in Los Angeles water?</h2>
-
-      <p>
-        The Los Angeles Department of Water and Power (LADWP) uses <strong>chloramine</strong>, which is a combination of chlorine and ammonia.
-      </p>
-
-      <p>
-        Chloramine stays active longer than chlorine and protects water inside the distribution system.
-      </p>
-
-      <p style="font-size:14px;">
-        Source: LADWP Water Quality Reports
-      </p>
-    </div>
-
-    <div class="box">
-      <h2>How much chlorine is allowed?</h2>
-
-      <p>
-        According to U.S. EPA standards:
-      </p>
-
-      <ul>
-        <li>Maximum: <strong>4.0 mg/L</strong></li>
-        <li>Equivalent: <strong>4.0 ppm</strong></li>
-      </ul>
-
-      <p>
-        This level is considered safe, but many people notice chlorine at much lower levels.
-      </p>
-    </div>
-
-    <div class="box">
-      <h2>Why you notice it at home</h2>
-
-      <ul>
-        <li>Hot water increases chlorine smell</li>
-        <li>Water sitting overnight becomes stronger</li>
-        <li>Plumbing affects taste and odor</li>
-        <li>Sensitivity varies from person to person</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <h2>Is it good or bad?</h2>
-
-      <p>
-        Chlorine is necessary for safety — it prevents bacteria and contamination.
-      </p>
-
-      <p>
-        But it is not something your body needs. It is simply a disinfectant.
-      </p>
-
-      <p>
-        Once water reaches your home, the job of chlorine is already done. At that point, many homeowners choose to remove it.
-      </p>
-    </div>
-
-    <div class="box">
-      <h2>How to test your water</h2>
-
-      <ul>
-        <li>Home chlorine test strips</li>
-        <li>City water reports</li>
-        <li>Professional testing</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <h2>What helps reduce chlorine</h2>
-
-      <ul>
-        <li>Carbon filtration</li>
-        <li>Whole house systems</li>
-        <li>Reverse osmosis systems</li>
-      </ul>
-
-      <p>
-        The right solution depends on your home and how you use water.
-      </p>
-    </div>
-
-    <div class="cta">
-      <h2>Want to know what's in your water?</h2>
-      <p>
-        We can test your water and explain exactly what you're dealing with.
-      </p>
-
-      <a href="https://online-booking.workiz.com/" class="btn">Book Water Test</a>
-    </div>
-
-  </div>
-</section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-inner">
-
-    <div class="footer-left">
-      <strong>AquaRemedy</strong><br>
-      <span>Water treatment solutions for homes and businesses.</span>
-
-      <p style="margin-top:10px;color:#d1d5db;">
-        Real solutions for real water problems.
-      </p>
-    </div>
-
-    <div class="footer-right">
-      (818) 658-2558<br>
-      © AquaRemedy
-    </div>
-
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>
