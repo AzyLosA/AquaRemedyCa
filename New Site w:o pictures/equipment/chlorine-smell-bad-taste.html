@@ -55,6 +55,7 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
+      gap:16px;
     }
 
     .logo{
@@ -69,10 +70,27 @@
       color:var(--primary);
     }
 
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:22px;
+    }
+
+    .nav a{
+      font-weight:600;
+      color:#374151;
+      font-size:15px;
+    }
+
+    .nav a:hover{
+      color:var(--primary);
+    }
+
     .header-actions{
       display:flex;
       align-items:center;
       gap:14px;
+      flex-shrink:0;
     }
 
     .phone{
@@ -203,31 +221,81 @@
       align-items:flex-start;
     }
 
-    .footer-left strong{
-      display:block;
+    .footer-logo{
       font-size:18px;
+      font-weight:800;
+      color:#ffffff;
+      display:block;
       margin-bottom:4px;
     }
 
-    .footer-left span{
+    .footer-logo span{
+      color:#60a5fa;
+    }
+
+    .footer-left > span{
       color:#d1d5db;
       font-size:14px;
+      display:block;
     }
 
     .footer-left p{
-      margin-top:10px;
+      margin-top:12px;
       color:#d1d5db;
       font-size:14px;
       max-width:320px;
     }
 
-    .footer-right{
+    .service-area{
+      margin-top:10px;
       color:#9ca3af;
+      font-size:13px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .footer-links strong{
+      font-size:15px;
+      color:#fff;
+    }
+
+    .footer-links a{
+      color:#d1d5db;
       font-size:14px;
+    }
+
+    .footer-links a:hover{
+      color:#fff;
+    }
+
+    .footer-right{
+      color:#d1d5db;
+      font-size:14px;
+    }
+
+    .footer-right p{
+      margin:12px 0 0;
+      color:#9ca3af;
+      font-size:13px;
+    }
+
+    .copyright{
+      margin-top:16px;
+      color:#6b7280;
     }
 
     .footer-phone-link:hover{
       color:#fff;
+    }
+
+    @media (max-width: 900px){
+      .nav{
+        display:none;
+      }
     }
 
     @media (max-width: 640px){
@@ -263,6 +331,13 @@
     <div class="container header-inner">
 
       <a href="/" class="logo">Aqua<span>Remedy</span></a>
+
+      <nav class="nav">
+        <a href="/#solutions">Solutions</a>
+        <a href="/#reviews">Reviews</a>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+      </nav>
 
       <div class="header-actions">
         <a href="tel:+18186582558" class="phone">(818) 658-2558</a>
@@ -437,19 +512,28 @@
     <div class="footer-inner">
 
       <div class="footer-left">
-        <strong style="color:#fff;">
-  Aqua<span style="color:#60a5fa;">Remedy</span>
-</strong>
+        <div class="footer-logo">Aqua<span>Remedy</span></div>
         <span>Water treatment solutions for homes and businesses.</span>
 
         <p>
           Real solutions for real water problems.
         </p>
+
+        <div class="service-area">Serving Los Angeles and surrounding areas</div>
+      </div>
+
+      <div class="footer-links">
+        <strong>Quick Links</strong>
+        <a href="/#solutions">Solutions</a>
+        <a href="/#reviews">Reviews</a>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
       </div>
 
       <div class="footer-right">
-        <a href="tel:+18186582558" class="footer-phone-link">(818) 658-2558</a><br>
-        © AquaRemedy
+        <a href="tel:+18186582558" class="footer-phone-link">(818) 658-2558</a>
+        <p>Call or text anytime</p>
+        <p class="copyright">© AquaRemedy. All rights reserved.</p>
       </div>
 
     </div>
