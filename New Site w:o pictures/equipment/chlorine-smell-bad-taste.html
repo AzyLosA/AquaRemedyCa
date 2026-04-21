@@ -22,6 +22,7 @@
     }
 
     *{box-sizing:border-box}
+
     body{
       margin:0;
       font-family:Inter,sans-serif;
@@ -29,36 +30,45 @@
       color:var(--text);
     }
 
+    a{text-decoration:none;color:inherit}
+
     .container{
       width:min(var(--max), calc(100% - 32px));
       margin:0 auto;
     }
+
+    /* HEADER */
 
     .site-header{
       background:#fff;
       border-bottom:1px solid var(--line);
       position:sticky;
       top:0;
+      z-index:100;
     }
 
     .header-inner{
-      height:70px;
       display:flex;
       justify-content:space-between;
       align-items:center;
+      height:72px;
     }
 
     .logo{
-      font-weight:800;
       font-size:24px;
+      font-weight:800;
     }
 
     .logo span{color:var(--primary)}
 
     .header-right{
       display:flex;
-      gap:12px;
       align-items:center;
+      gap:14px;
+    }
+
+    .phone{
+      font-weight:700;
     }
 
     .btn{
@@ -67,26 +77,30 @@
       padding:10px 18px;
       border-radius:999px;
       font-weight:700;
-      text-decoration:none;
     }
+
+    /* HERO */
 
     .hero{
       padding:60px 0 30px;
     }
 
-    h1{
+    .hero h1{
       font-size:42px;
-      margin-bottom:12px;
+      margin-bottom:14px;
     }
 
-    p{
+    .hero p{
+      font-size:17px;
       color:var(--muted);
       line-height:1.7;
-      font-size:16px;
+      max-width:700px;
     }
 
+    /* CONTENT */
+
     .section{
-      padding:20px 0 60px;
+      padding:10px 0 60px;
     }
 
     .box{
@@ -102,11 +116,38 @@
       margin-bottom:10px;
     }
 
+    p{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
     ul{
       margin-left:20px;
       color:var(--muted);
       line-height:1.7;
     }
+
+    /* CTA */
+
+    .cta{
+      margin-top:40px;
+      background:linear-gradient(135deg,#2563eb,#1d4ed8);
+      color:#fff;
+      border-radius:20px;
+      padding:30px;
+    }
+
+    .cta h2{color:#fff}
+    .cta p{color:#e5ecff}
+
+    .cta .btn{
+      background:#fff;
+      color:#2563eb;
+      margin-top:10px;
+      display:inline-block;
+    }
+
+    /* FOOTER */
 
     .site-footer{
       background:#111827;
@@ -139,7 +180,7 @@
     <div class="logo">Aqua<span>Remedy</span></div>
 
     <div class="header-right">
-      <a href="tel:+18186582558">(818) 658-2558</a>
+      <a href="tel:+18186582558" class="phone">(818) 658-2558</a>
       <a href="https://online-booking.workiz.com/" class="btn">Book Now</a>
     </div>
   </div>
@@ -152,11 +193,11 @@
     <h1>Chlorine Smell & Bad Taste</h1>
 
     <p>
-      If your water smells like bleach or has a chemical taste, you are most likely noticing chlorine or chloramine — disinfectants that are intentionally added to city water.
+      If your water smells like bleach or has a chemical taste, you are likely noticing chlorine or chloramine — disinfectants added to city water systems.
     </p>
 
     <p>
-      These chemicals are used to kill bacteria and keep water safe as it travels through pipes. However, they often affect taste, smell, and overall water experience inside the home.
+      These chemicals are necessary for safety, but they often affect how water tastes, smells, and feels in daily use.
     </p>
   </div>
 </section>
@@ -165,14 +206,18 @@
   <div class="container">
 
     <div class="box">
-      <h2>What is actually in Los Angeles water?</h2>
+      <h2>What is in Los Angeles water?</h2>
 
       <p>
-        The Los Angeles Department of Water and Power (LADWP) uses <strong>chloramine</strong> as a disinfectant to keep water safe while it travels through the system.  [oai_citation:0‡LADWP](https://www.ladwp.com/who-we-are/water-system/las-drinking-water-quality-report/la-water-sources-2022?utm_source=chatgpt.com)
+        The Los Angeles Department of Water and Power (LADWP) uses <strong>chloramine</strong> as its primary disinfectant.
       </p>
 
       <p>
-        Chloramine is a combination of chlorine and ammonia. It stays in the water longer than chlorine and helps prevent bacteria growth inside pipelines.  [oai_citation:1‡Wikipedia](https://en.wikipedia.org/wiki/Chloramination?utm_source=chatgpt.com)
+        Chloramine is a combination of chlorine and ammonia. It is designed to stay in the water longer than chlorine and protect it as it travels through miles of pipelines.
+      </p>
+
+      <p>
+        Source: LADWP Annual Water Quality Report
       </p>
     </div>
 
@@ -180,52 +225,48 @@
       <h2>How much chlorine is allowed?</h2>
 
       <p>
-        According to U.S. EPA standards, disinfectants like chlorine or chloramine are allowed in drinking water at levels up to:
+        According to the U.S. Environmental Protection Agency (EPA):
       </p>
 
       <ul>
-        <li><strong>4.0 mg/L (ppm)</strong> maximum allowed level</li>
+        <li>Maximum level: <strong>4.0 mg/L (ppm)</strong></li>
       </ul>
 
       <p>
-        This is the legal safety limit used across the United States.  [oai_citation:2‡Wikipedia](https://en.wikipedia.org/wiki/Drinking_water_quality_in_the_United_States?utm_source=chatgpt.com)
+        This is considered safe for drinking water, but many people can still notice taste and smell at much lower levels.
       </p>
 
       <p>
-        In Los Angeles, typical levels are usually much lower, but still enough for many people to notice taste and smell.
+        Source: U.S. EPA Drinking Water Standards
       </p>
     </div>
 
     <div class="box">
-      <h2>Why does water smell or taste like chlorine?</h2>
+      <h2>Why does your water smell?</h2>
 
       <ul>
-        <li>Chloramine reacts with organic material inside plumbing</li>
-        <li>It forms byproducts that create a strong chemical smell</li>
-        <li>Hot water can intensify the odor</li>
-        <li>Older pipes can make the taste worse</li>
+        <li>Chloramine reacts with organic material in plumbing</li>
+        <li>Hot water increases the smell</li>
+        <li>Older pipes can intensify the taste</li>
+        <li>Standing water (overnight) becomes more noticeable</li>
       </ul>
-
-      <p>
-        LADWP notes that a “bleach-like” smell is commonly linked to disinfectants interacting inside the plumbing system.  [oai_citation:3‡LADWP](https://www.ladwp.com/who-we-are/water-system/water-quality/improving-water-quality-home?utm_source=chatgpt.com)
-      </p>
     </div>
 
     <div class="box">
       <h2>Is it safe?</h2>
 
       <p>
-        Yes — city water is regulated and must meet federal and state standards.
+        Yes — municipal water is regulated and tested regularly.
       </p>
 
       <p>
-        However, “safe” does not always mean pleasant:
+        However, safety does not always mean comfort:
       </p>
 
       <ul>
         <li>taste and odor are not regulated the same way</li>
-        <li>people are sensitive to chlorine smell</li>
-        <li>some homeowners prefer to reduce exposure</li>
+        <li>many people are sensitive to chlorine</li>
+        <li>it affects shower experience and drinking water quality</li>
       </ul>
     </div>
 
@@ -233,28 +274,33 @@
       <h2>How to test your water</h2>
 
       <ul>
-        <li>Free test from local water company (LADWP)</li>
         <li>Home chlorine test strips</li>
-        <li>Professional water testing</li>
+        <li>Water quality reports from LADWP</li>
+        <li>Professional in-home water testing</li>
       </ul>
-
-      <p>
-        LADWP provides water quality reports and offers testing options for residents.  [oai_citation:4‡LADWP](https://www.ladwp.com/sites/default/files/documents/2020_Drinking_Water_Quality_Report.pdf?utm_source=chatgpt.com)
-      </p>
     </div>
 
     <div class="box">
       <h2>What usually improves this problem</h2>
 
       <ul>
-        <li>Carbon filtration (removes chlorine & chloramine)</li>
-        <li>Whole house filtration systems</li>
-        <li>Drinking water RO systems</li>
+        <li>Carbon filtration systems</li>
+        <li>Whole house filtration</li>
+        <li>Reverse osmosis drinking systems</li>
       </ul>
 
       <p>
-        The right solution depends on whether the issue is only taste or affects the entire house.
+        The right solution depends on whether the issue affects only drinking water or the entire home.
       </p>
+    </div>
+
+    <div class="cta">
+      <h2>Not sure what's in your water?</h2>
+      <p>
+        We can test your water and explain exactly what you're dealing with — and what actually makes sense to fix it.
+      </p>
+
+      <a href="https://online-booking.workiz.com/" class="btn">Book Water Test</a>
     </div>
 
   </div>
