@@ -625,96 +625,88 @@
   background:transparent;
 }
 
+@media (max-width:1100px){
+  .contact-grid,
+  .about-grid,
+  .reviews-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:900px){
+  .hero-grid,
+  .grid-3,
+  .grid-2{
+    grid-template-columns:1fr;
+  }
+
+  .nav{
+    display:none;
+  }
+
+  .header-inner{
+    min-height:72px;
+  }
+}
+
 @media (max-width:640px){
+  .container{
+    width:min(var(--max), calc(100% - 20px));
+  }
+
+  .hero{
+    padding:42px 0 10px;
+  }
+
+  .section{
+    padding:20px 0 36px;
+  }
+
+  .hero-copy h1{
+    font-size:36px;
+  }
+
+  .card h3{
+    font-size:20px;
+  }
+
+  .footer-right{
+    text-align:left;
+  }
+
+  .header-inner{
+    min-height:auto;
+    padding:12px 0;
+    gap:12px;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .header-phone{
+    font-size:14px;
+    font-weight:700;
+  }
+
+  .btn{
+    font-size:14px;
+    padding:10px 16px;
+  }
+
+  .header-actions{
+    gap:8px;
+  }
+
+  .reviews-badge-row{
+    align-items:flex-start;
+  }
+
   .footer-review-logos img{
     height:22px;
     max-width:100px;
   }
-    @media (max-width: 1100px) {
-      .contact-grid,
-      .about-grid,
-      .reviews-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .grid-3,
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
-
-      .nav {
-        display: none;
-      }
-
-      .header-inner {
-        min-height: 72px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .container {
-        width: min(var(--max), calc(100% - 20px));
-      }
-
-      .hero{
-  padding:42px 0 10px;
 }
-
-.section{
-  padding:20px 0 36px;
-}
-
-      .hero-copy h1 {
-        font-size: 36px;
-      }
-
-      .card h3 {
-        font-size: 20px;
-      }
-
-      .footer-right {
-        text-align: left;
-      }
-
-      .header-actions {
-        gap: 10px;
-      }
-
-      .header-phone{
-  font-size:16px;
-  font-weight:800;
-}
-
-      .reviews-badge-row {
-        align-items: flex-start;
-      }
-      .header-inner{
-  min-height:auto;
-  padding:12px 0;
-  gap:12px;
-}
-
-.logo{
-  font-size:20px;
-}
-
-.header-phone{
-  font-size:14px;
-  font-weight:700;
-}
-
-.btn{
-  font-size:14px;
-  padding:10px 16px;
-}
-
-.header-actions{
-  gap:8px;
-}
-    }
 /* FINAL VISUAL TUNING */
 
 .nav a,
