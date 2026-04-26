@@ -920,4 +920,140 @@
         <strong>Reviews</strong>
 
         <a href="https://maps.app.goo.gl/63tp7vv8SpdgB3py7" target="_blank" aria-label="Google Reviews">
-         
+                   <a href="/terms-of-use.html">Terms of Use</a> |
+          <a href="/privacy-policy.html">Privacy Policy</a>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+      <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Previous image">‹</button>
+
+      <div class="lightbox-img-wrap">
+        <img id="lightboxImage" src="../images/skinhair1.jpg" alt="Enlarged skin and hair image" />
+      </div>
+
+      <button class="lightbox-arrow lightbox-next" type="button" aria-label="Next image">›</button>
+      <div class="lightbox-counter" id="lightboxCounter">1 / 4</div>
+    </div>
+  </div>
+
+  <script>
+    const galleryImages = [
+      {
+        src: "../images/skinhair1.jpg",
+        alt: "Skin and hair issue image 1"
+      },
+      {
+        src: "../images/skinhair2.jpg",
+        alt: "Skin and hair issue image 2"
+      },
+      {
+        src: "../images/skinhair3.jpg",
+        alt: "Skin and hair issue image 3"
+      },
+      {
+        src: "../images/skinhair4.jpg",
+        alt: "Skin and hair issue image 4"
+      }
+    ];
+
+    let currentIndex = 0;
+
+    const mainImage = document.getElementById("galleryMainImage");
+    const galleryMain = document.getElementById("galleryMain");
+    const dots = document.querySelectorAll(".gallery-dot");
+    const thumbs = document.querySelectorAll(".gallery-thumb");
+    const prevBtn = document.querySelector(".gallery-prev");
+    const nextBtn = document.querySelector(".gallery-next");
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxCounter = document.getElementById("lightboxCounter");
+    const lightboxClose = document.querySelector(".lightbox-close");
+    const lightboxPrev = document.querySelector(".lightbox-prev");
+    const lightboxNext = document.querySelector(".lightbox-next");
+
+    function renderGallery(index) {
+      currentIndex = index;
+
+      mainImage.src = galleryImages[currentIndex].src;
+      mainImage.alt = galleryImages[currentIndex].alt;
+
+      lightboxImage.src = galleryImages[currentIndex].src;
+      lightboxImage.alt = galleryImages[currentIndex].alt;
+      lightboxCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentIndex);
+      });
+
+      thumbs.forEach((thumb, i) => {
+        thumb.classList.toggle("active", i === currentIndex);
+      });
+    }
+
+    function goToPrev() {
+      const newIndex = currentIndex === 0 ? galleryImages.length - 1 : currentIndex - 1;
+      renderGallery(newIndex);
+    }
+
+    function goToNext() {
+      const newIndex = currentIndex === galleryImages.length - 1 ? 0 : currentIndex + 1;
+      renderGallery(newIndex);
+    }
+
+    function openLightbox() {
+      lightbox.classList.add("open");
+      renderGallery(currentIndex);
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+    }
+
+    prevBtn.addEventListener("click", goToPrev);
+    nextBtn.addEventListener("click", goToNext);
+    galleryMain.addEventListener("click", openLightbox);
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", () => renderGallery(i));
+    });
+
+    thumbs.forEach((thumb, i) => {
+      thumb.addEventListener("click", () => renderGallery(i));
+    });
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightboxPrev.addEventListener("click", goToPrev);
+    lightboxNext.addEventListener("click", goToNext);
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains("open")) {
+        closeLightbox();
+      }
+
+      if (e.key === "ArrowLeft") {
+        goToPrev();
+      }
+
+      if (e.key === "ArrowRight") {
+        goToNext();
+      }
+    });
+
+    renderGallery(0);
+  </script>
+
+</body>
+</html>
