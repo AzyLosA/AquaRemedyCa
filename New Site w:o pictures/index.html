@@ -719,7 +719,25 @@
     font-size:15px;
     line-height:1.75;
   }
+    .footer-review-logos a{
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
 }
+
+.footer-review-logos img{
+  display:block;
+  width:auto;
+  height:32px;
+  max-width:150px;
+  object-fit:contain;
+}
+
+@media (max-width:640px){
+  .footer-review-logos img{
+    height:30px;
+    max-width:140px;
+  }
 }
   </style>
 </head>
@@ -1058,19 +1076,19 @@
       <div class="service-area">Serving Los Angeles and surrounding areas</div>
     </div>
 
-   <div class="footer-links">
+   <div class="footer-links footer-review-logos">
   <strong>Reviews</strong>
 
-  <a href="https://maps.app.goo.gl/63tp7vv8SpdgB3py7" target="_blank">
-    🔎 Google Reviews
+  <a href="https://maps.app.goo.gl/63tp7vv8SpdgB3py7" target="_blank" aria-label="Google Reviews">
+    <img src="/images/reviews/google-reviews.png" alt="Google Reviews">
   </a>
 
-  <a href="https://www.yelp.com/biz/aqua-remedy-los-angeles-3" target="_blank">
-    ★ Yelp Reviews
+  <a href="https://www.yelp.com/biz/aqua-remedy-los-angeles-3" target="_blank" aria-label="Yelp Reviews">
+    <img src="/images/reviews/yelp-reviews.png" alt="Yelp Reviews">
   </a>
 
-  <a href="https://www.thumbtack.com/ca/sherman-oaks/water-softening/aquaremedy-smart-water-filters/service/545327910515572748?utm_medium=web&utm_source=txt&surface=sp&referrer_pk=545327910219087886" target="_blank">
-    ✓ Thumbtack Top Pro
+  <a href="https://www.thumbtack.com/ca/sherman-oaks/water-softening/aquaremedy-smart-water-filters/service/545327910515572748?utm_medium=web&utm_source=txt&surface=sp&referrer_pk=545327910219087886" target="_blank" aria-label="Thumbtack Reviews">
+    <img src="/images/reviews/thumbtack-reviews.png" alt="Thumbtack Top Pro">
   </a>
 </div>
 
