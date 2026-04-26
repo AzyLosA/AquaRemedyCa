@@ -696,6 +696,29 @@
   .card-media{
     aspect-ratio:16 / 9;
   }
+      @media (max-width: 640px) {
+  .footer-inner{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+
+  .site-footer{
+    padding:36px 20px;
+  }
+
+  .footer-right{
+    text-align:left;
+  }
+
+  .footer-links a,
+  .footer-left > span,
+  .footer-left p,
+  .service-area,
+  .footer-right{
+    font-size:15px;
+    line-height:1.75;
+  }
+}
 }
   </style>
 </head>
