@@ -904,156 +904,171 @@
 
   </main>
   <footer class="site-footer">
-    <div class="footer-inner">
+  <div class="footer-inner">
 
-      <div class="footer-left">
-        <a href="/" class="footer-logo">Aqua<span>Remedy</span></a>
-
-        <span>Water treatment solutions for homes and businesses.</span>
-
-        <p>Real solutions for real water problems.</p>
-
-        <div class="service-area">Serving Los Angeles and surrounding areas</div>
-      </div>
-
-      <div class="footer-links footer-review-logos">
-        <strong>Reviews</strong>
-
-        <a href="https://maps.app.goo.gl/63tp7vv8SpdgB3py7" target="_blank" aria-label="Google Reviews">
-                   <a href="/terms-of-use.html">Terms of Use</a> |
-          <a href="/privacy-policy.html">Privacy Policy</a>
-        </p>
-      </div>
-
+    <div class="footer-left">
+      <a href="/" class="footer-logo">Aqua<span>Remedy</span></a>
+      <span>Water treatment solutions for homes and businesses.</span>
+      <p>Real solutions for real water problems.</p>
+      <div class="service-area">Serving Los Angeles and surrounding areas</div>
     </div>
-  </footer>
 
-  <div class="lightbox" id="lightbox">
-    <div class="lightbox-inner">
-      <button class="lightbox-close" type="button" aria-label="Close image">×</button>
-      <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Previous image">‹</button>
+    <div class="footer-links footer-review-logos">
+      <strong>Reviews</strong>
 
-      <div class="lightbox-img-wrap">
-        <img id="lightboxImage" src="../images/skinhair1.jpg" alt="Enlarged skin and hair image" />
-      </div>
+      <a href="https://maps.app.goo.gl/63tp7vv8SpdgB3py7" target="_blank" aria-label="Google Reviews">
+        <img src="/images/reviews/google-reviews.png" alt="Google Reviews">
+      </a>
 
-      <button class="lightbox-arrow lightbox-next" type="button" aria-label="Next image">›</button>
-      <div class="lightbox-counter" id="lightboxCounter">1 / 4</div>
+      <a href="https://www.yelp.com/biz/aqua-remedy-los-angeles-3" target="_blank" aria-label="Yelp Reviews">
+        <img src="/images/reviews/yelp-reviews.png" alt="Yelp Reviews">
+      </a>
+
+      <a href="https://www.thumbtack.com/ca/sherman-oaks/water-softening/aquaremedy-smart-water-filters/service/545327910515572748?utm_medium=web&utm_source=txt&surface=sp&referrer_pk=545327910219087886" target="_blank" aria-label="Thumbtack Reviews">
+        <img src="/images/reviews/thumbtack-reviews.png" alt="Thumbtack Top Pro">
+      </a>
     </div>
+
+    <div class="footer-right">
+      <a href="tel:+18186582558" class="footer-phone-link">(818) 658-2558</a>
+
+      <p>Copyright AquaRemedy CA 2024. All rights reserved</p>
+
+      <p>
+        <a href="/terms-of-use.html">Terms of Use</a> |
+        <a href="/privacy-policy.html">Privacy Policy</a>
+      </p>
+    </div>
+
   </div>
+</footer>
 
-  <script>
-    const galleryImages = [
-      {
-        src: "../images/skinhair1.jpg",
-        alt: "Skin and hair issue image 1"
-      },
-      {
-        src: "../images/skinhair2.jpg",
-        alt: "Skin and hair issue image 2"
-      },
-      {
-        src: "../images/skinhair3.jpg",
-        alt: "Skin and hair issue image 3"
-      },
-      {
-        src: "../images/skinhair4.jpg",
-        alt: "Skin and hair issue image 4"
-      }
-    ];
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+    <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Previous image">‹</button>
 
-    let currentIndex = 0;
+    <div class="lightbox-img-wrap">
+      <img id="lightboxImage" src="../images/skinhair1.jpg" alt="Enlarged skin and hair image" />
+    </div>
 
-    const mainImage = document.getElementById("galleryMainImage");
-    const galleryMain = document.getElementById("galleryMain");
-    const dots = document.querySelectorAll(".gallery-dot");
-    const thumbs = document.querySelectorAll(".gallery-thumb");
-    const prevBtn = document.querySelector(".gallery-prev");
-    const nextBtn = document.querySelector(".gallery-next");
+    <button class="lightbox-arrow lightbox-next" type="button" aria-label="Next image">›</button>
+    <div class="lightbox-counter" id="lightboxCounter">1 / 4</div>
+  </div>
+</div>
 
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightboxImage");
-    const lightboxCounter = document.getElementById("lightboxCounter");
-    const lightboxClose = document.querySelector(".lightbox-close");
-    const lightboxPrev = document.querySelector(".lightbox-prev");
-    const lightboxNext = document.querySelector(".lightbox-next");
-
-    function renderGallery(index) {
-      currentIndex = index;
-
-      mainImage.src = galleryImages[currentIndex].src;
-      mainImage.alt = galleryImages[currentIndex].alt;
-
-      lightboxImage.src = galleryImages[currentIndex].src;
-      lightboxImage.alt = galleryImages[currentIndex].alt;
-      lightboxCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
-
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentIndex);
-      });
-
-      thumbs.forEach((thumb, i) => {
-        thumb.classList.toggle("active", i === currentIndex);
-      });
+<script>
+  const galleryImages = [
+    {
+      src: "../images/skinhair1.jpg",
+      alt: "Skin and hair issue image 1"
+    },
+    {
+      src: "../images/skinhair2.jpg",
+      alt: "Skin and hair issue image 2"
+    },
+    {
+      src: "../images/skinhair3.jpg",
+      alt: "Skin and hair issue image 3"
+    },
+    {
+      src: "../images/skinhair4.jpg",
+      alt: "Skin and hair issue image 4"
     }
+  ];
 
-    function goToPrev() {
-      const newIndex = currentIndex === 0 ? galleryImages.length - 1 : currentIndex - 1;
-      renderGallery(newIndex);
-    }
+  let currentIndex = 0;
 
-    function goToNext() {
-      const newIndex = currentIndex === galleryImages.length - 1 ? 0 : currentIndex + 1;
-      renderGallery(newIndex);
-    }
+  const mainImage = document.getElementById("galleryMainImage");
+  const galleryMain = document.getElementById("galleryMain");
+  const dots = document.querySelectorAll(".gallery-dot");
+  const thumbs = document.querySelectorAll(".gallery-thumb");
+  const prevBtn = document.querySelector(".gallery-prev");
+  const nextBtn = document.querySelector(".gallery-next");
 
-    function openLightbox() {
-      lightbox.classList.add("open");
-      renderGallery(currentIndex);
-    }
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+  const lightboxCounter = document.getElementById("lightboxCounter");
+  const lightboxClose = document.querySelector(".lightbox-close");
+  const lightboxPrev = document.querySelector(".lightbox-prev");
+  const lightboxNext = document.querySelector(".lightbox-next");
 
-    function closeLightbox() {
-      lightbox.classList.remove("open");
-    }
+  function renderGallery(index) {
+    currentIndex = index;
 
-    prevBtn.addEventListener("click", goToPrev);
-    nextBtn.addEventListener("click", goToNext);
-    galleryMain.addEventListener("click", openLightbox);
+    mainImage.src = galleryImages[currentIndex].src;
+    mainImage.alt = galleryImages[currentIndex].alt;
+
+    lightboxImage.src = galleryImages[currentIndex].src;
+    lightboxImage.alt = galleryImages[currentIndex].alt;
+    lightboxCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
 
     dots.forEach((dot, i) => {
-      dot.addEventListener("click", () => renderGallery(i));
+      dot.classList.toggle("active", i === currentIndex);
     });
 
     thumbs.forEach((thumb, i) => {
-      thumb.addEventListener("click", () => renderGallery(i));
+      thumb.classList.toggle("active", i === currentIndex);
     });
+  }
 
-    lightboxClose.addEventListener("click", closeLightbox);
-    lightboxPrev.addEventListener("click", goToPrev);
-    lightboxNext.addEventListener("click", goToNext);
+  function goToPrev() {
+    const newIndex = currentIndex === 0 ? galleryImages.length - 1 : currentIndex - 1;
+    renderGallery(newIndex);
+  }
 
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
+  function goToNext() {
+    const newIndex = currentIndex === galleryImages.length - 1 ? 0 : currentIndex + 1;
+    renderGallery(newIndex);
+  }
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && lightbox.classList.contains("open")) {
-        closeLightbox();
-      }
+  function openLightbox() {
+    lightbox.classList.add("open");
+    renderGallery(currentIndex);
+  }
 
-      if (e.key === "ArrowLeft") {
-        goToPrev();
-      }
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+  }
 
-      if (e.key === "ArrowRight") {
-        goToNext();
-      }
-    });
+  prevBtn.addEventListener("click", goToPrev);
+  nextBtn.addEventListener("click", goToNext);
+  galleryMain.addEventListener("click", openLightbox);
 
-    renderGallery(0);
-  </script>
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => renderGallery(i));
+  });
+
+  thumbs.forEach((thumb, i) => {
+    thumb.addEventListener("click", () => renderGallery(i));
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightboxPrev.addEventListener("click", goToPrev);
+  lightboxNext.addEventListener("click", goToNext);
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox.classList.contains("open")) {
+      closeLightbox();
+    }
+
+    if (e.key === "ArrowLeft") {
+      goToPrev();
+    }
+
+    if (e.key === "ArrowRight") {
+      goToNext();
+    }
+  });
+
+  renderGallery(0);
+</script>
 
 </body>
 </html>
