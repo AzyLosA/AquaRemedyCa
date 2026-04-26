@@ -476,6 +476,17 @@
       color: #111827;
     }
 
+        .reviews-more-wrap {
+      display: none;
+      justify-content: center;
+      margin-top: 22px;
+    }
+
+    .reviews-toggle-btn {
+      border: none;
+      cursor: pointer;
+    }
+    
     .contact-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -701,6 +712,16 @@
     height:22px;
     max-width:100px;
   }
+      .reviews-more-wrap {
+      display: none;
+      justify-content: center;
+      margin-top: 22px;
+    }
+
+    .reviews-toggle-btn {
+      border: none;
+      cursor: pointer;
+    }
 }
 /* FINAL VISUAL TUNING */
 .nav a,
@@ -829,6 +850,27 @@
 }
       </style>
 </head>
+  </footer>
+
+<script>
+  const reviewsGrid = document.querySelector(".reviews-grid");
+  const reviewsToggle = document.getElementById("reviewsToggle");
+
+  if (reviewsGrid && reviewsToggle) {
+    reviewsToggle.addEventListener("click", () => {
+      reviewsGrid.classList.toggle("show-all");
+
+      if (reviewsGrid.classList.contains("show-all")) {
+        reviewsToggle.textContent = "Show Less Reviews";
+      } else {
+        reviewsToggle.textContent = "Show More Reviews";
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
 <body>
 
  <header class="site-header">
@@ -1095,7 +1137,11 @@
             </div>
             <p>Excellent experience overall. They were professional, respectful of the house, and very detail-oriented. The system works great, the water tastes better, and even the shower feels different now. I would absolutely recommend them.</p>
             <div class="review-name">Laura K.</div>
-          </div>
+            
+                  <div class="reviews-more-wrap">
+          <button class="btn btn-primary reviews-toggle-btn" id="reviewsToggle" type="button">
+            Show More Reviews
+          </button>
         </div>
       </div>
     </section>
