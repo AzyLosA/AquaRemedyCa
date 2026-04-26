@@ -997,7 +997,18 @@ const thumbs = document.querySelectorAll(".gallery-thumb");
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const lightboxCounter = document.getElementById("lightboxCounter");
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove("open");
+  }
+});
 
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    lightbox.classList.remove("open");
+  }
+});
+  
 function renderGallery(index){
   currentIndex = index;
   mainImage.src = galleryImages[index];
