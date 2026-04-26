@@ -3,647 +3,731 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Skin & Hair Issues | AquaRemedy</title>
+  <meta
+    name="description"
+    content="Dry skin, rough hair, poor soap performance, and harsh shower water can be signs of hard water or chlorine. AquaRemedy tests your water and recommends the right solution."
+  />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg:#f7f9fc;
-      --surface:#ffffff;
-      --text:#111827;
-      --muted:#6b7280;
-      --line:#e5e7eb;
-      --primary:#2563eb;
-      --primary-dark:#1d4ed8;
-      --shadow:0 8px 24px rgba(0,0,0,0.06);
-      --radius:18px;
-      --max:1200px;
+    :root {
+      --bg: #f7f9fc;
+      --surface: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      --radius: 18px;
+      --max: 1200px;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-    body{
-      margin:0;
-      font-family:Inter,sans-serif;
-      background:var(--bg);
-      color:var(--text);
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    img{
-      display:block;
-      max-width:100%;
+    img {
+      display: block;
+      max-width: 100%;
     }
 
-    .container{
-      width:min(var(--max), calc(100% - 32px));
-      margin:0 auto;
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
     }
 
-    .site-header{
-      background:#fff;
-      border-bottom:1px solid var(--line);
-      position:sticky;
-      top:0;
-      z-index:30;
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
 
-    .header-inner{
-      min-height:76px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
+    .header-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .logo{
-      font-size:24px;
-      font-weight:800;
-      letter-spacing:-0.03em;
-      color:#111827;
-      white-space:nowrap;
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #111827;
+      white-space: nowrap;
+      text-decoration: none;
+      line-height: 1;
     }
 
-    .logo span{
-      color:var(--primary);
+    .logo span {
+      color: var(--primary);
     }
 
-    .nav{
-      display:flex;
-      align-items:center;
-      gap:22px;
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      flex-shrink: 0;
     }
 
-    .nav a{
-      font-weight:600;
-      color:#374151;
-      font-size:15px;
+    .nav a,
+    .phone,
+    .header-phone,
+    .btn {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
     }
 
-    .nav a:hover{
-      color:var(--primary);
+    .nav a {
+      color: #111827;
     }
 
-    .header-actions{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      flex-shrink:0;
+    .nav a:hover,
+    .phone:hover,
+    .header-phone:hover {
+      color: var(--primary);
     }
 
-    .phone{
-      font-weight:700;
-      white-space:nowrap;
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
     }
 
-    .phone:hover{
-      color:var(--primary);
+    .header-phone {
+      color: #111827;
+      white-space: nowrap;
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      background:var(--primary);
-      color:#fff;
-      padding:10px 18px;
-      border-radius:999px;
-      font-weight:700;
-      transition:0.2s ease;
-      white-space:nowrap;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+      white-space: nowrap;
     }
 
-    .btn:hover{
-      background:var(--primary-dark);
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
     }
 
-    .hero{
-      padding:56px 0 44px;
+    .btn-primary:hover {
+      background: var(--primary-dark);
     }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.02fr 0.98fr;
-      gap:36px;
-      align-items:start;
+    .hero {
+      padding: 42px 0 36px;
     }
 
-    .hero-copy h1{
-      margin:0 0 16px;
-      font-size:clamp(38px, 5vw, 60px);
-      line-height:0.98;
-      letter-spacing:-0.04em;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 36px;
+      align-items: start;
     }
 
-    .hero-copy p{
-      margin:0 0 18px;
-      font-size:17px;
-      line-height:1.72;
-      color:var(--muted);
-      max-width:640px;
+    .hero-copy h1 {
+      margin: 0 0 16px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
     }
 
-    .hero-copy ul{
-      margin:0 0 24px 20px;
-      padding:0;
-      color:var(--muted);
-      line-height:1.72;
-      font-size:16px;
+    .hero-copy p {
+      margin: 0 0 18px;
+      font-size: 18px;
+      line-height: 1.85;
+      color: var(--muted);
+      max-width: 640px;
     }
 
-    .hero-copy li{
-      margin-bottom:6px;
+    .hero-copy ul {
+      margin: 0 0 24px 20px;
+      padding: 0;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 16px;
     }
 
-    .gallery-card{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:20px;
-      box-shadow:var(--shadow);
-      padding:14px;
+    .hero-copy li {
+      margin-bottom: 6px;
     }
 
-    .gallery{
-      position:relative;
+    .gallery-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 14px;
     }
 
-    .gallery-main{
-      border-radius:16px;
-      overflow:hidden;
-      background:#eef2f7;
-      aspect-ratio:16/10;
-      cursor:zoom-in;
+    .gallery {
+      position: relative;
     }
 
-    .gallery-main img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center;
+    .gallery-main {
+      border-radius: 16px;
+      overflow: hidden;
+      background: #eef2f7;
+      aspect-ratio: 16 / 10;
+      cursor: zoom-in;
     }
 
-    .gallery-arrow{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      width:42px;
-      height:42px;
-      border:none;
-      border-radius:999px;
-      background:rgba(17,24,39,0.72);
-      color:#fff;
-      font-size:24px;
-      line-height:1;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      z-index:2;
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
 
-    .gallery-arrow:hover{
-      background:rgba(17,24,39,0.9);
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 999px;
+      background: rgba(17,24,39,0.72);
+      color: #fff;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
     }
 
-    .gallery-prev{left:12px}
-    .gallery-next{right:12px}
-
-    .gallery-dots{
-      display:flex;
-      justify-content:center;
-      gap:8px;
-      margin-top:14px;
-      flex-wrap:wrap;
+    .gallery-arrow:hover {
+      background: rgba(17,24,39,0.9);
     }
 
-    .gallery-dot{
-      width:10px;
-      height:10px;
-      border:none;
-      border-radius:999px;
-      background:#cbd5e1;
-      cursor:pointer;
-      padding:0;
+    .gallery-prev { left: 12px; }
+    .gallery-next { right: 12px; }
+
+    .gallery-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+      flex-wrap: wrap;
     }
 
-    .gallery-dot.active{
-      background:var(--primary);
+    .gallery-dot {
+      width: 10px;
+      height: 10px;
+      border: none;
+      border-radius: 999px;
+      background: #cbd5e1;
+      cursor: pointer;
+      padding: 0;
     }
 
-    .gallery-thumbs{
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0,1fr));
-      gap:10px;
-      margin-top:14px;
+    .gallery-dot.active {
+      background: var(--primary);
     }
 
-    .gallery-thumb{
-      border:2px solid transparent;
-      border-radius:12px;
-      overflow:hidden;
-      cursor:pointer;
-      background:#eef2f7;
-      padding:0;
+    .gallery-thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 10px;
+      margin-top: 14px;
     }
 
-    .gallery-thumb.active{
-      border-color:var(--primary);
+    .gallery-thumb {
+      border: 2px solid transparent;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #eef2f7;
+      padding: 0;
     }
 
-    .gallery-thumb img{
-      width:100%;
-      aspect-ratio:16/10;
-      object-fit:cover;
-      object-position:center;
+    .gallery-thumb.active {
+      border-color: var(--primary);
     }
 
-    .section{
-      padding:24px 0 72px;
+    .gallery-thumb img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: center;
     }
 
-    .section h2{
-      margin:0 0 10px;
-      font-size:clamp(28px,4vw,42px);
-      line-height:1.08;
-      letter-spacing:-0.03em;
+    .section {
+      padding: 36px 0;
     }
 
-    .section h3{
-      margin:0 0 8px;
-      font-size:22px;
-      line-height:1.15;
-      letter-spacing:-0.02em;
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
     }
 
-    .section p{
-      margin:0 0 16px;
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.72;
+    .section h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
     }
 
-    .section-lead{
-      margin:0 0 28px;
-      color:var(--muted);
-      font-size:17px;
-      max-width:760px;
+    .section p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
     }
 
-    .info-grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:22px;
-      margin-top:24px;
+    .section-lead {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 100%;
+      line-height: 1.85;
     }
 
-    .info-card{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:20px;
-      box-shadow:var(--shadow);
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .info-card,
+    .checklist,
+    .solution-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
     }
 
     .checklist,
-    .solution-box{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:22px;
-      box-shadow:var(--shadow);
-      margin-top:22px;
+    .solution-box {
+      margin-top: 22px;
     }
 
     .checklist ul,
-    .solution-box ul{
-      margin:0 0 0 20px;
-      padding:0;
-      color:var(--muted);
-      line-height:1.72;
-    }
+    .solution-box ul {
+      margin: 0 0 0 20px;
+      padding: 0;
+      color: var(--muted);
+      line-height: 1.85;
+          }
 
     .checklist li,
-    .solution-box li{
-      margin-bottom:6px;
+    .solution-box li {
+      margin-bottom: 6px;
     }
 
-    .cta{
-      margin-top:36px;
-      background:linear-gradient(135deg,#2563eb,#1d4ed8);
-      color:#fff;
-      border-radius:20px;
-      padding:34px 28px;
-      box-shadow:var(--shadow);
+    .cta {
+      margin-top: 36px;
+      background: linear-gradient(135deg,#2563eb,#1d4ed8);
+      color: #fff;
+      border-radius: 20px;
+      padding: 34px 28px;
+      box-shadow: var(--shadow);
     }
 
-    .cta h2{
-      color:#fff;
-      margin-bottom:10px;
+    .cta h2 {
+      color: #fff;
+      margin-bottom: 10px;
     }
 
-    .cta p{
-      color:#e8efff;
-      margin-bottom:18px;
+    .cta p {
+      color: #e8efff;
+      margin-bottom: 18px;
     }
 
-    .cta-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
-    .btn-white{
-      background:#fff;
-      color:var(--primary);
+    .btn-white {
+      background: #fff;
+      color: var(--primary);
     }
 
-    .btn-white:hover{
-      background:#f8fafc;
+    .btn-white:hover {
+      background: #f8fafc;
     }
 
-    .btn-outline{
-      border:1px solid rgba(255,255,255,0.35);
-      color:#fff;
-      background:transparent;
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      background: transparent;
     }
 
-    .btn-outline:hover{
-      background:rgba(255,255,255,0.08);
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.08);
     }
 
-    .site-footer{
-      background:#111827;
-      color:#fff;
-      padding:36px 16px;
-      margin-top:24px;
+    .site-footer {
+      background: #111827;
+      color: #fff;
+      padding: 48px 16px;
+      margin-top: 24px;
     }
 
-    .footer-inner{
-      width:min(var(--max), calc(100% - 32px));
-      margin:0 auto;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:20px;
-      align-items:flex-start;
+    .footer-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 48px;
+      align-items: start;
     }
 
-    .footer-logo{
-      font-size:18px;
-      font-weight:800;
-      color:#ffffff;
-      display:block;
-      margin-bottom:4px;
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
-    .footer-logo span{
-      color:#60a5fa;
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      white-space: nowrap;
+      text-decoration: none;
+      line-height: 1;
+      margin-bottom: 18px;
     }
 
-    .footer-left > span{
-      color:#d1d5db;
-      font-size:14px;
-      display:block;
+    .footer-logo span {
+      color: var(--primary);
+      font-size: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
     }
 
-    .footer-left p{
-      margin-top:12px;
-      color:#d1d5db;
-      font-size:14px;
-      max-width:320px;
+    .footer-left > span,
+    .footer-left p,
+    .service-area {
+      font-size: 14px;
+      color: #d1d5db;
+      line-height: 1.85;
+      margin: 0;
     }
 
-    .service-area{
-      margin-top:10px;
-      color:#9ca3af;
-      font-size:13px;
+    .footer-left p,
+    .service-area {
+      margin-top: 12px;
     }
 
-    .footer-links{
-      display:flex;
-      flex-direction:column;
-      gap:8px;
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    .footer-links strong{
-      font-size:15px;
-      color:#fff;
+    .footer-review-logos a {
+      display: inline-flex;
+      align-items: center;
+      width: max-content;
     }
 
-    .footer-links a{
-      color:#d1d5db;
-      font-size:14px;
+    .footer-review-logos img {
+      display: block;
+      width: auto;
+      height: 24px;
+      max-width: 115px;
+      object-fit: contain;
+      background: transparent;
     }
 
-    .footer-links a:hover{
-      color:#fff;
+    .footer-links strong {
+      color: #ffffff;
+      font-size: 15px;
+      margin-bottom: 4px;
     }
 
-    .footer-right{
-      color:#d1d5db;
-      font-size:14px;
+    .footer-links a {
+      color: #d1d5db;
+      font-size: 14px;
+      line-height: 1.8;
     }
 
-    .footer-right p{
-      margin:12px 0 0;
-      color:#9ca3af;
-      font-size:13px;
+    .footer-links a:hover,
+    .footer-right a:hover {
+      color: #ffffff;
     }
 
-    .copyright{
-      margin-top:16px;
-      color:#6b7280;
+    .footer-right {
+      color: #d1d5db;
+      font-size: 14px;
+      line-height: 1.85;
+      text-align: right;
     }
 
-    .footer-phone-link:hover{
-      color:#fff;
+    .footer-right p {
+      margin: 14px 0 0;
     }
 
-    .lightbox{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.92);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-      padding:32px;
+    .footer-phone-link {
+      color: #d1d5db;
     }
 
-    .lightbox.open{
-      display:flex;
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 32px;
     }
 
-    .lightbox-inner{
-      position:relative;
-      width:min(1200px, 100%);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+    .lightbox.open {
+      display: flex;
     }
 
-    .lightbox-img-wrap{
-      width:100%;
-      display:flex;
-      justify-content:center;
-      align-items:center;
+    .lightbox-inner {
+      position: relative;
+      width: min(1200px, 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .lightbox img{
-      max-width:100%;
-      max-height:86vh;
-      border-radius:16px;
-      box-shadow:0 20px 60px rgba(0,0,0,0.35);
-      object-fit:contain;
+    .lightbox-img-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .lightbox-close{
-      position:absolute;
-      top:-18px;
-      right:-8px;
-      width:46px;
-      height:46px;
-      border:none;
-      border-radius:999px;
-      background:rgba(255,255,255,0.15);
-      color:#fff;
-      font-size:28px;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      z-index:3;
+    .lightbox img {
+      max-width: 100%;
+      max-height: 86vh;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      object-fit: contain;
     }
 
-    .lightbox-close:hover{
-      background:rgba(255,255,255,0.25);
+    .lightbox-close {
+      position: absolute;
+      top: -18px;
+      right: -8px;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
     }
 
-    .lightbox-arrow{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      width:52px;
-      height:52px;
-      border:none;
-      border-radius:999px;
-      background:rgba(255,255,255,0.14);
-      color:#fff;
-      font-size:28px;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      z-index:3;
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.25);
     }
 
-    .lightbox-arrow:hover{
-      background:rgba(255,255,255,0.24);
+    .lightbox-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border: none;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
     }
 
-    .lightbox-prev{left:-8px}
-    .lightbox-next{right:-8px}
-
-    .lightbox-counter{
-      position:absolute;
-      bottom:-20px;
-      left:50%;
-      transform:translateX(-50%);
-      color:#e5e7eb;
-      font-size:14px;
-      background:rgba(255,255,255,0.1);
-      padding:8px 12px;
-      border-radius:999px;
+    .lightbox-arrow:hover {
+      background: rgba(255,255,255,0.24);
     }
 
-    @media (max-width: 1100px){
-      .info-grid{
-        grid-template-columns:1fr;
+    .lightbox-prev { left: -8px; }
+    .lightbox-next { right: -8px; }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #e5e7eb;
+      font-size: 14px;
+      background: rgba(255,255,255,0.1);
+      padding: 8px 12px;
+      border-radius: 999px;
+    }
+
+    @media (max-width: 1100px) {
+      .info-grid {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 900px){
-      .hero-grid{
-        grid-template-columns:1fr;
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
       }
 
-      .nav{
-        display:none;
+      .nav {
+        display: none;
       }
 
-      .gallery-card{
-        padding:12px;
+      .gallery-card {
+        padding: 12px;
       }
 
-      .lightbox-arrow{
-        width:44px;
-        height:44px;
+      .lightbox-arrow {
+        width: 44px;
+        height: 44px;
       }
     }
 
-    @media (max-width: 640px){
-      .container{
-        width:min(var(--max), calc(100% - 20px));
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--max), calc(100% - 20px));
       }
 
-      .hero{
-        padding:32px 0 42px;
+      .header-inner {
+        min-height: auto;
+        padding: 12px 0;
+        gap: 10px;
       }
 
-      .section{
-        padding:18px 0 52px;
+      .logo {
+        font-size: 20px;
       }
 
-      .hero-copy h1{
-        font-size:36px;
+      .header-phone {
+        font-size: 16px;
+        font-weight: 800;
       }
 
-      .header-actions{
-        gap:10px;
+      .btn {
+        font-size: 14px;
+        padding: 10px 14px;
       }
 
-      .phone{
-        font-size:14px;
+      .header-actions {
+        gap: 8px;
       }
 
-      .gallery-thumbs{
-        gap:8px;
+      .hero {
+        padding: 32px 0 24px;
       }
 
-      .lightbox{
-        padding:18px;
+      .hero-copy h1,
+      .section h2 {
+        font-size: 32px;
       }
 
-      .lightbox-close{
-        top:-12px;
-        right:-2px;
+      .section {
+        padding: 16px 0 24px;
       }
 
-      .lightbox-prev{left:0}
-      .lightbox-next{right:0}
-
-      .footer-right{
-        text-align:left;
+      .gallery-main,
+      .gallery-thumb img {
+        aspect-ratio: 16 / 9;
       }
+
+      .gallery-thumbs {
+        gap: 8px;
+      }
+
+      .cta {
+        padding: 28px 22px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .site-footer {
+        padding: 36px 20px;
+      }
+
+      .footer-right {
+        text-align: left;
+      }
+
+      .footer-links a,
+      .footer-left > span,
+      .footer-left p,
+      .service-area,
+      .footer-right {
+        font-size: 15px;
+        line-height: 1.75;
+      }
+
+      .footer-review-logos img {
+        height: 22px;
+        max-width: 105px;
+      }
+
+      .lightbox {
+        padding: 18px;
+      }
+
+      .lightbox-close {
+        top: -12px;
+        right: -2px;
+      }
+
+      .lightbox-prev { left: 0; }
+      .lightbox-next { right: 0; }
     }
   </style>
 </head>
+
 <body>
 
   <header class="site-header">
     <div class="container header-inner">
-
       <a href="/" class="logo">Aqua<span>Remedy</span></a>
 
       <nav class="nav">
+        <a href="/#problems">Water Problems</a>
         <a href="/#solutions">Solutions</a>
         <a href="/#reviews">Reviews</a>
         <a href="/#about">About</a>
@@ -651,14 +735,14 @@
       </nav>
 
       <div class="header-actions">
-        <a href="tel:+18186582558" class="phone">(818) 658-2558</a>
-        <a href="https://online-booking.workiz.com/" class="btn">Book Now</a>
+        <a href="tel:+18186582558" class="header-phone">(818) 658-2558</a>
+        <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee" class="btn btn-primary">Book Now</a>
       </div>
-
     </div>
   </header>
 
   <main>
+
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
@@ -673,14 +757,14 @@
           </p>
 
           <ul>
-            <li>dry or itchy skin after showering</li>
-            <li>hair that feels rough, dull, or harder to manage</li>
-            <li>soap and shampoo that do not rinse the way they should</li>
-            <li>a shower that feels harsh instead of refreshing</li>
-            <li>more residue left behind on skin and hair</li>
+            <li>Dry or itchy skin after showering</li>
+            <li>Hair that feels rough, dull, or harder to manage</li>
+            <li>Soap and shampoo that do not rinse the way they should</li>
+            <li>A shower that feels harsh instead of refreshing</li>
+            <li>More residue left behind on skin and hair</li>
           </ul>
 
-          <a href="https://online-booking.workiz.com/" class="btn">Book Water Test</a>
+          <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee" class="btn btn-primary">Book Water Test</a>
         </div>
 
         <div class="gallery-card">
@@ -703,12 +787,15 @@
               <button class="gallery-thumb active" type="button">
                 <img src="../images/skinhair1.jpg" alt="Skin and hair image 1 thumbnail" />
               </button>
+
               <button class="gallery-thumb" type="button">
                 <img src="../images/skinhair2.jpg" alt="Skin and hair image 2 thumbnail" />
               </button>
+
               <button class="gallery-thumb" type="button">
                 <img src="../images/skinhair3.jpg" alt="Skin and hair image 3 thumbnail" />
               </button>
+
               <button class="gallery-thumb" type="button">
                 <img src="../images/skinhair4.jpg" alt="Skin and hair image 4 thumbnail" />
               </button>
@@ -717,258 +804,3 @@
         </div>
       </div>
     </section>
-
-    <section class="section">
-      <div class="container">
-        <h2>Why water affects skin and hair</h2>
-        <p class="section-lead">
-          Water touches your skin and hair every day. If it contains high hardness minerals or noticeable disinfectants, it can change how your body feels after every shower — even if the problem is not obvious at first.
-        </p>
-
-        <div class="info-grid">
-          <div class="info-card">
-            <h3>Hard water residue</h3>
-            <p>
-              Calcium and magnesium can leave residue behind on skin and hair. That often leads to a dry, coated, or rough feeling after washing.
-            </p>
-          </div>
-
-          <div class="info-card">
-            <h3>Chlorine irritation</h3>
-            <p>
-              Chlorine is useful in the city water system, but inside the home many people notice that it makes the shower feel harsher and less comfortable.
-            </p>
-          </div>
-
-          <div class="info-card">
-            <h3>Poor soap performance</h3>
-            <p>
-              Hard water can make soaps, shampoos, and body wash work less effectively. That means less lather, harder rinsing, and more residue left behind.
-            </p>
-          </div>
-
-          <div class="info-card">
-            <h3>Everyday discomfort</h3>
-            <p>
-              Dryness, dull hair, irritation, and that “something is off” feeling after showering are all common reasons homeowners start looking deeper at their water.
-            </p>
-          </div>
-        </div>
-
-        <div class="checklist">
-          <h3>Common signs homeowners notice</h3>
-          <ul>
-            <li>skin feels dry or tight after showering</li>
-            <li>hair feels rough, flat, or harder to style</li>
-            <li>shampoo and soap do not rinse cleanly</li>
-            <li>itchy skin or general shower discomfort</li>
-            <li>better skin or hair days when away from home</li>
-            <li>hard water spots and scale elsewhere in the house</li>
-          </ul>
-        </div>
-
-        <div class="solution-box">
-          <h3>What usually helps</h3>
-          <p>
-            In many homes, this comes down to one or both of the following:
-          </p>
-          <ul>
-            <li>a water softener to reduce hardness minerals</li>
-            <li>a whole house filtration system to reduce chlorine and improve overall shower water quality</li>
-          </ul>
-          <p>
-            The right answer depends on what the water test shows and what symptoms are most noticeable in the home.
-          </p>
-        </div>
-
-        <div class="info-grid">
-          <div class="info-card">
-            <h3>When softening matters most</h3>
-            <p>
-              If the home also has white scale buildup, cloudy shower glass, or poor soap performance, hardness minerals are often a big part of the problem.
-            </p>
-          </div>
-
-          <div class="info-card">
-            <h3>When filtration matters most</h3>
-            <p>
-              If the water smells like chlorine or the shower feels harsh even without major scale, whole house filtration may be an important part of the solution.
-            </p>
-          </div>
-        </div>
-
-        <div class="cta">
-          <h2>Think your water is affecting your skin or hair?</h2>
-          <p>
-            Book a water test and we’ll help determine whether hardness, chlorine, or another water quality issue may be affecting the way your water feels every day.
-          </p>
-
-          <div class="cta-actions">
-            <a href="https://online-booking.workiz.com/" class="btn btn-white">Book Water Test</a>
-            <a href="tel:+18186582558" class="btn btn-outline">(818) 658-2558</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-
-      <div class="footer-left">
-        <div class="footer-logo">Aqua<span>Remedy</span></div>
-        <span>Water treatment solutions for homes and businesses.</span>
-
-        <p>
-          Real solutions for real water problems.
-        </p>
-
-        <div class="service-area">Serving Los Angeles and surrounding areas</div>
-      </div>
-
-      <div class="footer-links">
-        <strong>Quick Links</strong>
-        <a href="/#solutions">Solutions</a>
-        <a href="/#reviews">Reviews</a>
-        <a href="/#about">About</a>
-        <a href="/#contact">Contact</a>
-      </div>
-
-      <div class="footer-right">
-        <a href="tel:+18186582558" class="footer-phone-link">(818) 658-2558</a>
-        <p>Call or text anytime</p>
-        <p class="copyright">© AquaRemedy. All rights reserved.</p>
-      </div>
-
-    </div>
-  </footer>
-
-  <div class="lightbox" id="lightbox">
-    <div class="lightbox-inner">
-      <button class="lightbox-close" type="button" aria-label="Close image">×</button>
-      <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Previous image">‹</button>
-
-      <div class="lightbox-img-wrap">
-        <img id="lightboxImage" src="../images/skinhair1.jpg" alt="Enlarged skin and hair image" />
-      </div>
-
-      <button class="lightbox-arrow lightbox-next" type="button" aria-label="Next image">›</button>
-      <div class="lightbox-counter" id="lightboxCounter">1 / 4</div>
-    </div>
-  </div>
-
-  <script>
-    const galleryImages = [
-      {
-        src: "../images/skinhair1.jpg",
-        alt: "Skin and hair issue image 1"
-      },
-      {
-        src: "../images/skinhair2.jpg",
-        alt: "Skin and hair issue image 2"
-      },
-      {
-        src: "../images/skinhair3.jpg",
-        alt: "Skin and hair issue image 3"
-      },
-      {
-        src: "../images/skinhair4.jpg",
-        alt: "Skin and hair issue image 4"
-      }
-    ];
-
-    let currentIndex = 0;
-
-    const mainImage = document.getElementById("galleryMainImage");
-    const galleryMain = document.getElementById("galleryMain");
-    const dots = document.querySelectorAll(".gallery-dot");
-    const thumbs = document.querySelectorAll(".gallery-thumb");
-    const prevBtn = document.querySelector(".gallery-prev");
-    const nextBtn = document.querySelector(".gallery-next");
-
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightboxImage");
-    const lightboxCounter = document.getElementById("lightboxCounter");
-    const lightboxClose = document.querySelector(".lightbox-close");
-    const lightboxPrev = document.querySelector(".lightbox-prev");
-    const lightboxNext = document.querySelector(".lightbox-next");
-
-    function renderGallery(index) {
-      currentIndex = index;
-
-      mainImage.src = galleryImages[currentIndex].src;
-      mainImage.alt = galleryImages[currentIndex].alt;
-
-      lightboxImage.src = galleryImages[currentIndex].src;
-      lightboxImage.alt = galleryImages[currentIndex].alt;
-      lightboxCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
-
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentIndex);
-      });
-
-      thumbs.forEach((thumb, i) => {
-        thumb.classList.toggle("active", i === currentIndex);
-      });
-    }
-
-    function goToPrev() {
-      const newIndex = currentIndex === 0 ? galleryImages.length - 1 : currentIndex - 1;
-      renderGallery(newIndex);
-    }
-
-    function goToNext() {
-      const newIndex = currentIndex === galleryImages.length - 1 ? 0 : currentIndex + 1;
-      renderGallery(newIndex);
-    }
-
-    function openLightbox() {
-      lightbox.classList.add("open");
-      renderGallery(currentIndex);
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove("open");
-    }
-
-    prevBtn.addEventListener("click", goToPrev);
-    nextBtn.addEventListener("click", goToNext);
-    galleryMain.addEventListener("click", openLightbox);
-
-    dots.forEach((dot, i) => {
-      dot.addEventListener("click", () => renderGallery(i));
-    });
-
-    thumbs.forEach((thumb, i) => {
-      thumb.addEventListener("click", () => renderGallery(i));
-    });
-
-    lightboxClose.addEventListener("click", closeLightbox);
-    lightboxPrev.addEventListener("click", goToPrev);
-    lightboxNext.addEventListener("click", goToNext);
-
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && lightbox.classList.contains("open")) {
-        closeLightbox();
-      }
-
-      if (e.key === "ArrowLeft") {
-        goToPrev();
-      }
-
-      if (e.key === "ArrowRight") {
-        goToNext();
-      }
-    });
-
-    renderGallery(0);
-  </script>
-
-</body>
-</html>
