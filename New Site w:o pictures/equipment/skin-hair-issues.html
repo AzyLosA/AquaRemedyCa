@@ -784,6 +784,66 @@
       .lightbox-prev { left: 0; }
       .lightbox-next { right: 0; }
     }
+    /* FOOTER FIX */
+.footer-inner{
+  grid-template-columns: 1fr auto 360px;
+}
+
+.footer-right{
+  min-width:360px;
+  text-align:right;
+}
+
+.footer-right p{
+  white-space:nowrap;
+  font-size:14px;
+}
+
+.footer-right p,
+.footer-right a,
+.footer-phone-link,
+.footer-links a,
+.footer-left > span,
+.footer-left p,
+.service-area {
+  color: #d1d5db;
+}
+
+.footer-right a:hover,
+.footer-links a:hover,
+.footer-phone-link:hover {
+  color: #ffffff;
+}
+
+.footer-review-logos img {
+  height: 26px;
+  max-width: 130px;
+}
+
+@media (max-width:640px){
+  .footer-inner{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+
+  .site-footer{
+    padding:36px 20px;
+  }
+
+  .footer-right{
+    min-width:0;
+    text-align:left;
+  }
+
+  .footer-right p{
+    white-space:normal;
+  }
+
+  .footer-review-logos img {
+    height: 22px;
+    max-width: 100px;
+  }
+}
   </style>
 </head>
 
@@ -793,13 +853,32 @@
     <div class="container header-inner">
       <a href="/" class="logo">Aqua<span>Remedy</span></a>
 
-      <nav class="nav">
-        <a href="/#problems">Water Problems</a>
-        <a href="/#solutions">Solutions</a>
-        <a href="/#reviews">Reviews</a>
-        <a href="/#about">About</a>
-        <a href="/#contact">Contact</a>
-      </nav>
+     <nav class="nav">
+  <div class="nav-item has-dropdown">
+    <a href="/#problems">Water Problems</a>
+
+    <div class="dropdown-menu">
+      <a href="/equipment/hard-water-scale.html">Hard Water &amp; Scale</a>
+      <a href="/equipment/chlorine-smell-bad-taste.html">Chlorine Smell &amp; Bad Taste</a>
+      <a href="/equipment/skin-hair-issues.html">Skin &amp; Hair Issues</a>
+    </div>
+  </div>
+
+  <div class="nav-item has-dropdown">
+    <a href="/#solutions">Solutions</a>
+
+    <div class="dropdown-menu">
+      <a href="/equipment/whole-house.html">Whole House Filtration</a>
+      <a href="/equipment/softener.html">Water Softener</a>
+      <a href="/equipment/ro.html">Drinking Water Systems</a>
+      <a href="/equipment/smart.html">Smart Leak Prevention System</a>
+    </div>
+  </div>
+
+  <a href="/#reviews">Reviews</a>
+  <a href="/#about">About</a>
+  <a href="/#contact">Contact</a>
+</nav>
 
       <div class="header-actions">
         <a href="tel:+18186582558" class="header-phone">(818) 658-2558</a>
