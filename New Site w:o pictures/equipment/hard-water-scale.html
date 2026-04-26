@@ -3,592 +3,701 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Hard Water & Scale | AquaRemedy</title>
+  <meta
+    name="description"
+    content="Hard water causes scale, mineral buildup, dry skin, rough hair, cloudy glass, and appliance stress. AquaRemedy tests your water and recommends the right solution."
+  />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg:#f7f9fc;
-      --surface:#ffffff;
-      --text:#111827;
-      --muted:#6b7280;
-      --line:#e5e7eb;
-      --primary:#2563eb;
-      --primary-dark:#1d4ed8;
-      --shadow:0 8px 24px rgba(0,0,0,0.06);
-      --radius:18px;
-      --max:1200px;
+    :root {
+      --bg: #f7f9fc;
+      --surface: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      --radius: 18px;
+      --max: 1200px;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-    body{
-      margin:0;
-      font-family:Inter,sans-serif;
-      background:var(--bg);
-      color:var(--text);
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    img{
-      display:block;
-      max-width:100%;
+    img {
+      display: block;
+      max-width: 100%;
     }
 
-    .container{
-      width:min(var(--max), calc(100% - 32px));
-      margin:0 auto;
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
     }
 
-    .site-header{
-      background:#fff;
-      border-bottom:1px solid var(--line);
-      position:sticky;
-      top:0;
-      z-index:30;
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
 
-    .header-inner{
-      min-height:76px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
+    .header-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .logo{
-      font-size:24px;
-      font-weight:800;
-      letter-spacing:-0.03em;
-      white-space:nowrap;
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #111827;
+      white-space: nowrap;
+      text-decoration: none;
+      line-height: 1;
     }
 
-    .logo span{
-      color:var(--primary);
+    .logo span {
+      color: var(--primary);
     }
 
-    .nav{
-      display:flex;
-      align-items:center;
-      gap:22px;
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      flex-shrink: 0;
     }
 
-    .nav a{
-      font-weight:600;
-      color:#374151;
-      font-size:15px;
+    .nav a,
+    .phone,
+    .header-phone,
+    .btn {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
     }
 
-    .nav a:hover{
-      color:var(--primary);
+    .nav a {
+      color: #111827;
     }
 
-    .header-actions{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      flex-shrink:0;
+    .nav a:hover,
+    .phone:hover,
+    .header-phone:hover {
+      color: var(--primary);
     }
 
-    .header-phone{
-      font-weight:700;
-      font-size:15px;
-      color:#111827;
-      white-space:nowrap;
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
     }
 
-    .header-phone:hover{
-      color:var(--primary);
+    .header-phone {
+      color: #111827;
+      white-space: nowrap;
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:12px 18px;
-      border-radius:999px;
-      font-weight:700;
-      transition:0.2s ease;
-      white-space:nowrap;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+      white-space: nowrap;
     }
 
-    .btn-primary{
-      background:var(--primary);
-      color:#fff;
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
     }
 
-    .btn-primary:hover{
-      background:var(--primary-dark);
+    .btn-primary:hover {
+      background: var(--primary-dark);
     }
 
-    .hero{
-      padding:56px 0 44px;
+    .hero {
+      padding: 42px 0 36px;
     }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.02fr 0.98fr;
-      gap:36px;
-      align-items:start;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 36px;
+      align-items: start;
     }
 
-    .hero-copy h1{
-      margin:0 0 16px;
-      font-size:clamp(38px, 5vw, 60px);
-      line-height:0.98;
-      letter-spacing:-0.04em;
+    .hero-copy h1 {
+      margin: 0 0 16px;
+      font-size: clamp(38px, 5vw, 60px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
     }
 
-    .hero-copy p{
-      margin:0 0 18px;
-      font-size:17px;
-      line-height:1.72;
-      color:var(--muted);
-      max-width:640px;
+    .hero-copy p {
+      margin: 0 0 18px;
+      font-size: 18px;
+      line-height: 1.85;
+      color: var(--muted);
+      max-width: 640px;
     }
 
-    .hero-copy ul{
-      margin:0 0 24px 20px;
-      padding:0;
-      color:var(--muted);
-      line-height:1.72;
-      font-size:16px;
+    .hero-copy ul {
+      margin: 0 0 24px 20px;
+      padding: 0;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 16px;
     }
 
-    .hero-copy li{
-      margin-bottom:6px;
+    .hero-copy li {
+      margin-bottom: 6px;
     }
 
-    .gallery-card{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:20px;
-      box-shadow:var(--shadow);
-      padding:14px;
+    .gallery-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 14px;
     }
 
-    .gallery{
-      position:relative;
+    .gallery {
+      position: relative;
     }
 
-    .gallery-main{
-      border-radius:16px;
-      overflow:hidden;
-      background:#eef2f7;
-      aspect-ratio:16/10;
-      cursor:zoom-in;
+    .gallery-main {
+      border-radius: 16px;
+      overflow: hidden;
+      background: #eef2f7;
+      aspect-ratio: 16 / 10;
+      cursor: zoom-in;
     }
 
-    .gallery-main img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center;
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
 
-    .gallery-arrow{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      width:42px;
-      height:42px;
-      border:none;
-      border-radius:999px;
-      background:rgba(17,24,39,0.72);
-      color:#fff;
-      font-size:24px;
-      line-height:1;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      z-index:2;
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 999px;
+      background: rgba(17,24,39,0.72);
+      color: #fff;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
     }
 
-    .gallery-arrow:hover{
-      background:rgba(17,24,39,0.9);
+    .gallery-arrow:hover {
+      background: rgba(17,24,39,0.9);
     }
 
-    .gallery-prev{left:12px}
-    .gallery-next{right:12px}
+    .gallery-prev { left: 12px; }
+    .gallery-next { right: 12px; }
 
-    .gallery-dots{
-      display:flex;
-      justify-content:center;
-      gap:8px;
-      margin-top:14px;
-      flex-wrap:wrap;
+    .gallery-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+      flex-wrap: wrap;
     }
 
-    .gallery-dot{
-      width:10px;
-      height:10px;
-      border:none;
-      border-radius:999px;
-      background:#cbd5e1;
-      cursor:pointer;
-      padding:0;
+    .gallery-dot {
+      width: 10px;
+      height: 10px;
+      border: none;
+      border-radius: 999px;
+      background: #cbd5e1;
+      cursor: pointer;
+      padding: 0;
     }
 
-    .gallery-dot.active{
-      background:var(--primary);
+    .gallery-dot.active {
+      background: var(--primary);
     }
 
-    .gallery-thumbs{
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0,1fr));
-      gap:10px;
-      margin-top:14px;
+    .gallery-thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 10px;
+      margin-top: 14px;
     }
 
-    .gallery-thumb{
-      border:2px solid transparent;
-      border-radius:12px;
-      overflow:hidden;
-      cursor:pointer;
-      background:#eef2f7;
-      padding:0;
+    .gallery-thumb {
+      border: 2px solid transparent;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #eef2f7;
+      padding: 0;
     }
 
-    .gallery-thumb.active{
-      border-color:var(--primary);
+    .gallery-thumb.active {
+      border-color: var(--primary);
     }
 
-    .gallery-thumb img{
-      width:100%;
-      aspect-ratio:16/10;
-      object-fit:cover;
-      object-position:center;
+    .gallery-thumb img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: center;
     }
 
-    .section{
-      padding:24px 0 72px;
+    .section {
+      padding: 36px 0;
     }
 
-    .section h2{
-      margin:0 0 10px;
-      font-size:clamp(28px,4vw,42px);
-      line-height:1.08;
-      letter-spacing:-0.03em;
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
     }
 
-    .section h3{
-      margin:0 0 8px;
-      font-size:22px;
-      line-height:1.15;
-      letter-spacing:-0.02em;
+    .section h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
     }
 
-    .section p{
-      margin:0 0 16px;
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.72;
+    .section p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
     }
 
-    .section-lead{
-      margin:0 0 28px;
-      color:var(--muted);
-      font-size:17px;
-      max-width:760px;
+    .section-lead {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 100%;
+      line-height: 1.85;
     }
 
-    .info-grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:22px;
-      margin-top:24px;
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 22px;
+      margin-top: 24px;
     }
 
-    .info-card{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:20px;
-      box-shadow:var(--shadow);
+    .info-card,
+    .checklist,
+    .solution-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
     }
 
     .checklist,
-    .solution-box{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:22px;
-      box-shadow:var(--shadow);
-      margin-top:22px;
+    .solution-box {
+      margin-top: 22px;
     }
 
     .checklist ul,
-    .solution-box ul{
-      margin:0 0 0 20px;
-      padding:0;
-      color:var(--muted);
-      line-height:1.72;
+    .solution-box ul {
+      margin: 0 0 0 20px;
+      padding: 0;
+      color: var(--muted);
+      line-height: 1.85;
     }
 
     .checklist li,
-    .solution-box li{
-      margin-bottom:6px;
+    .solution-box li {
+      margin-bottom: 6px;
     }
 
-    .cta{
-      margin-top:36px;
-      background:linear-gradient(135deg,#2563eb,#1d4ed8);
-      color:#fff;
-      border-radius:20px;
-      padding:34px 28px;
-      box-shadow:var(--shadow);
+    .cta {
+      margin-top: 36px;
+      background: linear-gradient(135deg,#2563eb,#1d4ed8);
+      color: #fff;
+      border-radius: 20px;
+      padding: 34px 28px;
+      box-shadow: var(--shadow);
     }
 
-    .cta h2{
-      color:#fff;
-      margin-bottom:10px;
+    .cta h2 {
+      color: #fff;
+      margin-bottom: 10px;
     }
 
-    .cta p{
-      color:#e8efff;
-      margin-bottom:18px;
+    .cta p {
+      color: #e8efff;
+      margin-bottom: 18px;
     }
 
-    .cta-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
-    .btn-white{
-      background:#fff;
-      color:var(--primary);
+    .btn-white {
+      background: #fff;
+      color: var(--primary);
     }
 
-    .btn-white:hover{
-      background:#f8fafc;
+    .btn-white:hover {
+      background: #f8fafc;
     }
 
-    .btn-outline{
-      border:1px solid rgba(255,255,255,0.35);
-      color:#fff;
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
     }
 
-    .btn-outline:hover{
-      background:rgba(255,255,255,0.08);
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.08);
     }
 
-    .site-footer{
-      background:#111827;
-      color:#fff;
-      padding:36px 16px;
-      margin-top:24px;
+    .site-footer {
+      background: #111827;
+      color: #fff;
+      padding: 48px 16px;
+      margin-top: 24px;
     }
 
-    .footer-inner{
-      width:min(var(--max), calc(100% - 32px));
-      margin:0 auto;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:18px;
-      flex-wrap:wrap;
+    .footer-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 48px;
+      align-items: start;
     }
 
-    .footer-left strong{
-      display:block;
-      font-size:18px;
-      margin-bottom:4px;
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
-    .footer-left span{
-      color:#d1d5db;
-      font-size:14px;
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      white-space: nowrap;
+      text-decoration: none;
+      line-height: 1;
+      margin-bottom: 18px;
     }
 
-    .footer-right{
-      color:#d1d5db;
-      font-size:14px;
-      text-align:right;
+    .footer-logo span {
+      color: var(--primary);
+      font-size: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
     }
 
-    .footer-phone-link:hover{
-      color:#fff;
+    .footer-left > span,
+    .footer-left p,
+    .service-area {
+      font-size: 14px;
+      color: #d1d5db;
+      line-height: 1.85;
+      margin: 0;
     }
 
-    .lightbox{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.92);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-      padding:32px;
+    .footer-left p,
+    .service-area {
+      margin-top: 12px;
     }
 
-    .lightbox.open{
-      display:flex;
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
-    .lightbox-inner{
-      position:relative;
-      width:min(1200px, 100%);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+    .footer-links strong {
+      color: #ffffff;
+      font-size: 15px;
+      margin-bottom: 4px;
     }
 
-    .lightbox-img-wrap{
-      width:100%;
-      display:flex;
-      justify-content:center;
-      align-items:center;
+    .footer-links a {
+      color: #d1d5db;
+      font-size: 14px;
+      line-height: 1.8;
     }
 
-    .lightbox img{
-      max-width:100%;
-      max-height:86vh;
-      border-radius:16px;
-      box-shadow:0 20px 60px rgba(0,0,0,0.35);
-      object-fit:contain;
+    .footer-links a:hover,
+    .footer-right a:hover {
+      color: #ffffff;
     }
 
-    .lightbox-close{
-      position:absolute;
-      top:-18px;
-      right:-8px;
-      width:46px;
-      height:46px;
-      border:none;
-      border-radius:999px;
-      background:rgba(255,255,255,0.15);
-      color:#fff;
-      font-size:28px;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      z-index:3;
+    .footer-right {
+      color: #d1d5db;
+      font-size: 14px;
+      line-height: 1.85;
+      text-align: right;
     }
 
-    .lightbox-close:hover{
-      background:rgba(255,255,255,0.25);
+    .footer-right p {
+      margin: 14px 0 0;
     }
 
-    .lightbox-arrow{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      width:52px;
-      height:52px;
-      border:none;
-      border-radius:999px;
-      background:rgba(255,255,255,0.14);
-      color:#fff;
-      font-size:28px;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      z-index:3;
+    .footer-phone-link {
+      color: #d1d5db;
     }
 
-    .lightbox-arrow:hover{
-      background:rgba(255,255,255,0.24);
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 32px;
     }
 
-    .lightbox-prev{left:-8px}
-    .lightbox-next{right:-8px}
-
-    .lightbox-counter{
-      position:absolute;
-      bottom:-20px;
-      left:50%;
-      transform:translateX(-50%);
-      color:#e5e7eb;
-      font-size:14px;
-      background:rgba(255,255,255,0.1);
-      padding:8px 12px;
-      border-radius:999px;
+    .lightbox.open {
+      display: flex;
     }
 
-    @media (max-width: 1100px){
-      .info-grid{
-        grid-template-columns:1fr;
+    .lightbox-inner {
+      position: relative;
+      width: min(1200px, 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 86vh;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -18px;
+      right: -8px;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    .lightbox-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border: none;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+
+    .lightbox-arrow:hover {
+      background: rgba(255,255,255,0.24);
+    }
+
+    .lightbox-prev { left: -8px; }
+    .lightbox-next { right: -8px; }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #e5e7eb;
+      font-size: 14px;
+      background: rgba(255,255,255,0.1);
+      padding: 8px 12px;
+      border-radius: 999px;
+    }
+
+    @media (max-width: 1100px) {
+      .info-grid {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 900px){
-      .hero-grid{
-        grid-template-columns:1fr;
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
       }
 
-      .nav{
-        display:none;
+      .nav {
+        display: none;
       }
 
-      .gallery-card{
-        padding:12px;
+      .gallery-card {
+        padding: 12px;
       }
 
-      .lightbox-arrow{
-        width:44px;
-        height:44px;
+      .lightbox-arrow {
+        width: 44px;
+        height: 44px;
       }
     }
 
-    @media (max-width: 640px){
-      .container{
-        width:min(var(--max), calc(100% - 20px));
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--max), calc(100% - 20px));
       }
 
-      .hero{
-        padding:32px 0 42px;
+      .header-inner {
+        min-height: auto;
+        padding: 12px 0;
+        gap: 10px;
       }
 
-      .section{
-        padding:18px 0 52px;
+      .logo {
+        font-size: 20px;
       }
 
-      .hero-copy h1{
-        font-size:36px;
+      .header-phone {
+        font-size: 14px;
+        font-weight: 700;
       }
 
-      .header-actions{
-        gap:10px;
+      .btn {
+        font-size: 14px;
+        padding: 10px 14px;
       }
 
-      .header-phone{
-        font-size:14px;
+      .header-actions {
+        gap: 8px;
       }
 
-      .gallery-thumbs{
-        gap:8px;
+      .hero {
+        padding: 32px 0 24px;
       }
 
-      .lightbox{
-        padding:18px;
+      .hero-copy h1 {
+        font-size: 36px;
       }
 
-      .lightbox-close{
-        top:-12px;
-        right:-2px;
+      .section {
+        padding: 16px 0 24px;
       }
 
-      .lightbox-prev{left:0}
-      .lightbox-next{right:0}
-
-      .footer-right{
-        text-align:left;
+      .gallery-main,
+      .gallery-thumb img {
+        aspect-ratio: 16 / 9;
       }
+
+      .gallery-thumbs {
+        gap: 8px;
+      }
+
+      .cta {
+        padding: 28px 22px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .site-footer {
+        padding: 36px 20px;
+      }
+
+      .footer-right {
+        text-align: left;
+      }
+
+      .footer-links a,
+      .footer-left > span,
+      .footer-left p,
+      .service-area,
+      .footer-right {
+        font-size: 15px;
+        line-height: 1.75;
+      }
+
+      .lightbox {
+        padding: 18px;
+      }
+
+      .lightbox-close {
+        top: -12px;
+        right: -2px;
+      }
+
+      .lightbox-prev { left: 0; }
+      .lightbox-next { right: 0; }
     }
   </style>
 </head>
+
 <body>
 
   <header class="site-header">
@@ -596,6 +705,7 @@
       <a href="/" class="logo">Aqua<span>Remedy</span></a>
 
       <nav class="nav">
+        <a href="/#problems">Water Problems</a>
         <a href="/#solutions">Solutions</a>
         <a href="/#reviews">Reviews</a>
         <a href="/#about">About</a>
@@ -610,6 +720,7 @@
   </header>
 
   <main>
+
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
@@ -624,11 +735,11 @@
           </p>
 
           <ul>
-            <li>white mineral spots on glass and chrome</li>
-            <li>shower doors that never look fully clean</li>
-            <li>scale buildup on shower heads and faucets</li>
-            <li>soap that does not lather or rinse the way it should</li>
-            <li>dry skin, rough hair, and stiff-feeling laundry</li>
+            <li>White mineral spots on glass and chrome</li>
+            <li>Shower doors that never look fully clean</li>
+            <li>Scale buildup on shower heads and faucets</li>
+            <li>Soap that does not lather or rinse the way it should</li>
+            <li>Dry skin, rough hair, and stiff-feeling laundry</li>
           </ul>
 
           <a href="https://online-booking.workiz.com/?ac=44762d12f9fe8ab3c8d2fd078a03f3ecd911e3251755bb690c6f842ab5299fee" class="btn btn-primary">Book Water Test</a>
@@ -654,12 +765,15 @@
               <button class="gallery-thumb active" type="button">
                 <img src="../images/problem-hard-water-1.jpg" alt="Hard water image 1 thumbnail" />
               </button>
+
               <button class="gallery-thumb" type="button">
                 <img src="../images/problem-hard-water-2.jpg" alt="Hard water image 2 thumbnail" />
               </button>
+
               <button class="gallery-thumb" type="button">
                 <img src="../images/problem-hard-water-3.jpg" alt="Hard water image 3 thumbnail" />
               </button>
+
               <button class="gallery-thumb" type="button">
                 <img src="../images/problem-hard-water-4.jpg" alt="Hard water image 4 thumbnail" />
               </button>
@@ -672,8 +786,9 @@
     <section class="section">
       <div class="container">
         <h2>What hard water actually does in a home</h2>
+
         <p class="section-lead">
-          Hard water contains elevated levels of calcium and magnesium. When the water dries, those minerals stay behind. That is why you see spots, film, and buildup on surfaces that keep touching water every day.
+          Hard water contains elevated levels of calcium and magnesium. When the water dries, those minerals stay behind. That is why you see spots, film, and buildup on surfaces that touch water every day.
         </p>
 
         <div class="info-grid">
@@ -709,21 +824,23 @@
         <div class="checklist">
           <h3>Common signs of hard water</h3>
           <ul>
-            <li>white spots on faucets, shower glass, and dishes</li>
-            <li>mineral buildup on shower heads and handles</li>
-            <li>soap scum and film that returns quickly</li>
-            <li>skin feels dry after showering</li>
-            <li>hair feels rough or heavy</li>
-            <li>glassware looks cloudy after drying</li>
-            <li>fixtures lose their clean polished look faster</li>
+            <li>White spots on faucets, shower glass, and dishes</li>
+            <li>Mineral buildup on shower heads and handles</li>
+            <li>Soap scum and film that returns quickly</li>
+            <li>Skin feels dry after showering</li>
+            <li>Hair feels rough or heavy</li>
+            <li>Glassware looks cloudy after drying</li>
+            <li>Fixtures lose their clean polished look faster</li>
           </ul>
         </div>
 
         <div class="solution-box">
           <h3>What usually solves it</h3>
+
           <p>
             If the issue is true water hardness, the most common whole-home solution is a properly sized water softener. A softener is designed to reduce the calcium and magnesium that cause scale buildup and hard water problems throughout the house.
           </p>
+
           <p>
             The right size depends on your actual hardness level, household water use, plumbing layout, and how many people live in the home. That is why testing matters before choosing equipment.
           </p>
@@ -731,6 +848,7 @@
 
         <div class="cta">
           <h2>Think your home has hard water?</h2>
+
           <p>
             Book a water test and we’ll confirm what is going on, explain the level of hardness, and recommend the right solution for your home.
           </p>
@@ -742,46 +860,51 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
-  <div class="footer-inner" style="align-items:flex-start;">
+    <div class="footer-inner">
 
-    <div class="footer-left">
-      <strong>AquaRemedy</strong>
-      <span>Water treatment solutions for homes and businesses.</span>
+      <div class="footer-left">
+        <a href="/" class="footer-logo">Aqua<span>Remedy</span></a>
 
-      <p style="margin-top:12px;color:#d1d5db;font-size:14px;max-width:320px;">
-        Real solutions for real water problems.
-      </p>
+        <span>Water treatment solutions for homes and businesses.</span>
 
-      <p style="margin-top:10px;color:#9ca3af;font-size:13px;">
-        Serving Los Angeles and surrounding areas
-      </p>
+        <p>Real solutions for real water problems.</p>
+
+        <div class="service-area">Serving Los Angeles and surrounding areas</div>
+      </div>
+
+      <div class="footer-links">
+        <strong>Reviews</strong>
+
+        <a href="https://maps.app.goo.gl/63tp7vv8SpdgB3py7" target="_blank">
+          🔎 Google Reviews
+        </a>
+
+        <a href="https://www.yelp.com/biz/aqua-remedy-los-angeles-3" target="_blank">
+          ★ Yelp Reviews
+        </a>
+
+        <a href="https://www.thumbtack.com/ca/sherman-oaks/water-softening/aquaremedy-smart-water-filters/service/545327910515572748?utm_medium=web&utm_source=txt&surface=sp&referrer_pk=545327910219087886" target="_blank">
+          ✓ Thumbtack Top Pro
+        </a>
+      </div>
+
+      <div class="footer-right">
+        <a href="tel:+18186582558" class="footer-phone-link">(818) 658-2558</a>
+
+        <p>Copyright AquaRemedy CA 2024. All rights reserved</p>
+
+        <p>
+          <a href="/terms-of-use.html">Terms of Use</a> |
+          <a href="/privacy-policy.html">Privacy Policy</a>
+        </p>
+      </div>
+
     </div>
-
-    <div class="footer-links" style="display:flex;flex-direction:column;gap:8px;">
-      <strong style="font-size:15px;">Quick Links</strong>
-      <a href="/#solutions">Solutions</a>
-      <a href="/#reviews">Reviews</a>
-      <a href="/#about">About</a>
-      <a href="/#contact">Contact</a>
-    </div>
-
-    <div class="footer-right">
-      <a href="tel:+18186582558" class="footer-phone-link">(818) 658-2558</a>
-
-      <p style="margin-top:12px;color:#9ca3af;font-size:13px;">
-        Call or text anytime
-      </p>
-
-      <p style="margin-top:16px;font-size:13px;color:#6b7280;">
-        © AquaRemedy. All rights reserved.
-      </p>
-    </div>
-
-  </div>
-</footer>
+  </footer>
 
   <div class="lightbox" id="lightbox">
     <div class="lightbox-inner">
