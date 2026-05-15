@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "aquaremedyca",
+  "compatibility_date": "2026-05-15",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "New Site w:o pictures"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
